@@ -29,14 +29,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.nio.IOUtil.closeResource;
 import static com.hazelcast.util.EmptyStatement.ignore;
@@ -263,10 +256,7 @@ public final class ServiceLoader {
             if (!classLoader.equals(that.classLoader)) {
                 return false;
             }
-            if (!className.equals(that.className)) {
-                return false;
-            }
-            return true;
+            return className.equals(that.className);
         }
 
         @Override
@@ -301,10 +291,7 @@ public final class ServiceLoader {
             }
 
             URLDefinition that = (URLDefinition) o;
-            if (uri != null ? !uri.equals(that.uri) : that.uri != null) {
-                return false;
-            }
-            return true;
+            return uri != null ? uri.equals(that.uri) : that.uri == null;
         }
 
         @Override

@@ -34,9 +34,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static com.hazelcast.instance.TestUtil.getHazelcastInstanceImpl;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

@@ -85,7 +85,7 @@ public class DynamicMapConfigTest extends HazelcastTestSupport {
     private boolean isRecordStoreExpirable(IMap map) {
         MapProxyImpl mapProxy = (MapProxyImpl) map;
         MapService mapService = (MapService) mapProxy.getService();
-        MapServiceContext mapServiceContext = (MapServiceContext) mapService.getMapServiceContext();
+        MapServiceContext mapServiceContext = mapService.getMapServiceContext();
         PartitionContainer container = mapServiceContext.getPartitionContainer(0);
         RecordStore recordStore = container.getExistingRecordStore(map.getName());
         return recordStore.isExpirable();
@@ -94,7 +94,7 @@ public class DynamicMapConfigTest extends HazelcastTestSupport {
     private boolean isEvictionEnabled(IMap map) {
         MapProxyImpl mapProxy = (MapProxyImpl) map;
         MapService mapService = (MapService) mapProxy.getService();
-        MapServiceContext mapServiceContext = (MapServiceContext) mapService.getMapServiceContext();
+        MapServiceContext mapServiceContext = mapService.getMapServiceContext();
         MapContainer mapContainer = mapServiceContext.getMapContainer(map.getName());
         EvictionPolicy evictionPolicy = mapContainer.getMapConfig().getEvictionPolicy();
         return evictionPolicy != NONE;

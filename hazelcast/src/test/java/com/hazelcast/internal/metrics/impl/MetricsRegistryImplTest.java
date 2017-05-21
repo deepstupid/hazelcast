@@ -31,9 +31,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static com.hazelcast.internal.metrics.ProbeLevel.INFO;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)

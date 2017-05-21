@@ -18,12 +18,7 @@ package com.hazelcast.map.impl.operation;
 
 import com.hazelcast.core.IMapEvent;
 import com.hazelcast.map.MapInterceptor;
-import com.hazelcast.map.impl.InterceptorRegistry;
-import com.hazelcast.map.impl.ListenerAdapter;
-import com.hazelcast.map.impl.MapContainer;
-import com.hazelcast.map.impl.MapDataSerializerHook;
-import com.hazelcast.map.impl.MapService;
-import com.hazelcast.map.impl.MapServiceContext;
+import com.hazelcast.map.impl.*;
 import com.hazelcast.map.impl.querycache.QueryCacheContext;
 import com.hazelcast.map.impl.querycache.accumulator.AccumulatorInfo;
 import com.hazelcast.map.impl.querycache.accumulator.AccumulatorInfoSupplier;
@@ -38,13 +33,7 @@ import com.hazelcast.query.impl.Indexes;
 import com.hazelcast.spi.Operation;
 
 import java.io.IOException;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class PostJoinMapOperation extends Operation implements IdentifiedDataSerializable {
 

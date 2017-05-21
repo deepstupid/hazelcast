@@ -19,11 +19,7 @@ package com.hazelcast.map.impl.tx;
 import com.hazelcast.core.TransactionalMap;
 import com.hazelcast.internal.serialization.InternalSerializationService;
 import com.hazelcast.map.impl.MapService;
-import com.hazelcast.map.impl.query.MapQueryEngine;
-import com.hazelcast.map.impl.query.Query;
-import com.hazelcast.map.impl.query.QueryResult;
-import com.hazelcast.map.impl.query.QueryResultUtils;
-import com.hazelcast.map.impl.query.Target;
+import com.hazelcast.map.impl.query.*;
 import com.hazelcast.map.impl.tx.TxnValueWrapper.Type;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.query.PagingPredicate;
@@ -37,13 +33,7 @@ import com.hazelcast.spi.serialization.SerializationService;
 import com.hazelcast.transaction.impl.Transaction;
 import com.hazelcast.util.IterationType;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.hazelcast.util.Preconditions.checkNotInstanceOf;

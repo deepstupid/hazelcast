@@ -20,11 +20,7 @@ import com.hazelcast.core.ICompletableFuture;
 import com.hazelcast.logging.Logger;
 import com.hazelcast.spi.impl.AbstractCompletableFuture;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.RunnableFuture;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 
 import static java.util.concurrent.atomic.AtomicReferenceFieldUpdater.newUpdater;

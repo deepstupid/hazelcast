@@ -33,12 +33,7 @@ import com.hazelcast.util.collection.Int2ObjectHashMap;
 import java.util.Collection;
 import java.util.Map;
 
-import static com.hazelcast.core.EntryEventType.ADDED;
-import static com.hazelcast.core.EntryEventType.EVICTED;
-import static com.hazelcast.core.EntryEventType.EXPIRED;
-import static com.hazelcast.core.EntryEventType.INVALIDATION;
-import static com.hazelcast.core.EntryEventType.REMOVED;
-import static com.hazelcast.core.EntryEventType.UPDATED;
+import static com.hazelcast.core.EntryEventType.*;
 
 /**
  * A filtering strategy that preserves the default behavior in most cases, but processes entry events for listeners with

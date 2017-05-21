@@ -16,18 +16,8 @@
 
 package com.hazelcast.config;
 
-import com.hazelcast.core.EntryEvent;
-import com.hazelcast.core.EntryListener;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.core.MapEvent;
-import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryEvictedListener;
-import com.hazelcast.map.listener.EntryRemovedListener;
-import com.hazelcast.map.listener.EntryUpdatedListener;
-import com.hazelcast.map.listener.MapClearedListener;
-import com.hazelcast.map.listener.MapEvictedListener;
-import com.hazelcast.map.listener.MapListener;
+import com.hazelcast.core.*;
+import com.hazelcast.map.listener.*;
 
 import java.util.EventListener;
 
@@ -235,11 +225,7 @@ public class EntryListenerConfig extends ListenerConfig {
         if (includeValue != that.includeValue) {
             return false;
         }
-        if (local != that.local) {
-            return false;
-        }
-
-        return true;
+        return local == that.local;
     }
 
     @Override

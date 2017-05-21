@@ -29,12 +29,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.query.Predicates.equal;
-import static com.hazelcast.query.Predicates.notEqual;
-import static com.hazelcast.query.Predicates.or;
+import static com.hazelcast.query.Predicates.*;
 import static com.hazelcast.query.impl.TypeConverters.INTEGER_CONVERTER;
-import static org.hamcrest.Matchers.arrayWithSize;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.anyString;
@@ -112,7 +109,7 @@ public class OrToInVisitorTest {
         InPredicate result = (InPredicate) visitor.visit(or, mockIndexes);
         Comparable[] values = result.values;
         assertThat(values, arrayWithSize(5));
-        assertThat(values, Matchers.is(Matchers.<Comparable>arrayContainingInAnyOrder(1, 2, 3, 4, 5)));
+        assertThat(values, Matchers.is(Matchers.arrayContainingInAnyOrder(1, 2, 3, 4, 5)));
     }
 
     @Test
@@ -131,7 +128,7 @@ public class OrToInVisitorTest {
             if (predicate instanceof InPredicate) {
                 Comparable[] values = ((InPredicate) predicate).values;
                 assertThat(values, arrayWithSize(5));
-                assertThat(values, Matchers.is(Matchers.<Comparable>arrayContainingInAnyOrder(1, 2, 3, 4, 5)));
+                assertThat(values, Matchers.is(Matchers.arrayContainingInAnyOrder(1, 2, 3, 4, 5)));
             } else {
                 assertThat(predicate, instanceOf(NotEqualPredicate.class));
             }

@@ -202,7 +202,7 @@ public class ScheduledTaskDescriptor implements IdentifiedDataSerializable {
         definition = in.readObject();
         state = in.readObject();
         stats = in.readObject();
-        resultRef.set((ScheduledTaskResult) in.readObject());
+        resultRef.set(in.readObject());
     }
 
     @Override

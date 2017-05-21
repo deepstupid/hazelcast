@@ -16,8 +16,8 @@
 
 package com.hazelcast.nio.tcp;
 
-import com.hazelcast.internal.networking.ChannelWriter;
 import com.hazelcast.internal.networking.ChannelReader;
+import com.hazelcast.internal.networking.ChannelWriter;
 import com.hazelcast.nio.Packet;
 import com.hazelcast.test.AssertTask;
 import com.hazelcast.test.TestThread;

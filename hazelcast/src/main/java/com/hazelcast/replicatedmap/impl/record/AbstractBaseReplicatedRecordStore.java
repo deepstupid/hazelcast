@@ -142,11 +142,7 @@ public abstract class AbstractBaseReplicatedRecordStore<K, V> implements Replica
         if (name != null ? !name.equals(that.name) : that.name != null) {
             return false;
         }
-        if (!storageRef.get().equals(that.storageRef.get())) {
-            return false;
-        }
-
-        return true;
+        return storageRef.get().equals(that.storageRef.get());
     }
 
     @Override

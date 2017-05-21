@@ -72,7 +72,7 @@ public class TxnCommitBackupOperation extends MultiMapKeyBasedOperation implemen
         int size = in.readInt();
         opList = new ArrayList<Operation>(size);
         for (int i = 0; i < size; i++) {
-            opList.add((Operation) in.readObject());
+            opList.add(in.readObject());
         }
         caller = in.readUTF();
     }

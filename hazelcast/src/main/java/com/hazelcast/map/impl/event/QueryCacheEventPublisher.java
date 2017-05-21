@@ -33,10 +33,7 @@ import com.hazelcast.spi.EventFilter;
 import java.util.Collection;
 import java.util.Collections;
 
-import static com.hazelcast.core.EntryEventType.ADDED;
-import static com.hazelcast.core.EntryEventType.EXPIRED;
-import static com.hazelcast.core.EntryEventType.REMOVED;
-import static com.hazelcast.core.EntryEventType.UPDATED;
+import static com.hazelcast.core.EntryEventType.*;
 import static com.hazelcast.map.impl.event.MapEventPublisherImpl.isIncludeValue;
 import static com.hazelcast.map.impl.querycache.event.QueryCacheEventDataBuilder.newQueryCacheEventDataBuilder;
 import static com.hazelcast.util.CollectionUtil.isEmpty;

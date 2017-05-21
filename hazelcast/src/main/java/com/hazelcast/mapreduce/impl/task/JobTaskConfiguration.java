@@ -16,11 +16,7 @@
 
 package com.hazelcast.mapreduce.impl.task;
 
-import com.hazelcast.mapreduce.CombinerFactory;
-import com.hazelcast.mapreduce.KeyValueSource;
-import com.hazelcast.mapreduce.Mapper;
-import com.hazelcast.mapreduce.ReducerFactory;
-import com.hazelcast.mapreduce.TopologyChangedStrategy;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.nio.Address;
 import com.hazelcast.spi.NodeEngine;
 

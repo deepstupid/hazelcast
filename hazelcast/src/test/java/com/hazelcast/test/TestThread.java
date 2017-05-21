@@ -20,10 +20,7 @@ import com.hazelcast.logging.Logger;
 
 import static com.hazelcast.test.HazelcastTestSupport.assertTrueEventually;
 import static java.lang.String.format;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public abstract class TestThread extends Thread {
 

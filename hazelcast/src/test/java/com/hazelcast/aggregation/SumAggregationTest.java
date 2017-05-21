@@ -29,25 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static com.hazelcast.aggregation.TestSamples.addValues;
-import static com.hazelcast.aggregation.TestSamples.createEntryWithValue;
-import static com.hazelcast.aggregation.TestSamples.createExtractableEntryWithValue;
-import static com.hazelcast.aggregation.TestSamples.sampleBigDecimals;
-import static com.hazelcast.aggregation.TestSamples.sampleBigIntegers;
-import static com.hazelcast.aggregation.TestSamples.sampleDoubles;
-import static com.hazelcast.aggregation.TestSamples.sampleFloats;
-import static com.hazelcast.aggregation.TestSamples.sampleIntegers;
-import static com.hazelcast.aggregation.TestSamples.sampleLongs;
-import static com.hazelcast.aggregation.TestSamples.sampleValueContainers;
-import static com.hazelcast.aggregation.ValueContainer.ValueType.BIG_DECIMAL;
-import static com.hazelcast.aggregation.ValueContainer.ValueType.BIG_INTEGER;
-import static com.hazelcast.aggregation.ValueContainer.ValueType.DOUBLE;
-import static com.hazelcast.aggregation.ValueContainer.ValueType.INTEGER;
-import static com.hazelcast.aggregation.ValueContainer.ValueType.LONG;
-import static com.hazelcast.aggregation.ValueContainer.ValueType.NUMBER;
-import static org.hamcrest.Matchers.closeTo;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static com.hazelcast.aggregation.TestSamples.*;
+import static com.hazelcast.aggregation.ValueContainer.ValueType.*;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
 @RunWith(HazelcastParallelClassRunner.class)

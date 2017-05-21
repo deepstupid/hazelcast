@@ -27,12 +27,7 @@ import com.hazelcast.spi.properties.HazelcastProperties;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.hazelcast.spi.properties.GroupProperty.BACKPRESSURE_BACKOFF_TIMEOUT_MILLIS;
-import static com.hazelcast.spi.properties.GroupProperty.BACKPRESSURE_ENABLED;
-import static com.hazelcast.spi.properties.GroupProperty.BACKPRESSURE_MAX_CONCURRENT_INVOCATIONS_PER_PARTITION;
-import static com.hazelcast.spi.properties.GroupProperty.BACKPRESSURE_SYNCWINDOW;
-import static com.hazelcast.spi.properties.GroupProperty.OPERATION_BACKUP_TIMEOUT_MILLIS;
-import static com.hazelcast.spi.properties.GroupProperty.PARTITION_COUNT;
+import static com.hazelcast.spi.properties.GroupProperty.*;
 import static java.lang.Math.max;
 import static java.lang.Math.round;
 import static java.lang.String.format;

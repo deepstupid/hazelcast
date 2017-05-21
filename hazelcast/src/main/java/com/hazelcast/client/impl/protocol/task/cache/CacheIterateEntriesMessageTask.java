@@ -58,7 +58,7 @@ public class CacheIterateEntriesMessageTask
     @Override
     protected ClientMessage encodeResponse(Object response) {
         if (response == null) {
-            return CacheIterateEntriesCodec.encodeResponse(0, Collections.<Map.Entry<Data, Data>>emptyList());
+            return CacheIterateEntriesCodec.encodeResponse(0, Collections.emptyList());
         }
         CacheEntryIterationResult iteratorResult = (CacheEntryIterationResult) response;
         return CacheIterateEntriesCodec.encodeResponse(iteratorResult.getTableIndex(), iteratorResult.getEntries());

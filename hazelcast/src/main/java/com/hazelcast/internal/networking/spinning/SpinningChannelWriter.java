@@ -17,13 +17,7 @@
 package com.hazelcast.internal.networking.spinning;
 
 import com.hazelcast.internal.metrics.Probe;
-import com.hazelcast.internal.networking.ChannelConnection;
-import com.hazelcast.internal.networking.ChannelInitializer;
-import com.hazelcast.internal.networking.ChannelOutboundHandler;
-import com.hazelcast.internal.networking.ChannelWriter;
-import com.hazelcast.internal.networking.IOOutOfMemoryHandler;
-import com.hazelcast.internal.networking.InitResult;
-import com.hazelcast.internal.networking.OutboundFrame;
+import com.hazelcast.internal.networking.*;
 import com.hazelcast.internal.util.concurrent.ManyToOneConcurrentArrayQueue;
 import com.hazelcast.internal.util.counters.SwCounter;
 import com.hazelcast.logging.ILogger;
@@ -33,7 +27,6 @@ import com.hazelcast.util.EmptyStatement;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CountDownLatch;
 
 import static com.hazelcast.internal.util.counters.SwCounter.newSwCounter;

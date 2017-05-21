@@ -29,19 +29,11 @@ import com.hazelcast.util.scheduler.ScheduledEntry;
 import org.junit.After;
 import org.junit.Before;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.CountDownLatch;
 
-import static com.hazelcast.test.TestPartitionUtils.getAllReplicaAddresses;
-import static com.hazelcast.test.TestPartitionUtils.getOngoingReplicaSyncRequests;
-import static com.hazelcast.test.TestPartitionUtils.getOwnedReplicaVersions;
-import static com.hazelcast.test.TestPartitionUtils.getScheduledReplicaSyncRequests;
+import static com.hazelcast.test.TestPartitionUtils.*;
 import static junit.framework.TestCase.assertNotNull;
 
 public abstract class AbstractPartitionLostListenerTest extends HazelcastTestSupport {

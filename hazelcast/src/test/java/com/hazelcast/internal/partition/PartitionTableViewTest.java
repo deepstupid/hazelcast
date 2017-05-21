@@ -34,10 +34,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import static com.hazelcast.internal.partition.InternalPartition.MAX_REPLICA_COUNT;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

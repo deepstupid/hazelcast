@@ -30,9 +30,7 @@ import org.junit.runners.Parameterized;
 import java.util.Collection;
 
 import static com.hazelcast.test.ReflectionsHelper.REFLECTIONS;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Test all classes which implement CompoundStatement in package com.hazelcast.query.impl.predicates

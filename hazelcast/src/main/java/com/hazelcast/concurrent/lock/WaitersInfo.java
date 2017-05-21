@@ -127,11 +127,7 @@ final class WaitersInfo implements IdentifiedDataSerializable {
             if (threadId != that.threadId) {
                 return false;
             }
-            if (caller != null ? !caller.equals(that.caller) : that.caller != null) {
-                return false;
-            }
-
-            return true;
+            return caller != null ? caller.equals(that.caller) : that.caller == null;
         }
 
         @Override

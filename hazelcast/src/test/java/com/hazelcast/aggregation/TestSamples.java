@@ -25,11 +25,7 @@ import com.hazelcast.query.impl.getters.Extractors;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Arrays.asList;
 
@@ -201,7 +197,7 @@ final class TestSamples {
         private V value;
 
         ExtractableEntry(K key, V value) {
-            this.extractors = new Extractors(Collections.<MapAttributeConfig>emptyList(), null);
+            this.extractors = new Extractors(Collections.emptyList(), null);
             this.key = key;
             this.value = value;
         }

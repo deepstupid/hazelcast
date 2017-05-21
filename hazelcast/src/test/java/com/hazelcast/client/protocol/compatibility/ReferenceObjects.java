@@ -26,13 +26,7 @@ import com.hazelcast.client.impl.client.DistributedObjectInfo;
 import com.hazelcast.client.impl.protocol.exception.MaxMessageSizeExceeded;
 import com.hazelcast.config.ConfigurationException;
 import com.hazelcast.config.InvalidConfigurationException;
-import com.hazelcast.core.DuplicateInstanceNameException;
-import com.hazelcast.core.HazelcastException;
-import com.hazelcast.core.HazelcastInstanceNotActiveException;
-import com.hazelcast.core.HazelcastOverloadException;
-import com.hazelcast.core.Member;
-import com.hazelcast.core.MemberLeftException;
-import com.hazelcast.core.OperationTimeoutException;
+import com.hazelcast.core.*;
 import com.hazelcast.durableexecutor.StaleTaskIdException;
 import com.hazelcast.internal.cluster.impl.ConfigMismatchException;
 import com.hazelcast.internal.serialization.impl.HeapData;
@@ -56,16 +50,7 @@ import com.hazelcast.replicatedmap.ReplicatedMapCantBeCreatedOnLiteMemberExcepti
 import com.hazelcast.ringbuffer.StaleSequenceException;
 import com.hazelcast.scheduledexecutor.ScheduledTaskHandler;
 import com.hazelcast.scheduledexecutor.impl.ScheduledTaskHandlerImpl;
-import com.hazelcast.spi.exception.CallerNotMemberException;
-import com.hazelcast.spi.exception.DistributedObjectDestroyedException;
-import com.hazelcast.spi.exception.PartitionMigratingException;
-import com.hazelcast.spi.exception.ResponseAlreadySentException;
-import com.hazelcast.spi.exception.RetryableHazelcastException;
-import com.hazelcast.spi.exception.RetryableIOException;
-import com.hazelcast.spi.exception.ServiceNotFoundException;
-import com.hazelcast.spi.exception.TargetDisconnectedException;
-import com.hazelcast.spi.exception.TargetNotMemberException;
-import com.hazelcast.spi.exception.WrongTargetException;
+import com.hazelcast.spi.exception.*;
 import com.hazelcast.topic.TopicOverloadException;
 import com.hazelcast.transaction.TransactionException;
 import com.hazelcast.transaction.TransactionNotActiveException;
@@ -93,17 +78,7 @@ import java.net.SocketException;
 import java.net.URISyntaxException;
 import java.net.UnknownHostException;
 import java.security.AccessControlException;
-import java.util.AbstractMap;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.RejectedExecutionException;
@@ -194,7 +169,7 @@ public class ReferenceObjects {
     }
 
     public static Member aMember = new MemberImpl(anAddress, MemberVersion.UNKNOWN, aString,
-            Collections.singletonMap(aString, (Object) aString), false);
+            Collections.singletonMap(aString, aString), false);
     public static Collection<Map.Entry<Address, List<Integer>>> aPartitionTable;
 
     static {
@@ -227,19 +202,19 @@ public class ReferenceObjects {
     public static Collection<Long> longs = Collections.singletonList(aLong);
     public static Collection<UUID> uuids = Collections.singletonList(aUUID);
     public static Xid anXid = new SerializableXID(1, aString.getBytes(), aString.getBytes());
-    public static List<Map.Entry<Data, Data>> aListOfEntry = Collections.<Map.Entry<Data, Data>>singletonList(
+    public static List<Map.Entry<Data, Data>> aListOfEntry = Collections.singletonList(
             new AbstractMap.SimpleEntry<Data, Data>(aData, aData));
 
     public static List<Map.Entry<String, List<Map.Entry<Integer, Long>>>> aNamePartitionSequenceList;
 
     static {
-        List<Map.Entry<Integer, Long>> list = Collections.<Map.Entry<Integer, Long>>singletonList(
+        List<Map.Entry<Integer, Long>> list = Collections.singletonList(
                 new AbstractMap.SimpleEntry<Integer, Long>(anInt, aLong));
-        aNamePartitionSequenceList = Collections.<Map.Entry<String, List<Map.Entry<Integer, Long>>>>singletonList(
+        aNamePartitionSequenceList = Collections.singletonList(
                 new AbstractMap.SimpleEntry<String, List<Map.Entry<Integer, Long>>>(aString, list));
     }
 
-    public static List<Map.Entry<Integer, UUID>> aPartitionUuidList = Collections.<Map.Entry<Integer, UUID>>singletonList(
+    public static List<Map.Entry<Integer, UUID>> aPartitionUuidList = Collections.singletonList(
             new AbstractMap.SimpleEntry<Integer, UUID>(anInt, aUUID));
 
     static {
@@ -264,7 +239,7 @@ public class ReferenceObjects {
             aString), new NullPointerException(aString), new OperationTimeoutException(aString), new PartitionMigratingException(
             aString), new QueryException(aString), new QueryResultSizeExceededException(aString), new QuorumException(
             aString), new ReachedMaxSizeException(aString), new RejectedExecutionException(aString), new RemoteMapReduceException(
-            aString, Collections.<Exception>emptyList()), new ResponseAlreadySentException(
+            aString, Collections.emptyList()), new ResponseAlreadySentException(
             aString), new RetryableHazelcastException(aString), new RetryableIOException(aString), new RuntimeException(
             aString), new SecurityException(aString), new SocketException(aString), new StaleSequenceException(aString,
             1), new TargetDisconnectedException(aString), new TargetNotMemberException(aString), new TimeoutException(

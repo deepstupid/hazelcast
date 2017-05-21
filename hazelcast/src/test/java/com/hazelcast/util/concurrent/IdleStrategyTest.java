@@ -29,9 +29,7 @@ import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Collection;
 
-import static com.hazelcast.util.concurrent.IdleStrategyTest.StrategyToTest.BACK_OFF;
-import static com.hazelcast.util.concurrent.IdleStrategyTest.StrategyToTest.BUSY_SPIN;
-import static com.hazelcast.util.concurrent.IdleStrategyTest.StrategyToTest.NO_OP;
+import static com.hazelcast.util.concurrent.IdleStrategyTest.StrategyToTest.*;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.fail;
 

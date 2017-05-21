@@ -106,7 +106,7 @@ public class TxnCommitOperation extends MultiMapBackupAwareOperation implements 
         int size = in.readInt();
         opList = new ArrayList<Operation>(size);
         for (int i = 0; i < size; i++) {
-            opList.add((Operation) in.readObject());
+            opList.add(in.readObject());
         }
     }
 }

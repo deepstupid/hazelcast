@@ -16,20 +16,7 @@
 
 package com.hazelcast.concurrent.semaphore;
 
-import com.hazelcast.concurrent.semaphore.operations.AcquireBackupOperation;
-import com.hazelcast.concurrent.semaphore.operations.AcquireOperation;
-import com.hazelcast.concurrent.semaphore.operations.AvailableOperation;
-import com.hazelcast.concurrent.semaphore.operations.DrainBackupOperation;
-import com.hazelcast.concurrent.semaphore.operations.DrainOperation;
-import com.hazelcast.concurrent.semaphore.operations.InitBackupOperation;
-import com.hazelcast.concurrent.semaphore.operations.InitOperation;
-import com.hazelcast.concurrent.semaphore.operations.ReduceBackupOperation;
-import com.hazelcast.concurrent.semaphore.operations.ReduceOperation;
-import com.hazelcast.concurrent.semaphore.operations.ReleaseBackupOperation;
-import com.hazelcast.concurrent.semaphore.operations.ReleaseOperation;
-import com.hazelcast.concurrent.semaphore.operations.SemaphoreDetachMemberBackupOperation;
-import com.hazelcast.concurrent.semaphore.operations.SemaphoreDetachMemberOperation;
-import com.hazelcast.concurrent.semaphore.operations.SemaphoreReplicationOperation;
+import com.hazelcast.concurrent.semaphore.operations.*;
 import com.hazelcast.internal.serialization.DataSerializerHook;
 import com.hazelcast.internal.serialization.impl.FactoryIdHelper;
 import com.hazelcast.nio.serialization.DataSerializableFactory;

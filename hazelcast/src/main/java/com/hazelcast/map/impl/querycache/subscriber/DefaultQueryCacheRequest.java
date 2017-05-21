@@ -22,9 +22,7 @@ import com.hazelcast.map.listener.MapListener;
 import com.hazelcast.query.PagingPredicate;
 import com.hazelcast.query.Predicate;
 
-import static com.hazelcast.util.Preconditions.checkHasText;
-import static com.hazelcast.util.Preconditions.checkNotInstanceOf;
-import static com.hazelcast.util.Preconditions.checkNotNull;
+import static com.hazelcast.util.Preconditions.*;
 
 /**
  * Default implementation of {@code QueryCacheRequest}.

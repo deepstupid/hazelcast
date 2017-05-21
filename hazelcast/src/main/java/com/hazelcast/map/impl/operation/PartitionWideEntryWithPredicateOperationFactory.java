@@ -36,11 +36,7 @@ import com.hazelcast.util.collection.InflatableSet;
 import com.hazelcast.util.collection.Int2ObjectHashMap;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.map.impl.MapService.SERVICE_NAME;
 import static com.hazelcast.util.CollectionUtil.isEmpty;
@@ -136,7 +132,7 @@ public class PartitionWideEntryWithPredicateOperationFactory extends PartitionAw
             keys.add(e.getKeyData());
         }
 
-        return keys == null ? Collections.<Data>emptySet() : newBuilder(keys).build();
+        return keys == null ? Collections.emptySet() : newBuilder(keys).build();
     }
 
     private Map<Integer, List<Data>> getPartitionIdToKeysMap(Set<Data> keys, InternalPartitionService partitionService) {

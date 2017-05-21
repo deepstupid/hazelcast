@@ -49,7 +49,7 @@ public class MapFetchEntriesMessageTask extends AbstractMapPartitionMessageTask<
     @Override
     protected ClientMessage encodeResponse(Object response) {
         if (response == null) {
-            return MapFetchEntriesCodec.encodeResponse(0, Collections.<Map.Entry<Data, Data>>emptyList());
+            return MapFetchEntriesCodec.encodeResponse(0, Collections.emptyList());
         }
         MapEntriesWithCursor mapEntriesWithCursor = (MapEntriesWithCursor) response;
         return MapFetchEntriesCodec.encodeResponse(mapEntriesWithCursor.getNextTableIndexToReadFrom(),

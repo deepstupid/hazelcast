@@ -228,10 +228,7 @@ public class SerializationV1Portable implements Portable {
         if (innerPortable != null ? !innerPortable.equals(that.innerPortable) : that.innerPortable != null) {
             return false;
         }
-        if (dataSerializable != null ? !dataSerializable.equals(that.dataSerializable) : that.dataSerializable != null) {
-            return false;
-        }
-        return true;
+        return dataSerializable != null ? dataSerializable.equals(that.dataSerializable) : that.dataSerializable == null;
     }
 
     public static SerializationV1Portable createInstanceWithNonNullFields() {

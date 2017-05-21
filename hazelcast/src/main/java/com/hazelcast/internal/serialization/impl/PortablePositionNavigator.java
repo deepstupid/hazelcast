@@ -25,16 +25,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static com.hazelcast.internal.serialization.impl.PortableNavigatorContext.NavigationFrame;
-import static com.hazelcast.internal.serialization.impl.PortablePositionFactory.emptyAnyPosition;
-import static com.hazelcast.internal.serialization.impl.PortablePositionFactory.nilAnyPosition;
-import static com.hazelcast.internal.serialization.impl.PortablePositionFactory.nilNotLeafPosition;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.createUnknownFieldException;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.createWrongUseOfAnyOperationException;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.isCurrentPathTokenWithAnyQuantifier;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.isCurrentPathTokenWithoutQuantifier;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.validateAndGetArrayQuantifierFromCurrentToken;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.validateArrayType;
-import static com.hazelcast.internal.serialization.impl.PortableUtils.validateFactoryAndClass;
+import static com.hazelcast.internal.serialization.impl.PortablePositionFactory.*;
+import static com.hazelcast.internal.serialization.impl.PortableUtils.*;
 
 /**
  * Enables navigation in the portable byte stream.

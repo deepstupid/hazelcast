@@ -17,13 +17,7 @@
 package com.hazelcast.internal.management;
 
 import com.hazelcast.instance.HazelcastInstanceImpl;
-import com.hazelcast.internal.management.dto.ConnectionManagerDTO;
-import com.hazelcast.internal.management.dto.EventServiceDTO;
-import com.hazelcast.internal.management.dto.MXBeansDTO;
-import com.hazelcast.internal.management.dto.ManagedExecutorDTO;
-import com.hazelcast.internal.management.dto.OperationServiceDTO;
-import com.hazelcast.internal.management.dto.PartitionServiceBeanDTO;
-import com.hazelcast.internal.management.dto.ProxyServiceDTO;
+import com.hazelcast.internal.management.dto.*;
 import com.hazelcast.internal.partition.InternalPartitionService;
 import com.hazelcast.monitor.impl.MemberStateImpl;
 import com.hazelcast.nio.ConnectionManager;
@@ -33,13 +27,7 @@ import com.hazelcast.spi.ProxyService;
 import com.hazelcast.spi.impl.operationservice.InternalOperationService;
 import com.hazelcast.util.executor.ManagedExecutorService;
 
-import java.lang.management.ClassLoadingMXBean;
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryMXBean;
-import java.lang.management.MemoryUsage;
-import java.lang.management.OperatingSystemMXBean;
-import java.lang.management.RuntimeMXBean;
-import java.lang.management.ThreadMXBean;
+import java.lang.management.*;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;

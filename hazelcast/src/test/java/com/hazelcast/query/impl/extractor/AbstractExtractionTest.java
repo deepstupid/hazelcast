@@ -16,11 +16,7 @@
 
 package com.hazelcast.query.impl.extractor;
 
-import com.hazelcast.config.Config;
-import com.hazelcast.config.InMemoryFormat;
-import com.hazelcast.config.MapAttributeConfig;
-import com.hazelcast.config.MapConfig;
-import com.hazelcast.config.MapIndexConfig;
+import com.hazelcast.config.*;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.query.Predicate;

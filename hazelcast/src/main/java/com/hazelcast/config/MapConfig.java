@@ -26,11 +26,7 @@ import com.hazelcast.spi.partition.IPartition;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.hazelcast.util.Preconditions.checkAsyncBackupCount;
-import static com.hazelcast.util.Preconditions.checkBackupCount;
-import static com.hazelcast.util.Preconditions.checkFalse;
-import static com.hazelcast.util.Preconditions.checkNotNull;
-import static com.hazelcast.util.Preconditions.isNotNull;
+import static com.hazelcast.util.Preconditions.*;
 
 /**
  * Contains the configuration for an {@link com.hazelcast.core.IMap}.

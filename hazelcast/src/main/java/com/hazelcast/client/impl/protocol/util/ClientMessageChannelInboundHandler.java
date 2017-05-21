@@ -23,9 +23,7 @@ import com.hazelcast.util.collection.Long2ObjectHashMap;
 
 import java.nio.ByteBuffer;
 
-import static com.hazelcast.client.impl.protocol.ClientMessage.BEGIN_AND_END_FLAGS;
-import static com.hazelcast.client.impl.protocol.ClientMessage.BEGIN_FLAG;
-import static com.hazelcast.client.impl.protocol.ClientMessage.END_FLAG;
+import static com.hazelcast.client.impl.protocol.ClientMessage.*;
 
 /**
  * Builds {@link ClientMessage}s from byte chunks. Fragmented messages are merged into single messages before processed.

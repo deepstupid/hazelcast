@@ -24,10 +24,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import static com.hazelcast.map.impl.MapKeyLoader.Role;
-import static com.hazelcast.map.impl.MapKeyLoader.Role.NONE;
-import static com.hazelcast.map.impl.MapKeyLoader.Role.RECEIVER;
-import static com.hazelcast.map.impl.MapKeyLoader.Role.SENDER;
-import static com.hazelcast.map.impl.MapKeyLoader.Role.SENDER_BACKUP;
+import static com.hazelcast.map.impl.MapKeyLoader.Role.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastParallelClassRunner.class)

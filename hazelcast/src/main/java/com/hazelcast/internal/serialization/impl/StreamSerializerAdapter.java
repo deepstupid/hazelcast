@@ -91,11 +91,7 @@ class StreamSerializerAdapter implements SerializerAdapter {
 
         StreamSerializerAdapter that = (StreamSerializerAdapter) o;
 
-        if (serializer != null ? !serializer.equals(that.serializer) : that.serializer != null) {
-            return false;
-        }
-
-        return true;
+        return serializer != null ? serializer.equals(that.serializer) : that.serializer == null;
     }
 
     @Override

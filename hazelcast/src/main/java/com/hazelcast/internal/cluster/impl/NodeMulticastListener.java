@@ -124,10 +124,7 @@ public class NodeMulticastListener implements MulticastListener {
         }
 
         ConfigCheck theirConfig = joinMessage.getConfigCheck();
-        if (!ourConfig.isSameGroup(theirConfig)) {
-            return false;
-        }
-        return true;
+        return ourConfig.isSameGroup(theirConfig);
     }
 
     private boolean isMessageToSelf(JoinMessage joinMessage) {

@@ -44,36 +44,17 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInput;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.net.InetSocketAddress;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Properties;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.hazelcast.instance.BuildInfoProvider.BUILD_INFO;
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)
@@ -203,11 +184,7 @@ public class SerializationTest extends HazelcastTestSupport {
             if (k != that.k) {
                 return false;
             }
-            if (s != null ? !s.equals(that.s) : that.s != null) {
-                return false;
-            }
-
-            return true;
+            return s != null ? s.equals(that.s) : that.s == null;
         }
 
         @Override
@@ -271,7 +248,7 @@ public class SerializationTest extends HazelcastTestSupport {
     public void testSharedJavaSerialization() {
         SerializationService ss = new DefaultSerializationServiceBuilder().setEnableSharedObject(true).build();
         Data data = ss.toData(new Foo());
-        Foo foo = (Foo) ss.toObject(data);
+        Foo foo = ss.toObject(data);
 
         assertTrue("Objects are not identical!", foo == foo.getBar().getFoo());
     }
@@ -503,7 +480,7 @@ public class SerializationTest extends HazelcastTestSupport {
         public void readData(ObjectDataInput in) throws IOException {
             int size = in.readInt();
             for (int k = 0; k < size; k++) {
-                add((E) in.readObject());
+                add(in.readObject());
             }
         }
     }

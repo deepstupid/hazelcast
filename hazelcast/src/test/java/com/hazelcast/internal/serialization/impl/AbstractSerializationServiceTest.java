@@ -22,12 +22,7 @@ import com.hazelcast.nio.BufferObjectDataInput;
 import com.hazelcast.nio.BufferObjectDataOutput;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.CustomSerializationTest;
-import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.nio.serialization.DataSerializable;
-import com.hazelcast.nio.serialization.HazelcastSerializationException;
-import com.hazelcast.nio.serialization.StreamSerializer;
-import com.hazelcast.nio.serialization.TypedDataSerializable;
+import com.hazelcast.nio.serialization.*;
 import com.hazelcast.test.HazelcastParallelClassRunner;
 import com.hazelcast.test.annotation.ParallelTest;
 import com.hazelcast.test.annotation.QuickTest;
@@ -40,11 +35,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.io.Serializable;
+import java.io.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -142,7 +133,7 @@ public class AbstractSerializationServiceTest {
     @Test
     public void testToObject_ServiceInactive() throws Exception {
         expectedException.expect(HazelcastSerializationException.class);
-        expectedException.expectCause(Is.is(IsInstanceOf.<Throwable>instanceOf(HazelcastInstanceNotActiveException.class)));
+        expectedException.expectCause(Is.is(IsInstanceOf.instanceOf(HazelcastInstanceNotActiveException.class)));
 
         abstractSerializationService.register(StringBuffer.class, new StringBufferSerializer(false));
         Data data = abstractSerializationService.toData(new StringBuffer());
@@ -160,7 +151,7 @@ public class AbstractSerializationServiceTest {
     @Test
     public void testReadObject_ServiceInactive() throws Exception {
         expectedException.expect(HazelcastSerializationException.class);
-        expectedException.expectCause(Is.is(IsInstanceOf.<Throwable>instanceOf(HazelcastInstanceNotActiveException.class)));
+        expectedException.expectCause(Is.is(IsInstanceOf.instanceOf(HazelcastInstanceNotActiveException.class)));
 
         abstractSerializationService.register(StringBuffer.class, new StringBufferSerializer(false));
         Data data = abstractSerializationService.toData(new StringBuffer());

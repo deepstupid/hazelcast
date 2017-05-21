@@ -17,11 +17,7 @@
 package com.hazelcast.scheduledexecutor.impl;
 
 import com.hazelcast.logging.ILogger;
-import com.hazelcast.scheduledexecutor.DuplicateTaskException;
-import com.hazelcast.scheduledexecutor.ScheduledTaskHandler;
-import com.hazelcast.scheduledexecutor.ScheduledTaskStatistics;
-import com.hazelcast.scheduledexecutor.StaleTaskException;
-import com.hazelcast.scheduledexecutor.StatefulTask;
+import com.hazelcast.scheduledexecutor.*;
 import com.hazelcast.scheduledexecutor.impl.operations.ResultReadyNotifyOperation;
 import com.hazelcast.scheduledexecutor.impl.operations.SyncStateOperation;
 import com.hazelcast.spi.InvocationBuilder;
@@ -33,13 +29,7 @@ import com.hazelcast.spi.impl.executionservice.InternalExecutionService;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 import static com.hazelcast.scheduledexecutor.impl.DistributedScheduledExecutorService.SERVICE_NAME;
 import static com.hazelcast.scheduledexecutor.impl.TaskDefinition.Type.SINGLE_RUN;

@@ -16,11 +16,7 @@
 
 package com.hazelcast.multimap.impl;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * The MultiMapValue is the value in a multimap and it contains either a set or a list as collection.

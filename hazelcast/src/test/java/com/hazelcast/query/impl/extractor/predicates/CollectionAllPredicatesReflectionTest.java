@@ -30,14 +30,10 @@ import java.util.Collection;
 
 import static com.hazelcast.config.InMemoryFormat.BINARY;
 import static com.hazelcast.config.InMemoryFormat.OBJECT;
-import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.NO_INDEX;
-import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.ORDERED;
-import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.UNORDERED;
+import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.*;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Multivalue.ARRAY;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Multivalue.LIST;
-import static com.hazelcast.query.impl.extractor.predicates.CollectionDataStructure.Person;
-import static com.hazelcast.query.impl.extractor.predicates.CollectionDataStructure.limb;
-import static com.hazelcast.query.impl.extractor.predicates.CollectionDataStructure.person;
+import static com.hazelcast.query.impl.extractor.predicates.CollectionDataStructure.*;
 import static java.util.Arrays.asList;
 
 /**

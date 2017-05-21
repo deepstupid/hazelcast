@@ -27,16 +27,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.Semaphore;
 
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_COLLECTION;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_COUNTER;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_DOUBLE_NUMBER;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_DOUBLE_PRIMITIVE;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_LONG_NUMBER;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_MAP;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_PRIMITIVE_LONG;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_SEMAPHORE;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.getType;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.isDouble;
+import static com.hazelcast.internal.metrics.impl.ProbeUtils.*;
 import static java.lang.String.format;
 
 /**

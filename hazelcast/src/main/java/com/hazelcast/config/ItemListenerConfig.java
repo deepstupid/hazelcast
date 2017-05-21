@@ -99,11 +99,7 @@ public class ItemListenerConfig extends ListenerConfig {
 
         ItemListenerConfig that = (ItemListenerConfig) o;
 
-        if (includeValue != that.includeValue) {
-            return false;
-        }
-
-        return true;
+        return includeValue == that.includeValue;
     }
 
     @Override

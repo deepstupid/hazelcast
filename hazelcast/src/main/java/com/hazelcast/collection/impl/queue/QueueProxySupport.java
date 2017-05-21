@@ -16,32 +16,14 @@
 
 package com.hazelcast.collection.impl.queue;
 
-import com.hazelcast.collection.impl.queue.operations.AddAllOperation;
-import com.hazelcast.collection.impl.queue.operations.ClearOperation;
-import com.hazelcast.collection.impl.queue.operations.CompareAndRemoveOperation;
-import com.hazelcast.collection.impl.queue.operations.ContainsOperation;
-import com.hazelcast.collection.impl.queue.operations.DrainOperation;
-import com.hazelcast.collection.impl.queue.operations.IsEmptyOperation;
-import com.hazelcast.collection.impl.queue.operations.IteratorOperation;
-import com.hazelcast.collection.impl.queue.operations.OfferOperation;
-import com.hazelcast.collection.impl.queue.operations.PeekOperation;
-import com.hazelcast.collection.impl.queue.operations.PollOperation;
-import com.hazelcast.collection.impl.queue.operations.QueueOperation;
-import com.hazelcast.collection.impl.queue.operations.RemainingCapacityOperation;
-import com.hazelcast.collection.impl.queue.operations.RemoveOperation;
-import com.hazelcast.collection.impl.queue.operations.SizeOperation;
+import com.hazelcast.collection.impl.queue.operations.*;
 import com.hazelcast.config.ItemListenerConfig;
 import com.hazelcast.config.QueueConfig;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.core.ItemListener;
 import com.hazelcast.nio.ClassLoaderUtil;
 import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.spi.AbstractDistributedObject;
-import com.hazelcast.spi.InitializingObject;
-import com.hazelcast.spi.InternalCompletableFuture;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.impl.SerializableList;
 import com.hazelcast.util.ExceptionUtil;
 
@@ -139,7 +121,7 @@ abstract class QueueProxySupport extends AbstractDistributedObject<QueueService>
     List<Data> listInternal() {
         IteratorOperation operation = new IteratorOperation(name);
         SerializableList collectionContainer = invokeAndGet(operation);
-        return (List<Data>) collectionContainer.getCollection();
+        return collectionContainer.getCollection();
     }
 
     Collection<Data> drainInternal(int maxSize) {

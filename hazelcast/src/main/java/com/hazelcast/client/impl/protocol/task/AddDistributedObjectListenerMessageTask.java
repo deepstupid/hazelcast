@@ -116,10 +116,6 @@ public class AddDistributedObjectListenerMessageTask
 
         ClusterService clusterService = clientEngine.getClusterService();
         boolean currentMemberIsMaster = clusterService.getMasterAddress().equals(clientEngine.getThisAddress());
-        if (parameters.localOnly && !currentMemberIsMaster) {
-            //if client registered localOnly, only master is allowed to send request
-            return false;
-        }
-        return true;
+        return !parameters.localOnly || currentMemberIsMaster;
     }
 }

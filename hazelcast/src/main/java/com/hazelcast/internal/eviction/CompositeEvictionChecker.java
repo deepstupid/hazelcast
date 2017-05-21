@@ -34,7 +34,7 @@ public abstract class CompositeEvictionChecker
     /**
      * Operator for composing results of given {@link EvictionChecker} instances.
      */
-    public static enum CompositionOperator {
+    public enum CompositionOperator {
 
         /**
          * Result is <tt>true</tt> if results of <b>all</b> given {@link EvictionChecker} instances
@@ -46,7 +46,7 @@ public abstract class CompositeEvictionChecker
          * Result is <tt>true</tt> if result of <b>any</b> given {@link EvictionChecker} instances
          * have reached to max-size, otherwise <tt>false</tt>.
          */
-        OR;
+        OR
 
     }
 

@@ -18,11 +18,7 @@ package com.hazelcast.cluster;
 
 import com.hazelcast.cluster.SplitBrainHandlerTest.MergedEventLifeCycleListener;
 import com.hazelcast.config.Config;
-import com.hazelcast.core.Hazelcast;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.MemberAttributeEvent;
-import com.hazelcast.core.MembershipEvent;
-import com.hazelcast.core.MembershipListener;
+import com.hazelcast.core.*;
 import com.hazelcast.instance.HazelcastInstanceFactory;
 import com.hazelcast.internal.cluster.impl.MulticastJoiner;
 import com.hazelcast.spi.properties.GroupProperty;

@@ -18,11 +18,7 @@ package com.hazelcast.query.impl;
 
 import com.hazelcast.nio.serialization.Data;
 
-import java.util.AbstractSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class DuplicateDetectingMultiResult extends AbstractSet<QueryableEntry> implements MultiResultSet {
     private Map<Data, QueryableEntry> records;

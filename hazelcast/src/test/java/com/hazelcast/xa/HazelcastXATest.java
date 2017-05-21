@@ -47,10 +47,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)
@@ -66,10 +63,7 @@ public class HazelcastXATest extends HazelcastTestSupport {
             File currentDir = new File(".");
             final File[] tmLogs = currentDir.listFiles(new FilenameFilter() {
                 public boolean accept(File dir, String name) {
-                    if (name.endsWith(".epoch") || name.startsWith("tmlog")) {
-                        return true;
-                    }
-                    return false;
+                    return name.endsWith(".epoch") || name.startsWith("tmlog");
                 }
             });
             for (File tmLog : tmLogs) {

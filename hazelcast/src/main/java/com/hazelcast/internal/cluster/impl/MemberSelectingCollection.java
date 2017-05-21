@@ -20,11 +20,7 @@ import com.hazelcast.core.Member;
 import com.hazelcast.core.MemberSelector;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * An immutable collection that applies all the {@link com.hazelcast.core.MemberSelector} instances to

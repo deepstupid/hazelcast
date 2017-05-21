@@ -16,21 +16,7 @@
 
 package com.hazelcast.concurrent.lock;
 
-import com.hazelcast.concurrent.lock.operations.AwaitBackupOperation;
-import com.hazelcast.concurrent.lock.operations.AwaitOperation;
-import com.hazelcast.concurrent.lock.operations.BeforeAwaitBackupOperation;
-import com.hazelcast.concurrent.lock.operations.BeforeAwaitOperation;
-import com.hazelcast.concurrent.lock.operations.GetLockCountOperation;
-import com.hazelcast.concurrent.lock.operations.GetRemainingLeaseTimeOperation;
-import com.hazelcast.concurrent.lock.operations.IsLockedOperation;
-import com.hazelcast.concurrent.lock.operations.LockBackupOperation;
-import com.hazelcast.concurrent.lock.operations.LockOperation;
-import com.hazelcast.concurrent.lock.operations.LockReplicationOperation;
-import com.hazelcast.concurrent.lock.operations.SignalBackupOperation;
-import com.hazelcast.concurrent.lock.operations.SignalOperation;
-import com.hazelcast.concurrent.lock.operations.UnlockBackupOperation;
-import com.hazelcast.concurrent.lock.operations.UnlockIfLeaseExpiredOperation;
-import com.hazelcast.concurrent.lock.operations.UnlockOperation;
+import com.hazelcast.concurrent.lock.operations.*;
 import com.hazelcast.internal.serialization.DataSerializerHook;
 import com.hazelcast.internal.serialization.impl.FactoryIdHelper;
 import com.hazelcast.nio.serialization.DataSerializableFactory;

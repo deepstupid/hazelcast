@@ -22,12 +22,8 @@ import com.hazelcast.config.EvictionPolicy;
 import com.hazelcast.config.InMemoryFormat;
 import com.hazelcast.config.NearCacheConfig;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.internal.adapter.DataStructureAdapter;
+import com.hazelcast.internal.adapter.*;
 import com.hazelcast.internal.adapter.DataStructureAdapter.DataStructureMethods;
-import com.hazelcast.internal.adapter.DataStructureAdapterMethod;
-import com.hazelcast.internal.adapter.IMapDataStructureAdapter;
-import com.hazelcast.internal.adapter.MethodAvailableMatcher;
-import com.hazelcast.internal.adapter.ReplicatedMapDataStructureAdapter;
 import com.hazelcast.internal.nearcache.impl.DefaultNearCache;
 import com.hazelcast.map.impl.MapService;
 import com.hazelcast.map.impl.nearcache.MapNearCacheManager;
@@ -49,9 +45,7 @@ import static com.hazelcast.internal.nearcache.NearCacheRecord.READ_PERMITTED;
 import static java.lang.String.format;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeFalse;
-import static org.junit.Assume.assumeThat;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.Assume.*;
 
 /**
  * Provides utility methods for unified Near Cache tests.

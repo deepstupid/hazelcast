@@ -77,7 +77,7 @@ public final class DistinctValuesAggregator<I, R> extends AbstractAggregator<I, 
         int count = in.readInt();
         this.values = new HashSet<R>(count);
         for (int i = 0; i < count; i++) {
-            values.add((R) in.readObject());
+            values.add(in.readObject());
         }
     }
 

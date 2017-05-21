@@ -20,12 +20,7 @@ import com.hazelcast.cluster.Joiner;
 import com.hazelcast.config.Config;
 import com.hazelcast.config.ServiceConfig;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.instance.AddressPicker;
-import com.hazelcast.instance.DefaultNodeExtension;
-import com.hazelcast.instance.MemberImpl;
-import com.hazelcast.instance.Node;
-import com.hazelcast.instance.NodeContext;
-import com.hazelcast.instance.NodeExtension;
+import com.hazelcast.instance.*;
 import com.hazelcast.internal.cluster.MemberInfo;
 import com.hazelcast.internal.cluster.impl.operations.MembersUpdateOp;
 import com.hazelcast.nio.Address;
@@ -34,11 +29,7 @@ import com.hazelcast.spi.Operation;
 import com.hazelcast.spi.PostJoinAwareService;
 import com.hazelcast.spi.impl.NodeEngineImpl;
 import com.hazelcast.spi.properties.GroupProperty;
-import com.hazelcast.test.AssertTask;
-import com.hazelcast.test.HazelcastParallelClassRunner;
-import com.hazelcast.test.HazelcastTestSupport;
-import com.hazelcast.test.RequireAssertEnabled;
-import com.hazelcast.test.TestHazelcastInstanceFactory;
+import com.hazelcast.test.*;
 import com.hazelcast.test.annotation.ParallelTest;
 import com.hazelcast.test.annotation.QuickTest;
 import org.junit.Before;
@@ -58,16 +49,11 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import static com.hazelcast.instance.HazelcastInstanceFactory.newHazelcastInstance;
 import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.FINALIZE_JOIN;
 import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.MEMBER_INFO_UPDATE;
-import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.delayOperationsFrom;
-import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.dropOperationsBetween;
-import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.dropOperationsFrom;
-import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.resetPacketFiltersFrom;
+import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.*;
 import static com.hazelcast.spi.properties.GroupProperty.MEMBER_LIST_PUBLISH_INTERVAL_SECONDS;
 import static com.hazelcast.util.UuidUtil.newUnsecureUuidString;
 import static java.util.Collections.singleton;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})
@@ -512,7 +498,7 @@ public class MembershipUpdateTest extends HazelcastTestSupport {
         MembershipManager membershipManager = clusterService.getMembershipManager();
 
         MemberInfo newMemberInfo = new MemberInfo(new Address("127.0.0.1", 6000), newUnsecureUuidString(),
-                Collections.<String, Object>emptyMap(), node.getVersion());
+                Collections.emptyMap(), node.getVersion());
         MembersView membersView =
                 MembersView.cloneAdding(membershipManager.createMembersView(), singleton(newMemberInfo));
 

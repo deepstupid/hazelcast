@@ -60,10 +60,6 @@ public class WildcardConfigPatternMatcher implements ConfigPatternMatcher {
         }
 
         final String secondPart = pattern.substring(index + 1);
-        if (!itemName.endsWith(secondPart)) {
-            return false;
-        }
-
-        return true;
+        return itemName.endsWith(secondPart);
     }
 }

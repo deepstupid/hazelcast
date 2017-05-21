@@ -23,29 +23,8 @@ import java.nio.ByteOrder;
 
 import static com.hazelcast.internal.memory.GlobalMemoryAccessor.MEM_COPY_THRESHOLD;
 import static com.hazelcast.internal.memory.GlobalMemoryAccessorRegistry.MEM;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_BOOLEAN_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_BOOLEAN_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_BYTE_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_BYTE_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_CHAR_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_CHAR_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_DOUBLE_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_DOUBLE_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_FLOAT_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_FLOAT_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_INT_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_INT_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_LONG_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_LONG_INDEX_SCALE;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_SHORT_BASE_OFFSET;
-import static com.hazelcast.internal.memory.HeapMemoryAccessor.ARRAY_SHORT_INDEX_SCALE;
-import static com.hazelcast.nio.Bits.CHAR_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.DOUBLE_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.FLOAT_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.INT_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.LONG_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.NULL_ARRAY_LENGTH;
-import static com.hazelcast.nio.Bits.SHORT_SIZE_IN_BYTES;
+import static com.hazelcast.internal.memory.HeapMemoryAccessor.*;
+import static com.hazelcast.nio.Bits.*;
 
 class UnsafeObjectDataInput extends ByteArrayObjectDataInput {
 

@@ -18,8 +18,8 @@ package com.hazelcast.query;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.DataSerializable;
 import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.DataSerializable;
 import com.hazelcast.query.impl.QueryContext;
 import com.hazelcast.query.impl.QueryableEntry;
 
@@ -114,7 +114,7 @@ public class PredicateBuilder implements IndexAwarePredicate, DataSerializable {
         int size = in.readInt();
         lsPredicates = new ArrayList<Predicate>(size);
         for (int i = 0; i < size; i++) {
-            lsPredicates.add((Predicate) in.readObject());
+            lsPredicates.add(in.readObject());
         }
     }
 

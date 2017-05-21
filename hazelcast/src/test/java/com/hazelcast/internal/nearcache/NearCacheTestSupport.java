@@ -34,9 +34,7 @@ import java.util.Map;
 import static com.hazelcast.config.NearCacheConfig.DEFAULT_MEMORY_FORMAT;
 import static com.hazelcast.internal.nearcache.NearCache.DEFAULT_EXPIRATION_TASK_INITIAL_DELAY_IN_SECONDS;
 import static com.hazelcast.internal.nearcache.NearCacheRecord.NOT_RESERVED;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public abstract class NearCacheTestSupport extends CommonNearCacheTestSupport {
 

@@ -35,10 +35,7 @@ import org.junit.runner.RunWith;
 
 import java.util.Collection;
 
-import static com.hazelcast.cluster.memberselector.MemberSelectors.DATA_MEMBER_SELECTOR;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.LITE_MEMBER_SELECTOR;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.LOCAL_MEMBER_SELECTOR;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.NON_LOCAL_MEMBER_SELECTOR;
+import static com.hazelcast.cluster.memberselector.MemberSelectors.*;
 import static junit.framework.Assert.assertEquals;
 
 @RunWith(HazelcastParallelClassRunner.class)

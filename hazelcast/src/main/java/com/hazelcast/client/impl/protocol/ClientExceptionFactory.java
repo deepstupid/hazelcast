@@ -23,12 +23,7 @@ import com.hazelcast.client.impl.protocol.codec.ErrorCodec;
 import com.hazelcast.client.impl.protocol.exception.MaxMessageSizeExceeded;
 import com.hazelcast.config.ConfigurationException;
 import com.hazelcast.config.InvalidConfigurationException;
-import com.hazelcast.core.DuplicateInstanceNameException;
-import com.hazelcast.core.HazelcastException;
-import com.hazelcast.core.HazelcastInstanceNotActiveException;
-import com.hazelcast.core.HazelcastOverloadException;
-import com.hazelcast.core.MemberLeftException;
-import com.hazelcast.core.OperationTimeoutException;
+import com.hazelcast.core.*;
 import com.hazelcast.durableexecutor.StaleTaskIdException;
 import com.hazelcast.internal.cluster.impl.ConfigMismatchException;
 import com.hazelcast.map.QueryResultSizeExceededException;
@@ -44,16 +39,7 @@ import com.hazelcast.replicatedmap.ReplicatedMapCantBeCreatedOnLiteMemberExcepti
 import com.hazelcast.ringbuffer.StaleSequenceException;
 import com.hazelcast.scheduledexecutor.DuplicateTaskException;
 import com.hazelcast.scheduledexecutor.StaleTaskException;
-import com.hazelcast.spi.exception.CallerNotMemberException;
-import com.hazelcast.spi.exception.DistributedObjectDestroyedException;
-import com.hazelcast.spi.exception.PartitionMigratingException;
-import com.hazelcast.spi.exception.ResponseAlreadySentException;
-import com.hazelcast.spi.exception.RetryableHazelcastException;
-import com.hazelcast.spi.exception.RetryableIOException;
-import com.hazelcast.spi.exception.ServiceNotFoundException;
-import com.hazelcast.spi.exception.TargetDisconnectedException;
-import com.hazelcast.spi.exception.TargetNotMemberException;
-import com.hazelcast.spi.exception.WrongTargetException;
+import com.hazelcast.spi.exception.*;
 import com.hazelcast.topic.TopicOverloadException;
 import com.hazelcast.transaction.TransactionException;
 import com.hazelcast.transaction.TransactionNotActiveException;
@@ -75,14 +61,7 @@ import java.io.UTFDataFormatException;
 import java.net.SocketException;
 import java.net.URISyntaxException;
 import java.security.AccessControlException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.RejectedExecutionException;
@@ -408,7 +387,7 @@ public class ClientExceptionFactory {
         register(ClientProtocolErrorCodes.REMOTE_MAP_REDUCE, RemoteMapReduceException.class, new ExceptionFactory() {
             @Override
             public Throwable createException(String message, Throwable cause) {
-                return new RemoteMapReduceException(message, Collections.<Exception>emptyList());
+                return new RemoteMapReduceException(message, Collections.emptyList());
             }
         });
         register(ClientProtocolErrorCodes.RESPONSE_ALREADY_SENT, ResponseAlreadySentException.class, new ExceptionFactory() {

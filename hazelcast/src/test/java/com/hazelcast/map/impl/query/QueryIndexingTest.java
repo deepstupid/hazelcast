@@ -86,7 +86,7 @@ public class QueryIndexingTest extends HazelcastTestSupport {
         map.putAll(employees);
         waitAllForSafeState(h1, h2);
 
-        Collection<Employee> matchingEntries = runQueryNTimes(3, h2.<String, Employee>getMap("employees"));
+        Collection<Employee> matchingEntries = runQueryNTimes(3, h2.getMap("employees"));
 
         assertEquals(count / 2, matchingEntries.size());
         // N queries result in getters called N times
@@ -104,7 +104,7 @@ public class QueryIndexingTest extends HazelcastTestSupport {
         map.putAll(employees);
         waitAllForSafeState(h1, h2);
 
-        Collection<Employee> matchingEntries = runQueryNTimes(3, h2.<String, Employee>getMap("employees"));
+        Collection<Employee> matchingEntries = runQueryNTimes(3, h2.getMap("employees"));
         assertEquals(count / 2, matchingEntries.size());
 
         assertFieldsAreNull(matchingEntries);

@@ -23,30 +23,16 @@ import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.ringbuffer.OverflowPolicy;
 import com.hazelcast.ringbuffer.ReadResultSet;
 import com.hazelcast.ringbuffer.Ringbuffer;
-import com.hazelcast.ringbuffer.impl.operations.AddAllOperation;
-import com.hazelcast.ringbuffer.impl.operations.AddOperation;
-import com.hazelcast.ringbuffer.impl.operations.GenericOperation;
-import com.hazelcast.ringbuffer.impl.operations.ReadManyOperation;
-import com.hazelcast.ringbuffer.impl.operations.ReadOneOperation;
-import com.hazelcast.spi.AbstractDistributedObject;
-import com.hazelcast.spi.InternalCompletableFuture;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.ringbuffer.impl.operations.*;
+import com.hazelcast.spi.*;
 
 import java.util.Collection;
 
 import static com.hazelcast.ringbuffer.OverflowPolicy.OVERWRITE;
 import static com.hazelcast.ringbuffer.impl.RingbufferService.SERVICE_NAME;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_HEAD;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_REMAINING_CAPACITY;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_SIZE;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_TAIL;
+import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.*;
 import static com.hazelcast.util.ExceptionUtil.rethrowAllowInterrupted;
-import static com.hazelcast.util.Preconditions.checkFalse;
-import static com.hazelcast.util.Preconditions.checkNotNegative;
-import static com.hazelcast.util.Preconditions.checkNotNull;
-import static com.hazelcast.util.Preconditions.checkTrue;
+import static com.hazelcast.util.Preconditions.*;
 import static java.lang.String.format;
 
 /**

@@ -24,9 +24,7 @@ import com.hazelcast.monitor.MemberPartitionState;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.hazelcast.util.JsonUtil.getArray;
-import static com.hazelcast.util.JsonUtil.getBoolean;
-import static com.hazelcast.util.JsonUtil.getInt;
+import static com.hazelcast.util.JsonUtil.*;
 
 /**
  * This class holds partition related statistics.

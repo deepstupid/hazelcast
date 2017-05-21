@@ -100,11 +100,7 @@ public class TxQueueItem extends QueueItem {
         if (pollOperation != item.pollOperation) {
             return false;
         }
-        if (!transactionId.equals(item.transactionId)) {
-            return false;
-        }
-
-        return true;
+        return transactionId.equals(item.transactionId);
     }
 
     @Override

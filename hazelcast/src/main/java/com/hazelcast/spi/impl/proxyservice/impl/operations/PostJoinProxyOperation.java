@@ -101,7 +101,7 @@ public class PostJoinProxyOperation extends Operation implements IdentifiedDataS
         if (len > 0) {
             proxies = new ArrayList<ProxyInfo>(len);
             for (int i = 0; i < len; i++) {
-                ProxyInfo proxy = new ProxyInfo(in.readUTF(), (String) in.readObject());
+                ProxyInfo proxy = new ProxyInfo(in.readUTF(), in.readObject());
                 proxies.add(proxy);
             }
         }

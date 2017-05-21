@@ -16,11 +16,7 @@
 
 package com.hazelcast.collection.impl.collection.operations;
 
-import com.hazelcast.collection.impl.collection.CollectionContainer;
-import com.hazelcast.collection.impl.collection.CollectionDataSerializerHook;
-import com.hazelcast.collection.impl.collection.CollectionEvent;
-import com.hazelcast.collection.impl.collection.CollectionEventFilter;
-import com.hazelcast.collection.impl.collection.CollectionService;
+import com.hazelcast.collection.impl.collection.*;
 import com.hazelcast.collection.impl.list.ListContainer;
 import com.hazelcast.collection.impl.list.ListService;
 import com.hazelcast.core.ItemEventType;
@@ -29,11 +25,7 @@ import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.spi.BackupOperation;
-import com.hazelcast.spi.EventRegistration;
-import com.hazelcast.spi.EventService;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.PartitionAwareOperation;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.exception.RetryableHazelcastException;
 
 import java.io.IOException;

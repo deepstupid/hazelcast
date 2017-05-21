@@ -65,7 +65,7 @@ public class CompositeMessageTaskFactory implements MessageTaskFactory {
             while (iter.hasNext()) {
                 Class<MessageTaskFactoryProvider> clazz = iter.next();
                 Constructor<MessageTaskFactoryProvider> constructor = clazz
-                        .getDeclaredConstructor(new Class[]{NodeEngine.class});
+                        .getDeclaredConstructor(NodeEngine.class);
                 MessageTaskFactoryProvider messageTaskProvider = constructor.newInstance(this.nodeEngine);
                 loadProvider(messageTaskProvider);
             }

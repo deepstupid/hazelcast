@@ -58,20 +58,11 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)
@@ -498,7 +489,7 @@ public class CacheConfigTest extends HazelcastTestSupport {
         CacheManager cacheManager = Caching.getCachingProvider().getCacheManager();
 
         try {
-            cacheManager.createCache(cacheName, (Configuration<Object, Object>) null);
+            cacheManager.createCache(cacheName, null);
             fail("NullPointerException expected");
         } catch (NullPointerException expected) {
             EmptyStatement.ignore(expected);

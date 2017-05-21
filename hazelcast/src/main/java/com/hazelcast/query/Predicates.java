@@ -16,18 +16,7 @@
 
 package com.hazelcast.query;
 
-import com.hazelcast.query.impl.predicates.AndPredicate;
-import com.hazelcast.query.impl.predicates.BetweenPredicate;
-import com.hazelcast.query.impl.predicates.EqualPredicate;
-import com.hazelcast.query.impl.predicates.GreaterLessPredicate;
-import com.hazelcast.query.impl.predicates.ILikePredicate;
-import com.hazelcast.query.impl.predicates.InPredicate;
-import com.hazelcast.query.impl.predicates.InstanceOfPredicate;
-import com.hazelcast.query.impl.predicates.LikePredicate;
-import com.hazelcast.query.impl.predicates.NotEqualPredicate;
-import com.hazelcast.query.impl.predicates.NotPredicate;
-import com.hazelcast.query.impl.predicates.OrPredicate;
-import com.hazelcast.query.impl.predicates.RegexPredicate;
+import com.hazelcast.query.impl.predicates.*;
 
 /**
  * A utility class to create {@link com.hazelcast.query.Predicate} instances.

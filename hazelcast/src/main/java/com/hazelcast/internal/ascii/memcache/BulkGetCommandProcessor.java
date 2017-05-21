@@ -20,11 +20,7 @@ import com.hazelcast.internal.ascii.TextCommandService;
 import com.hazelcast.util.collection.ComposedKeyMap;
 import com.hazelcast.util.collection.InternalSetMultimap;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.internal.ascii.memcache.MemcacheUtils.parseMemcacheKey;
 

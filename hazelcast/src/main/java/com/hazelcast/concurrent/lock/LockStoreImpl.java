@@ -29,12 +29,7 @@ import com.hazelcast.util.ConstructorFunction;
 import com.hazelcast.util.scheduler.EntryTaskScheduler;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -217,7 +212,7 @@ public final class LockStoreImpl implements IdentifiedDataSerializable, LockStor
     }
 
     public Collection<LockResource> getLocks() {
-        return Collections.<LockResource>unmodifiableCollection(locks.values());
+        return Collections.unmodifiableCollection(locks.values());
     }
 
     public void removeLocalLocks() {

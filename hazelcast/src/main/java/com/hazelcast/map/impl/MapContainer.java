@@ -186,10 +186,7 @@ public class MapContainer {
     }
 
     public boolean isWanReplicationEnabled() {
-        if (wanReplicationPublisher == null || wanMergePolicy == null) {
-            return false;
-        }
-        return true;
+        return wanReplicationPublisher != null && wanMergePolicy != null;
     }
 
     public void checkWanReplicationQueues() {

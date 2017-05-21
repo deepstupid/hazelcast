@@ -36,11 +36,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.MIGRATION_LOCAL;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.MIGRATION_ON_MASTER;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.REPLICA_NOT_OWNED;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.REPLICA_NOT_SYNC;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.SAFE;
+import static com.hazelcast.internal.partition.impl.PartitionServiceState.*;
 import static com.hazelcast.spi.partition.IPartitionService.SERVICE_NAME;
 
 /**

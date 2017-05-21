@@ -118,11 +118,7 @@ public class QueueItem implements IdentifiedDataSerializable, Comparable<QueueIt
         if (itemId != item.itemId) {
             return false;
         }
-        if (data != null ? !data.equals(item.data) : item.data != null) {
-            return false;
-        }
-
-        return true;
+        return data != null ? data.equals(item.data) : item.data == null;
     }
 
     @Override

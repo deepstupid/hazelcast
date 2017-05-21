@@ -30,10 +30,7 @@ import org.junit.runner.RunWith;
 
 import java.util.Collections;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})
@@ -46,7 +43,7 @@ public class IndexImplTest {
     @Before
     public void setUp() {
         InternalSerializationService mockSerializationService = mock(InternalSerializationService.class);
-        Extractors mockExtractors = new Extractors(Collections.<MapAttributeConfig>emptyList(), null);
+        Extractors mockExtractors = new Extractors(Collections.emptyList(), null);
         index = new IndexImpl(ATTRIBUTE_NAME, false, mockSerializationService, mockExtractors);
     }
 

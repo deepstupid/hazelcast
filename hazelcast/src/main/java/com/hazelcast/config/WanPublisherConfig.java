@@ -212,7 +212,7 @@ public class WanPublisherConfig implements IdentifiedDataSerializable {
         queueFullBehavior =  WANQueueFullBehavior.getByType(in.readInt());
         int size = in.readInt();
         for (int i = 0; i < size; i++) {
-            properties.put(in.readUTF(), (Comparable) in.readObject());
+            properties.put(in.readUTF(), in.readObject());
         }
         className = in.readUTF();
         implementation = in.readObject();

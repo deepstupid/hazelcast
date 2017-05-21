@@ -27,11 +27,7 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.IOService;
 
 import java.io.IOException;
-import java.nio.channels.ClosedChannelException;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.util.Iterator;
 
 import static com.hazelcast.internal.networking.nio.SelectorMode.SELECT_WITH_FIX;

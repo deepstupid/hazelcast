@@ -16,12 +16,7 @@
 
 package com.hazelcast.internal.config;
 
-import com.hazelcast.config.EvictionConfig;
-import com.hazelcast.config.EvictionPolicy;
-import com.hazelcast.config.InMemoryFormat;
-import com.hazelcast.config.MapConfig;
-import com.hazelcast.config.NearCacheConfig;
-import com.hazelcast.config.NearCachePreloaderConfig;
+import com.hazelcast.config.*;
 import com.hazelcast.instance.BuildInfoProvider;
 import com.hazelcast.internal.eviction.EvictionPolicyComparator;
 import com.hazelcast.logging.ILogger;

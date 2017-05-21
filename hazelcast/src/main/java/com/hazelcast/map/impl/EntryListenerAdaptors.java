@@ -16,22 +16,13 @@
 
 package com.hazelcast.map.impl;
 
-import com.hazelcast.core.EntryEvent;
-import com.hazelcast.core.EntryEventType;
-import com.hazelcast.core.EntryListener;
-import com.hazelcast.core.IMapEvent;
-import com.hazelcast.core.MapEvent;
+import com.hazelcast.core.*;
 import com.hazelcast.util.ConstructorFunction;
 
 import java.util.EnumMap;
 import java.util.Map;
 
-import static com.hazelcast.core.EntryEventType.ADDED;
-import static com.hazelcast.core.EntryEventType.CLEAR_ALL;
-import static com.hazelcast.core.EntryEventType.EVICTED;
-import static com.hazelcast.core.EntryEventType.EVICT_ALL;
-import static com.hazelcast.core.EntryEventType.REMOVED;
-import static com.hazelcast.core.EntryEventType.UPDATED;
+import static com.hazelcast.core.EntryEventType.*;
 
 /**
  * Used to support deprecated {@link com.hazelcast.core.IMap IMap} listener related methods

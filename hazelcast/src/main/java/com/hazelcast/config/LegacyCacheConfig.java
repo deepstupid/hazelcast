@@ -18,9 +18,9 @@ package com.hazelcast.config;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.nio.serialization.DataSerializable;
 import com.hazelcast.nio.serialization.TypedDataSerializable;
-import com.hazelcast.nio.serialization.BinaryInterface;
 
 import javax.cache.configuration.CacheEntryListenerConfiguration;
 import javax.cache.configuration.Factory;
@@ -110,14 +110,14 @@ public class LegacyCacheConfig<K, V> implements DataSerializable, TypedDataSeria
         LegacyCacheEvictionConfig legacyConfig = in.readObject(LegacyCacheEvictionConfig.class);
         config.setEvictionConfig(legacyConfig.getConfig());
 
-        config.setWanReplicationRef((WanReplicationRef) in.readObject());
+        config.setWanReplicationRef(in.readObject());
 
         // SUPER
-        config.setKeyType((Class<K>) in.readObject());
-        config.setValueType((Class<V>) in.readObject());
-        config.setCacheLoaderFactory((Factory<? extends CacheLoader<K, V>>) in.readObject());
-        config.setCacheWriterFactory((Factory<? extends CacheWriter<? super K, ? super V>>) in.readObject());
-        config.setExpiryPolicyFactory((Factory<? extends ExpiryPolicy>) in.readObject());
+        config.setKeyType(in.readObject());
+        config.setValueType(in.readObject());
+        config.setCacheLoaderFactory(in.readObject());
+        config.setCacheWriterFactory(in.readObject());
+        config.setExpiryPolicyFactory(in.readObject());
 
         config.setReadThrough(in.readBoolean());
         config.setWriteThrough(in.readBoolean());
@@ -136,7 +136,7 @@ public class LegacyCacheConfig<K, V> implements DataSerializable, TypedDataSeria
             Set<CacheEntryListenerConfiguration<K, V>> listenerConfigurations =
                     (Set<CacheEntryListenerConfiguration<K, V>>) config.getCacheEntryListenerConfigurations();
             for (int i = 0; i < size; i++) {
-                listenerConfigurations.add((CacheEntryListenerConfiguration<K, V>) in.readObject());
+                listenerConfigurations.add(in.readObject());
             }
         }
 

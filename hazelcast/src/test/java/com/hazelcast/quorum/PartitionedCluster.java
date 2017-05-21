@@ -16,12 +16,7 @@
 
 package com.hazelcast.quorum;
 
-import com.hazelcast.config.CacheSimpleConfig;
-import com.hazelcast.config.Config;
-import com.hazelcast.config.LockConfig;
-import com.hazelcast.config.MapConfig;
-import com.hazelcast.config.QueueConfig;
-import com.hazelcast.config.QuorumConfig;
+import com.hazelcast.config.*;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.MembershipAdapter;
 import com.hazelcast.core.MembershipEvent;
@@ -33,13 +28,7 @@ import com.hazelcast.test.TestHazelcastInstanceFactory;
 
 import java.util.concurrent.CountDownLatch;
 
-import static com.hazelcast.test.HazelcastTestSupport.assertClusterSize;
-import static com.hazelcast.test.HazelcastTestSupport.assertClusterSizeEventually;
-import static com.hazelcast.test.HazelcastTestSupport.assertOpenEventually;
-import static com.hazelcast.test.HazelcastTestSupport.assertTrueEventually;
-import static com.hazelcast.test.HazelcastTestSupport.generateRandomString;
-import static com.hazelcast.test.HazelcastTestSupport.getNode;
-import static com.hazelcast.test.HazelcastTestSupport.suspectMember;
+import static com.hazelcast.test.HazelcastTestSupport.*;
 import static org.junit.Assert.assertFalse;
 
 public class PartitionedCluster {

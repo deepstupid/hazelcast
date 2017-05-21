@@ -18,11 +18,7 @@ package com.hazelcast.replicatedmap.impl.record;
 
 import com.hazelcast.util.IterationType;
 
-import java.util.AbstractSet;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ResultSet<K, V> extends AbstractSet<Map.Entry<K, V>> {
 

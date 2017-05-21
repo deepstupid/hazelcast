@@ -29,16 +29,9 @@ import com.hazelcast.spi.ReadonlyOperation;
 import com.hazelcast.spi.partition.IPartitionService;
 
 import java.io.IOException;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
-import static com.hazelcast.map.impl.MapDataSerializerHook.F_ID;
-import static com.hazelcast.map.impl.MapDataSerializerHook.MAP_INVALIDATION_METADATA;
-import static com.hazelcast.map.impl.MapDataSerializerHook.MAP_INVALIDATION_METADATA_RESPONSE;
+import static com.hazelcast.map.impl.MapDataSerializerHook.*;
 import static com.hazelcast.util.CollectionUtil.isNotEmpty;
 import static com.hazelcast.util.Preconditions.checkTrue;
 

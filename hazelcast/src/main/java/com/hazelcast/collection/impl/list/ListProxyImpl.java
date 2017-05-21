@@ -17,13 +17,7 @@
 package com.hazelcast.collection.impl.list;
 
 import com.hazelcast.collection.impl.collection.AbstractCollectionProxyImpl;
-import com.hazelcast.collection.impl.list.operations.ListAddAllOperation;
-import com.hazelcast.collection.impl.list.operations.ListAddOperation;
-import com.hazelcast.collection.impl.list.operations.ListGetOperation;
-import com.hazelcast.collection.impl.list.operations.ListIndexOfOperation;
-import com.hazelcast.collection.impl.list.operations.ListRemoveOperation;
-import com.hazelcast.collection.impl.list.operations.ListSetOperation;
-import com.hazelcast.collection.impl.list.operations.ListSubOperation;
+import com.hazelcast.collection.impl.list.operations.*;
 import com.hazelcast.config.CollectionConfig;
 import com.hazelcast.core.IList;
 import com.hazelcast.nio.serialization.Data;
@@ -32,11 +26,7 @@ import com.hazelcast.spi.impl.SerializableList;
 import com.hazelcast.spi.impl.UnmodifiableLazyList;
 import com.hazelcast.spi.serialization.SerializationService;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class ListProxyImpl<E> extends AbstractCollectionProxyImpl<ListService, E> implements IList<E> {
 

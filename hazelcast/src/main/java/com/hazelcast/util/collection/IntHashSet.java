@@ -363,7 +363,7 @@ public final class IntHashSet implements Set<Integer> {
         int total = 0;
         while (iterator.hasNext()) {
             // Cast exists for substitutions
-            total += (int) iterator.nextValue();
+            total += iterator.nextValue();
         }
         return total;
     }

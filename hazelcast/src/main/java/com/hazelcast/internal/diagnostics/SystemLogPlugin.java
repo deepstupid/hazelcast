@@ -16,14 +16,7 @@
 
 package com.hazelcast.internal.diagnostics;
 
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.LifecycleEvent;
-import com.hazelcast.core.LifecycleListener;
-import com.hazelcast.core.Member;
-import com.hazelcast.core.MembershipAdapter;
-import com.hazelcast.core.MembershipEvent;
-import com.hazelcast.core.MigrationEvent;
-import com.hazelcast.core.MigrationListener;
+import com.hazelcast.core.*;
 import com.hazelcast.instance.NodeExtension;
 import com.hazelcast.internal.cluster.ClusterVersionListener;
 import com.hazelcast.logging.ILogger;

@@ -29,9 +29,7 @@ import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 
-import static com.hazelcast.test.HazelcastTestSupport.assertOpenEventually;
-import static com.hazelcast.test.HazelcastTestSupport.randomString;
-import static com.hazelcast.test.HazelcastTestSupport.sleepSeconds;
+import static com.hazelcast.test.HazelcastTestSupport.*;
 
 public abstract class AbstractLockQuorumTest {
 

@@ -25,36 +25,21 @@ import com.hazelcast.mapreduce.impl.MapReduceService;
 import com.hazelcast.mapreduce.impl.MapReduceUtil;
 import com.hazelcast.mapreduce.impl.notification.IntermediateChunkNotification;
 import com.hazelcast.mapreduce.impl.notification.LastChunkNotification;
-import com.hazelcast.mapreduce.impl.operation.KeysAssignmentOperation;
-import com.hazelcast.mapreduce.impl.operation.KeysAssignmentResult;
-import com.hazelcast.mapreduce.impl.operation.PostPonePartitionProcessing;
-import com.hazelcast.mapreduce.impl.operation.RequestMemberIdAssignment;
-import com.hazelcast.mapreduce.impl.operation.RequestPartitionMapping;
-import com.hazelcast.mapreduce.impl.operation.RequestPartitionProcessed;
-import com.hazelcast.mapreduce.impl.operation.RequestPartitionReducing;
-import com.hazelcast.mapreduce.impl.operation.RequestPartitionResult;
+import com.hazelcast.mapreduce.impl.operation.*;
 import com.hazelcast.nio.Address;
 import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.spi.partition.IPartitionService;
 import com.hazelcast.spi.serialization.SerializationService;
 import com.hazelcast.util.ExceptionUtil;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.hazelcast.mapreduce.JobPartitionState.State.REDUCING;
 import static com.hazelcast.mapreduce.impl.MapReduceUtil.notifyRemoteException;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.CHECK_STATE_FAILED;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_MORE_PARTITIONS;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_SUPERVISOR;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.SUCCESSFUL;
+import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.*;
 
 /**
  * This class acutally executed the mapping-combine phase. It is responsible for opening / closing

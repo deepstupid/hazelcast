@@ -19,14 +19,7 @@ package com.hazelcast.map.impl;
 import com.hazelcast.core.EntryAdapter;
 import com.hazelcast.core.EntryEvent;
 import com.hazelcast.core.MapEvent;
-import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryEvictedListener;
-import com.hazelcast.map.listener.EntryExpiredListener;
-import com.hazelcast.map.listener.EntryMergedListener;
-import com.hazelcast.map.listener.EntryRemovedListener;
-import com.hazelcast.map.listener.EntryUpdatedListener;
-import com.hazelcast.map.listener.MapClearedListener;
-import com.hazelcast.map.listener.MapEvictedListener;
+import com.hazelcast.map.listener.*;
 
 /**
  *

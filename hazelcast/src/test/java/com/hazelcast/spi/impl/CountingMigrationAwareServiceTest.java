@@ -34,13 +34,8 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static com.hazelcast.spi.impl.CountingMigrationAwareService.IN_FLIGHT_MIGRATION_STAMP;
-import static com.hazelcast.spi.impl.CountingMigrationAwareService.PRIMARY_REPLICA_INDEX;
-import static com.hazelcast.spi.impl.CountingMigrationAwareService.isPrimaryReplicaMigrationEvent;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static com.hazelcast.spi.impl.CountingMigrationAwareService.*;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

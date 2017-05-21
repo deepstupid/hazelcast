@@ -25,12 +25,7 @@ import com.hazelcast.util.EmptyStatement;
 import com.hazelcast.util.UnmodifiableListIterator;
 
 import java.io.IOException;
-import java.util.AbstractList;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class UnmodifiableLazyList<E> extends AbstractList<E> implements IdentifiedDataSerializable {
 

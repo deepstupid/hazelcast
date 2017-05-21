@@ -45,11 +45,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import static com.hazelcast.internal.partition.MigrationInfo.MigrationStatus.SUCCESS;
 import static com.hazelcast.internal.partition.impl.InternalMigrationListenerTest.MigrationProgressEvent.COMMIT;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

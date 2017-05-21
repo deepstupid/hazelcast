@@ -21,13 +21,8 @@ import com.hazelcast.core.Member;
 import com.hazelcast.instance.MemberImpl;
 import com.hazelcast.util.AddressUtil;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 
 public class ConfigMemberGroupFactory extends BackupSafeMemberGroupFactory implements MemberGroupFactory {
 
@@ -45,7 +40,7 @@ public class ConfigMemberGroupFactory extends BackupSafeMemberGroupFactory imple
     protected Set<MemberGroup> createInternalMemberGroups(Collection<? extends Member> members) {
         Map<Integer, MemberGroup> memberGroups = new HashMap<Integer, MemberGroup>();
         for (Member member : members) {
-            String host = ((MemberImpl) member).getAddress().getHost();
+            String host = member.getAddress().getHost();
             for (Entry<Integer, MemberGroupConfig> entry : memberGroupConfigMap.entrySet()) {
                 Collection<String> interfaces = entry.getValue().getInterfaces();
                 boolean match;

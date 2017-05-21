@@ -27,10 +27,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
-import static com.hazelcast.aggregation.TestSamples.createEntryWithValue;
-import static com.hazelcast.aggregation.TestSamples.createExtractableEntryWithValue;
-import static com.hazelcast.aggregation.TestSamples.sampleBigDecimals;
-import static com.hazelcast.aggregation.TestSamples.samplePersons;
+import static com.hazelcast.aggregation.TestSamples.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

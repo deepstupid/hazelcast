@@ -24,9 +24,7 @@ import com.hazelcast.internal.management.JsonSerializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.hazelcast.util.JsonUtil.getArray;
-import static com.hazelcast.util.JsonUtil.getInt;
-import static com.hazelcast.util.JsonUtil.getString;
+import static com.hazelcast.util.JsonUtil.*;
 
 /**
  * A Serializable DTO for {@link com.hazelcast.spi.impl.operationexecutor.slowoperationdetector.SlowOperationLog}.

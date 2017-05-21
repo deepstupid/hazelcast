@@ -25,11 +25,7 @@ import com.hazelcast.quorum.QuorumService;
 import com.hazelcast.replicatedmap.ReplicatedMapCantBeCreatedOnLiteMemberException;
 import com.hazelcast.ringbuffer.Ringbuffer;
 import com.hazelcast.scheduledexecutor.IScheduledExecutorService;
-import com.hazelcast.transaction.HazelcastXAResource;
-import com.hazelcast.transaction.TransactionContext;
-import com.hazelcast.transaction.TransactionException;
-import com.hazelcast.transaction.TransactionOptions;
-import com.hazelcast.transaction.TransactionalTask;
+import com.hazelcast.transaction.*;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentMap;

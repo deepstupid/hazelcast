@@ -22,11 +22,7 @@ import com.hazelcast.nio.ClassLoaderUtil;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
-import javax.script.Bindings;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineFactory;
-import javax.script.ScriptEngineManager;
-import javax.script.SimpleBindings;
+import javax.script.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

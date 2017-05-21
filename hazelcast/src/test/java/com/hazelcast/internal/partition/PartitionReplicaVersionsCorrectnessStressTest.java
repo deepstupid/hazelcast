@@ -28,14 +28,10 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import static com.hazelcast.test.TestPartitionUtils.getReplicaAddresses;
 import static com.hazelcast.test.TestPartitionUtils.getDefaultReplicaVersions;
+import static com.hazelcast.test.TestPartitionUtils.getReplicaAddresses;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.fail;
 

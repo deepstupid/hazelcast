@@ -29,9 +29,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Properties;
 
-import static com.hazelcast.cache.HazelcastCachingProvider.HAZELCAST_CONFIG_LOCATION;
-import static com.hazelcast.cache.HazelcastCachingProvider.HAZELCAST_INSTANCE_ITSELF;
-import static com.hazelcast.cache.HazelcastCachingProvider.HAZELCAST_INSTANCE_NAME;
+import static com.hazelcast.cache.HazelcastCachingProvider.*;
 import static com.hazelcast.util.StringUtil.isNullOrEmptyAfterTrim;
 
 /**

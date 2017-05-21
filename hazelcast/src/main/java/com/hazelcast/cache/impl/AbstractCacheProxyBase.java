@@ -22,22 +22,14 @@ import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.spi.AbstractDistributedObject;
-import com.hazelcast.spi.ExecutionService;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.OperationFactory;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.partition.IPartitionService;
 import com.hazelcast.spi.serialization.SerializationService;
 import com.hazelcast.util.executor.CompletableFutureTask;
 
 import javax.cache.CacheException;
 import javax.cache.integration.CompletionListener;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -206,10 +198,7 @@ abstract class AbstractCacheProxyBase<K, V>
         }
 
         AbstractCacheProxyBase that = (AbstractCacheProxyBase) o;
-        if (nameWithPrefix != null ? !nameWithPrefix.equals(that.nameWithPrefix) : that.nameWithPrefix != null) {
-            return false;
-        }
-        return true;
+        return nameWithPrefix != null ? nameWithPrefix.equals(that.nameWithPrefix) : that.nameWithPrefix == null;
     }
 
     @Override

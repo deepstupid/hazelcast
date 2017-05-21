@@ -21,9 +21,7 @@ import com.hazelcast.mapreduce.impl.MapReduceService;
 import com.hazelcast.mapreduce.impl.task.JobSupervisor;
 import com.hazelcast.mapreduce.impl.task.MemberAssigningJobProcessInformationImpl;
 
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_MORE_PARTITIONS;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_SUPERVISOR;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.SUCCESSFUL;
+import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.*;
 
 /**
  * This operation is used to do some kind of partitionId based processing on non partition based implementations

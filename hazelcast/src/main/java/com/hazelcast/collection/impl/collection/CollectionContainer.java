@@ -26,13 +26,7 @@ import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.transaction.TransactionException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @SuppressWarnings("checkstyle:methodcount")
 public abstract class CollectionContainer implements IdentifiedDataSerializable {
@@ -101,7 +95,7 @@ public abstract class CollectionContainer implements IdentifiedDataSerializable 
         final Collection<CollectionItem> coll = getCollection();
         Map<Long, Data> itemIdMap = new HashMap<Long, Data>(coll.size());
         for (CollectionItem item : coll) {
-            itemIdMap.put(item.getItemId(), (Data) item.getValue());
+            itemIdMap.put(item.getItemId(), item.getValue());
         }
         coll.clear();
         return itemIdMap;
@@ -155,7 +149,7 @@ public abstract class CollectionContainer implements IdentifiedDataSerializable 
             final CollectionItem item = iterator.next();
             final boolean contains = valueSet.contains(item.getValue());
             if ((contains && !retain) || (!contains && retain)) {
-                itemIdMap.put(item.getItemId(), (Data) item.getValue());
+                itemIdMap.put(item.getItemId(), item.getValue());
                 iterator.remove();
             }
         }
@@ -165,7 +159,7 @@ public abstract class CollectionContainer implements IdentifiedDataSerializable 
     public List<Data> getAll() {
         ArrayList<Data> sub = new ArrayList<Data>(getCollection().size());
         for (CollectionItem item : getCollection()) {
-            sub.add((Data) item.getValue());
+            sub.add(item.getValue());
         }
         return sub;
     }

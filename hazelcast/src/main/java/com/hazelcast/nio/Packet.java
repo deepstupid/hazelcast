@@ -22,9 +22,7 @@ import com.hazelcast.spi.annotation.PrivateApi;
 
 import java.nio.ByteBuffer;
 
-import static com.hazelcast.nio.Bits.BYTE_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.INT_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.SHORT_SIZE_IN_BYTES;
+import static com.hazelcast.nio.Bits.*;
 
 /**
  * A Packet is a piece of data sent over the wire. The Packet is used for member to member communication.

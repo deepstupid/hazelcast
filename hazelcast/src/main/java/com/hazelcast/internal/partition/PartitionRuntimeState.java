@@ -23,12 +23,7 @@ import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.hazelcast.internal.partition.InternalPartition.MAX_REPLICA_COUNT;
 import static com.hazelcast.util.StringUtil.LINE_SEPARATOR;
@@ -55,7 +50,7 @@ public final class PartitionRuntimeState implements IdentifiedDataSerializable {
 
     public PartitionRuntimeState(InternalPartition[] partitions, Collection<MigrationInfo> migrationInfos, int version) {
         this.version = version;
-        completedMigrations = migrationInfos != null ? migrationInfos : Collections.<MigrationInfo>emptyList();
+        completedMigrations = migrationInfos != null ? migrationInfos : Collections.emptyList();
         addressToIndexes = createAddressToIndexMap(partitions);
         minimizedPartitionTable = createMinimizedPartitionTable(partitions);
     }
@@ -132,7 +127,7 @@ public final class PartitionRuntimeState implements IdentifiedDataSerializable {
     }
 
     public Collection<MigrationInfo> getCompletedMigrations() {
-        return completedMigrations != null ? completedMigrations : Collections.<MigrationInfo>emptyList();
+        return completedMigrations != null ? completedMigrations : Collections.emptyList();
     }
 
     public MigrationInfo getActiveMigration() {

@@ -18,7 +18,6 @@ package com.hazelcast.internal.util.concurrent;
 
 import com.hazelcast.test.HazelcastTestSupport;
 import com.hazelcast.test.RequireAssertEnabled;
-import com.hazelcast.util.function.Consumer;
 import com.hazelcast.util.function.Predicate;
 import org.junit.Test;
 
@@ -28,10 +27,7 @@ import java.util.NoSuchElementException;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public abstract class AbstractConcurrentArrayQueueTest extends HazelcastTestSupport {
 

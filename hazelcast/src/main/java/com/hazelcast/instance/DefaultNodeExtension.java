@@ -31,9 +31,9 @@ import com.hazelcast.internal.cluster.ClusterStateListener;
 import com.hazelcast.internal.cluster.ClusterVersionListener;
 import com.hazelcast.internal.cluster.impl.JoinMessage;
 import com.hazelcast.internal.cluster.impl.VersionMismatchException;
+import com.hazelcast.internal.networking.ChannelFactory;
 import com.hazelcast.internal.networking.ChannelInboundHandler;
 import com.hazelcast.internal.networking.ChannelOutboundHandler;
-import com.hazelcast.internal.networking.ChannelFactory;
 import com.hazelcast.internal.serialization.InternalSerializationService;
 import com.hazelcast.internal.serialization.SerializationServiceBuilder;
 import com.hazelcast.internal.serialization.impl.DefaultSerializationServiceBuilder;
@@ -45,9 +45,9 @@ import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ClassLoaderUtil;
 import com.hazelcast.nio.IOService;
 import com.hazelcast.nio.MemberSocketInterceptor;
+import com.hazelcast.nio.tcp.MemberChannelInboundHandler;
 import com.hazelcast.nio.tcp.MemberChannelOutboundHandler;
 import com.hazelcast.nio.tcp.PlainChannelFactory;
-import com.hazelcast.nio.tcp.MemberChannelInboundHandler;
 import com.hazelcast.nio.tcp.TcpIpConnection;
 import com.hazelcast.partition.strategy.DefaultPartitioningStrategy;
 import com.hazelcast.security.SecurityContext;
@@ -142,7 +142,7 @@ public class DefaultNodeExtension implements NodeExtension {
 
             byte version = (byte) node.getProperties().getInteger(GroupProperty.SERIALIZATION_VERSION);
 
-            ss = (InternalSerializationService) builder.setClassLoader(configClassLoader)
+            ss = builder.setClassLoader(configClassLoader)
                     .setConfig(serializationConfig)
                     .setManagedContext(hazelcastInstance.managedContext)
                     .setPartitioningStrategy(partitioningStrategy)

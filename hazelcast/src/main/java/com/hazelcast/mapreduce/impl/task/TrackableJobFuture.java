@@ -17,12 +17,7 @@
 package com.hazelcast.mapreduce.impl.task;
 
 import com.hazelcast.core.ICompletableFuture;
-import com.hazelcast.mapreduce.Collator;
-import com.hazelcast.mapreduce.JobCompletableFuture;
-import com.hazelcast.mapreduce.JobPartitionState;
-import com.hazelcast.mapreduce.JobProcessInformation;
-import com.hazelcast.mapreduce.JobTracker;
-import com.hazelcast.mapreduce.TrackableJob;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.mapreduce.impl.MapReduceService;
 import com.hazelcast.nio.Address;
 import com.hazelcast.spi.NodeEngine;

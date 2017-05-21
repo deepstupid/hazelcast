@@ -23,21 +23,7 @@ import com.hazelcast.internal.management.JsonSerializable;
 import com.hazelcast.internal.management.dto.ClientEndPointDTO;
 import com.hazelcast.internal.management.dto.ClusterHotRestartStatusDTO;
 import com.hazelcast.internal.management.dto.MXBeansDTO;
-import com.hazelcast.monitor.HotRestartState;
-import com.hazelcast.monitor.LocalCacheStats;
-import com.hazelcast.monitor.LocalExecutorStats;
-import com.hazelcast.monitor.LocalMapStats;
-import com.hazelcast.monitor.LocalMemoryStats;
-import com.hazelcast.monitor.LocalMultiMapStats;
-import com.hazelcast.monitor.LocalOperationStats;
-import com.hazelcast.monitor.LocalQueueStats;
-import com.hazelcast.monitor.LocalReplicatedMapStats;
-import com.hazelcast.monitor.LocalTopicStats;
-import com.hazelcast.monitor.LocalWanStats;
-import com.hazelcast.monitor.MemberPartitionState;
-import com.hazelcast.monitor.MemberState;
-import com.hazelcast.monitor.NodeState;
-import com.hazelcast.monitor.WanSyncState;
+import com.hazelcast.monitor.*;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -45,9 +31,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import static com.hazelcast.util.JsonUtil.getArray;
-import static com.hazelcast.util.JsonUtil.getObject;
-import static com.hazelcast.util.JsonUtil.getString;
+import static com.hazelcast.util.JsonUtil.*;
 
 @SuppressWarnings("checkstyle:classdataabstractioncoupling")
 public class MemberStateImpl implements MemberState {

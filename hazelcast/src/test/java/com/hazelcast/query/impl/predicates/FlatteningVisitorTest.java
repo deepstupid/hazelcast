@@ -28,16 +28,11 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.query.Predicates.and;
-import static com.hazelcast.query.Predicates.equal;
-import static com.hazelcast.query.Predicates.not;
-import static com.hazelcast.query.Predicates.or;
+import static com.hazelcast.query.Predicates.*;
 import static com.hazelcast.query.impl.TypeConverters.INTEGER_CONVERTER;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.withSettings;
+import static org.mockito.Mockito.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

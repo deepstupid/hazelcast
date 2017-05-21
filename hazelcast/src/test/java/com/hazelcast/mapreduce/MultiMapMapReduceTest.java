@@ -29,11 +29,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -79,7 +75,7 @@ public class MultiMapMapReduceTest
         }
 
         JobTracker jobTracker = h1.getJobTracker("default");
-        Job<Integer, Integer> job = jobTracker.newJob(KeyValueSource.<Integer, Integer>fromMultiMap(multiMap));
+        Job<Integer, Integer> job = jobTracker.newJob(KeyValueSource.fromMultiMap(multiMap));
         ICompletableFuture<Map<String, Integer>> ICompletableFuture = job.chunkSize(10).mapper(new MultiMapMapper())
                 .combiner(new MultiMapCombinerFactory())
                 .reducer(new MultiMapReducerFactory()).submit();

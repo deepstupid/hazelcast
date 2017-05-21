@@ -17,21 +17,8 @@
 package com.hazelcast.multimap.impl;
 
 import com.hazelcast.config.EntryListenerConfig;
-import com.hazelcast.core.EntryListener;
-import com.hazelcast.core.HazelcastException;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.HazelcastInstanceAware;
-import com.hazelcast.core.ICompletableFuture;
-import com.hazelcast.core.MultiMap;
-import com.hazelcast.mapreduce.Collator;
-import com.hazelcast.mapreduce.CombinerFactory;
-import com.hazelcast.mapreduce.Job;
-import com.hazelcast.mapreduce.JobTracker;
-import com.hazelcast.mapreduce.KeyValueSource;
-import com.hazelcast.mapreduce.Mapper;
-import com.hazelcast.mapreduce.MappingJob;
-import com.hazelcast.mapreduce.ReducerFactory;
-import com.hazelcast.mapreduce.ReducingSubmittableJob;
+import com.hazelcast.core.*;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.mapreduce.aggregation.Aggregation;
 import com.hazelcast.mapreduce.aggregation.Supplier;
 import com.hazelcast.monitor.LocalMultiMapStats;
@@ -43,17 +30,10 @@ import com.hazelcast.spi.InitializingObject;
 import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.util.ExceptionUtil;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-import static com.hazelcast.util.Preconditions.checkNotNull;
-import static com.hazelcast.util.Preconditions.checkPositive;
-import static com.hazelcast.util.Preconditions.isNotNull;
+import static com.hazelcast.util.Preconditions.*;
 
 public class ObjectMultiMapProxy<K, V>
         extends MultiMapProxySupport
@@ -316,7 +296,7 @@ public class ObjectMultiMapProxy<K, V>
 
     @Override
     public LocalMultiMapStats getLocalMultiMapStats() {
-        return (LocalMultiMapStats) getService().createStats(name);
+        return getService().createStats(name);
     }
 
     @Override
@@ -362,7 +342,7 @@ public class ObjectMultiMapProxy<K, V>
         final NodeEngine nodeEngine = getNodeEngine();
         Set<K> keySet = new HashSet<K>(dataSet.size());
         for (Data dataKey : dataSet) {
-            keySet.add((K) nodeEngine.toObject(dataKey));
+            keySet.add(nodeEngine.toObject(dataKey));
         }
         return keySet;
     }

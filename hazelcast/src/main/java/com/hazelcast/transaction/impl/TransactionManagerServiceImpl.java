@@ -26,30 +26,12 @@ import com.hazelcast.internal.util.counters.Counter;
 import com.hazelcast.internal.util.counters.MwCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.Address;
-import com.hazelcast.spi.ClientAwareService;
-import com.hazelcast.spi.ExecutionService;
-import com.hazelcast.spi.ManagedService;
-import com.hazelcast.spi.MemberAttributeServiceEvent;
-import com.hazelcast.spi.MembershipAwareService;
-import com.hazelcast.spi.MembershipServiceEvent;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.impl.NodeEngineImpl;
-import com.hazelcast.transaction.TransactionContext;
-import com.hazelcast.transaction.TransactionException;
-import com.hazelcast.transaction.TransactionManagerService;
-import com.hazelcast.transaction.TransactionOptions;
-import com.hazelcast.transaction.TransactionalTask;
+import com.hazelcast.transaction.*;
 import com.hazelcast.transaction.impl.operations.BroadcastTxRollbackOperation;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Future;
@@ -57,12 +39,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 import static com.hazelcast.transaction.impl.Transaction.State;
-import static com.hazelcast.transaction.impl.Transaction.State.ACTIVE;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTING;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLING_BACK;
-import static com.hazelcast.util.FutureUtil.ExceptionHandler;
-import static com.hazelcast.util.FutureUtil.logAllExceptions;
-import static com.hazelcast.util.FutureUtil.waitWithDeadline;
+import static com.hazelcast.transaction.impl.Transaction.State.*;
+import static com.hazelcast.util.FutureUtil.*;
 import static com.hazelcast.util.Preconditions.checkNotNull;
 import static java.util.Collections.shuffle;
 
@@ -313,7 +291,7 @@ public class TransactionManagerServiceImpl implements TransactionManagerService,
     }
 
     private void createBackupLog(String callerUuid, String txnId, boolean allowedDuringPassiveState) {
-        TxBackupLog log = new TxBackupLog(Collections.<TransactionLogRecord>emptyList(), callerUuid,
+        TxBackupLog log = new TxBackupLog(Collections.emptyList(), callerUuid,
                 ACTIVE, -1, -1, allowedDuringPassiveState);
         if (txBackupLogs.putIfAbsent(txnId, log) != null) {
             throw new TransactionException("TxLog already exists!");

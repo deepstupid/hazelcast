@@ -25,9 +25,9 @@ import com.hazelcast.multimap.impl.MultiMapValue;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.spi.impl.NodeEngineImpl;
 import com.hazelcast.spi.partition.IPartitionService;
@@ -109,7 +109,7 @@ public class MultiMapKeyValueSource<K, V>
 
         if (keyIterator != null && keyIterator.hasNext()) {
             Data dataKey = keyIterator.next();
-            key = (K) ss.toObject(dataKey);
+            key = ss.toObject(dataKey);
             MultiMapValue wrapper = multiMapContainer.getMultiMapValueOrNull(dataKey);
             valueIterator = wrapper.getCollection(true).iterator();
             return hasNext();
@@ -133,7 +133,7 @@ public class MultiMapKeyValueSource<K, V>
         }
         simpleEntry.setKey(key);
         Object value = multiMapRecord.getObject();
-        simpleEntry.setValue((V) (isBinary ? ss.toObject((Data) value) : value));
+        simpleEntry.setValue( (V) (isBinary ? ss.toObject(value) : value));
         return simpleEntry;
     }
 

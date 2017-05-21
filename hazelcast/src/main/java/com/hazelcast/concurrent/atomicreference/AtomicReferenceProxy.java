@@ -16,17 +16,7 @@
 
 package com.hazelcast.concurrent.atomicreference;
 
-import com.hazelcast.concurrent.atomicreference.operations.AlterAndGetOperation;
-import com.hazelcast.concurrent.atomicreference.operations.AlterOperation;
-import com.hazelcast.concurrent.atomicreference.operations.ApplyOperation;
-import com.hazelcast.concurrent.atomicreference.operations.CompareAndSetOperation;
-import com.hazelcast.concurrent.atomicreference.operations.ContainsOperation;
-import com.hazelcast.concurrent.atomicreference.operations.GetAndAlterOperation;
-import com.hazelcast.concurrent.atomicreference.operations.GetAndSetOperation;
-import com.hazelcast.concurrent.atomicreference.operations.GetOperation;
-import com.hazelcast.concurrent.atomicreference.operations.IsNullOperation;
-import com.hazelcast.concurrent.atomicreference.operations.SetAndGetOperation;
-import com.hazelcast.concurrent.atomicreference.operations.SetOperation;
+import com.hazelcast.concurrent.atomicreference.operations.*;
 import com.hazelcast.core.AsyncAtomicReference;
 import com.hazelcast.core.IFunction;
 import com.hazelcast.spi.AbstractDistributedObject;

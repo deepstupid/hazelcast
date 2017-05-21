@@ -18,14 +18,7 @@ package com.hazelcast.replicatedmap;
 
 import com.hazelcast.config.Config;
 import com.hazelcast.config.ReplicatedMapConfig;
-import com.hazelcast.core.Hazelcast;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.LifecycleEvent;
-import com.hazelcast.core.LifecycleListener;
-import com.hazelcast.core.MemberAttributeEvent;
-import com.hazelcast.core.MembershipEvent;
-import com.hazelcast.core.MembershipListener;
-import com.hazelcast.core.ReplicatedMap;
+import com.hazelcast.core.*;
 import com.hazelcast.instance.HazelcastInstanceFactory;
 import com.hazelcast.replicatedmap.merge.HigherHitsMapMergePolicy;
 import com.hazelcast.replicatedmap.merge.LatestUpdateMapMergePolicy;

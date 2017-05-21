@@ -18,14 +18,7 @@ package com.hazelcast.transaction.impl;
 
 import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.transaction.TransactionOptions;
-import com.hazelcast.transaction.impl.operations.CreateAllowedDuringPassiveStateTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.CreateTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.PurgeAllowedDuringPassiveStateTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.PurgeTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.ReplicateAllowedDuringPassiveStateTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.ReplicateTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.RollbackAllowedDuringPassiveStateTxBackupLogOperation;
-import com.hazelcast.transaction.impl.operations.RollbackTxBackupLogOperation;
+import com.hazelcast.transaction.impl.operations.*;
 
 import java.util.List;
 

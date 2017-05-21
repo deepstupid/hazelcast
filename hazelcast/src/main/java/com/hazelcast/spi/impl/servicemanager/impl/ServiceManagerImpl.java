@@ -66,14 +66,7 @@ import com.hazelcast.util.ExceptionUtil;
 import com.hazelcast.wan.WanReplicationService;
 
 import java.lang.reflect.Constructor;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -319,7 +312,7 @@ public final class ServiceManagerImpl implements ServiceManager {
                         + ", Service: " + currentServiceInfo.getService());
             }
             if (currentServiceInfo.isManagedService()) {
-                shutdownService((ManagedService) currentServiceInfo.getService(), false);
+                shutdownService(currentServiceInfo.getService(), false);
             }
             services.put(serviceName, serviceInfo);
         }
@@ -335,7 +328,7 @@ public final class ServiceManagerImpl implements ServiceManager {
         final LinkedList<S> result = new LinkedList<S>();
         for (ServiceInfo serviceInfo : services.values()) {
             if (serviceInfo.isInstanceOf(serviceClass)) {
-                final S service = (S) serviceInfo.getService();
+                final S service = serviceInfo.getService();
                 if (serviceInfo.isCoreService()) {
                     result.addFirst(service);
                 } else {

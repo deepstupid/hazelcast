@@ -16,11 +16,7 @@
 
 package com.hazelcast.cache.impl.operation;
 
-import com.hazelcast.cache.impl.CacheClearResponse;
-import com.hazelcast.cache.impl.CacheDataSerializerHook;
-import com.hazelcast.cache.impl.CacheService;
-import com.hazelcast.cache.impl.ICacheRecordStore;
-import com.hazelcast.cache.impl.ICacheService;
+import com.hazelcast.cache.impl.*;
 import com.hazelcast.spi.BackupAwareOperation;
 import com.hazelcast.spi.Operation;
 import com.hazelcast.spi.impl.MutatingOperation;

@@ -21,9 +21,7 @@ import com.hazelcast.internal.ascii.TextCommandConstants;
 
 import java.nio.ByteBuffer;
 
-import static com.hazelcast.internal.ascii.TextCommandConstants.CLIENT_ERROR;
-import static com.hazelcast.internal.ascii.TextCommandConstants.ERROR;
-import static com.hazelcast.internal.ascii.TextCommandConstants.SERVER_ERROR;
+import static com.hazelcast.internal.ascii.TextCommandConstants.*;
 import static com.hazelcast.internal.ascii.TextCommandConstants.TextCommandType.ERROR_CLIENT;
 import static com.hazelcast.internal.ascii.TextCommandConstants.TextCommandType.ERROR_SERVER;
 import static com.hazelcast.nio.IOUtil.copyToHeapBuffer;

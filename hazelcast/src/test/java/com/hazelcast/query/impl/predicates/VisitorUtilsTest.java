@@ -29,9 +29,7 @@ import org.junit.runner.RunWith;
 
 import static com.hazelcast.query.impl.predicates.PredicateTestUtils.createMockVisitablePredicate;
 import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
-import static org.hamcrest.Matchers.arrayWithSize;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 

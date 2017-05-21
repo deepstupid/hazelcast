@@ -31,11 +31,7 @@ import com.hazelcast.nio.BufferObjectDataInput;
 import com.hazelcast.nio.BufferObjectDataOutput;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.nio.serialization.DataSerializable;
-import com.hazelcast.nio.serialization.HazelcastSerializationException;
-import com.hazelcast.nio.serialization.Portable;
-import com.hazelcast.nio.serialization.Serializer;
+import com.hazelcast.nio.serialization.*;
 
 import java.io.Externalizable;
 import java.io.Serializable;
@@ -48,13 +44,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.hazelcast.internal.serialization.impl.SerializationConstants.CONSTANT_SERIALIZERS_LENGTH;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.EMPTY_PARTITIONING_STRATEGY;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.createSerializerAdapter;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.getInterfaces;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.handleException;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.handleSerializeException;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.indexForDefaultType;
-import static com.hazelcast.internal.serialization.impl.SerializationUtil.isNullData;
+import static com.hazelcast.internal.serialization.impl.SerializationUtil.*;
 import static com.hazelcast.util.Preconditions.checkNotNull;
 import static java.nio.ByteOrder.BIG_ENDIAN;
 

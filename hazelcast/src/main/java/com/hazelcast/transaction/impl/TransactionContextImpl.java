@@ -19,22 +19,13 @@ package com.hazelcast.transaction.impl;
 import com.hazelcast.collection.impl.list.ListService;
 import com.hazelcast.collection.impl.queue.QueueService;
 import com.hazelcast.collection.impl.set.SetService;
-import com.hazelcast.core.TransactionalList;
-import com.hazelcast.core.TransactionalMap;
-import com.hazelcast.core.TransactionalMultiMap;
-import com.hazelcast.core.TransactionalQueue;
-import com.hazelcast.core.TransactionalSet;
+import com.hazelcast.core.*;
 import com.hazelcast.map.impl.MapService;
 import com.hazelcast.multimap.impl.MultiMapService;
 import com.hazelcast.spi.ProxyService;
 import com.hazelcast.spi.TransactionalService;
 import com.hazelcast.spi.impl.NodeEngineImpl;
-import com.hazelcast.transaction.HazelcastXAResource;
-import com.hazelcast.transaction.TransactionContext;
-import com.hazelcast.transaction.TransactionException;
-import com.hazelcast.transaction.TransactionNotActiveException;
-import com.hazelcast.transaction.TransactionOptions;
-import com.hazelcast.transaction.TransactionalObject;
+import com.hazelcast.transaction.*;
 import com.hazelcast.transaction.impl.xa.XAService;
 
 import javax.transaction.xa.XAResource;
@@ -136,11 +127,7 @@ final class TransactionContextImpl implements TransactionContext {
             return false;
         }
 
-        if (serviceName.equals(MultiMapService.SERVICE_NAME)) {
-            return false;
-        }
-
-        return true;
+        return !serviceName.equals(MultiMapService.SERVICE_NAME);
     }
 
     private TransactionalService getTransactionalService(String serviceName) {

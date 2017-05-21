@@ -28,21 +28,9 @@ import com.hazelcast.spi.properties.HazelcastProperties;
 import com.hazelcast.util.AddressUtil;
 
 import java.io.IOException;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.NetworkInterface;
-import java.net.ServerSocket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.nio.channels.ServerSocketChannel;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
@@ -416,10 +404,7 @@ class DefaultAddressPicker implements AddressPicker {
             if (address != null ? !address.equals(that.address) : that.address != null) {
                 return false;
             }
-            if (host != null ? !host.equals(that.host) : that.host != null) {
-                return false;
-            }
-            return true;
+            return host != null ? host.equals(that.host) : that.host == null;
         }
 
         @Override
@@ -467,11 +452,7 @@ class DefaultAddressPicker implements AddressPicker {
             if (port != that.port) {
                 return false;
             }
-            if (inetAddress != null ? !inetAddress.equals(that.inetAddress) : that.inetAddress != null) {
-                return false;
-            }
-
-            return true;
+            return inetAddress != null ? inetAddress.equals(that.inetAddress) : that.inetAddress == null;
         }
 
         @Override

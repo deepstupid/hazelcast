@@ -28,9 +28,7 @@ import com.hazelcast.spi.serialization.SerializationService;
 
 import java.io.IOException;
 
-import static com.hazelcast.config.InMemoryFormat.BINARY;
-import static com.hazelcast.config.InMemoryFormat.OBJECT;
-import static com.hazelcast.config.InMemoryFormat.values;
+import static com.hazelcast.config.InMemoryFormat.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 

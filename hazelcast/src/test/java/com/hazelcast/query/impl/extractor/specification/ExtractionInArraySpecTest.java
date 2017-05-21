@@ -33,17 +33,10 @@ import java.util.Collection;
 
 import static com.hazelcast.config.InMemoryFormat.BINARY;
 import static com.hazelcast.config.InMemoryFormat.OBJECT;
-import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.NO_INDEX;
-import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.ORDERED;
-import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.UNORDERED;
+import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.*;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Multivalue.ARRAY;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Multivalue.PORTABLE;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.Finger;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.Person;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.finger;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.limb;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.person;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.tattoos;
+import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.*;
 import static java.util.Arrays.asList;
 
 /**
@@ -70,7 +63,7 @@ public class ExtractionInArraySpecTest extends AbstractExtractionTest {
     );
 
     private static final Person HUNT_NULL_TATTOOS = person("Hunt",
-            limb("left", null, new Finger[]{})
+            limb("left", null)
     );
 
     private static final Person HUNT_NULL_LIMB = person("Hunt");

@@ -35,9 +35,7 @@ import java.io.IOException;
 
 import static com.hazelcast.config.AbstractXmlConfigHelper.asElementIterable;
 import static com.hazelcast.config.AbstractXmlConfigHelper.cleanNodeName;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

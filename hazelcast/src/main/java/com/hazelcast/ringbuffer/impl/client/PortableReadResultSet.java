@@ -60,7 +60,7 @@ public class PortableReadResultSet<E> implements Portable, ReadResultSet<E> {
     public Iterator<E> iterator() {
         List<E> result = new ArrayList<E>(items.size());
         for (Data data : items) {
-            result.add((E) serializationService.toObject(data));
+            result.add(serializationService.toObject(data));
         }
         return unmodifiableList(result).iterator();
     }

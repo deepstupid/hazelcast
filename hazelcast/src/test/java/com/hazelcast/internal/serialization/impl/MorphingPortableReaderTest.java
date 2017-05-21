@@ -17,13 +17,7 @@
 package com.hazelcast.internal.serialization.impl;
 
 import com.hazelcast.nio.BufferObjectDataInput;
-import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.nio.serialization.MorphingBasePortable;
-import com.hazelcast.nio.serialization.MorphingPortable;
-import com.hazelcast.nio.serialization.Portable;
-import com.hazelcast.nio.serialization.PortableFactory;
-import com.hazelcast.nio.serialization.PortableReader;
-import com.hazelcast.nio.serialization.TestSerializationConstants;
+import com.hazelcast.nio.serialization.*;
 import com.hazelcast.test.HazelcastParallelClassRunner;
 import com.hazelcast.test.annotation.ParallelTest;
 import com.hazelcast.test.annotation.QuickTest;
@@ -33,10 +27,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * MorphingPortableReader Tester.
@@ -52,7 +43,7 @@ public class MorphingPortableReaderTest {
 
     @Before
     public void before() throws Exception {
-        service1 = (SerializationServiceV1) new DefaultSerializationServiceBuilder()
+        service1 = new DefaultSerializationServiceBuilder()
                 .addPortableFactory(TestSerializationConstants.PORTABLE_FACTORY_ID, new PortableFactory() {
                     public Portable create(int classId) {
                         return new MorphingBasePortable();
@@ -60,7 +51,7 @@ public class MorphingPortableReaderTest {
 
                 }).build();
 
-        service2 = (SerializationServiceV1) new DefaultSerializationServiceBuilder()
+        service2 = new DefaultSerializationServiceBuilder()
                 .addPortableFactory(TestSerializationConstants.PORTABLE_FACTORY_ID, new PortableFactory() {
                     public Portable create(int classId) {
                         return new MorphingPortable();

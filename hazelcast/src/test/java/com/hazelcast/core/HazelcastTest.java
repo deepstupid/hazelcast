@@ -28,10 +28,7 @@ import org.junit.runner.RunWith;
 
 import static com.hazelcast.core.Hazelcast.getAllHazelcastInstances;
 import static java.util.Collections.emptySet;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)

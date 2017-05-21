@@ -61,7 +61,7 @@ public class SetAdapter<E>
         int size = in.readInt();
         Set<E> set = new HashSet<E>(size);
         for (int i = 0; i < size; i++) {
-            set.add((E) in.readObject());
+            set.add(in.readObject());
         }
         addAll(set);
     }

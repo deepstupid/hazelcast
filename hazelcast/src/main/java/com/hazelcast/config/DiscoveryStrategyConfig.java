@@ -34,7 +34,7 @@ public class DiscoveryStrategyConfig {
     private final DiscoveryStrategyFactory discoveryStrategyFactory;
 
     public DiscoveryStrategyConfig(String className) {
-        this(className, Collections.<String, Comparable>emptyMap());
+        this(className, Collections.emptyMap());
     }
 
     public DiscoveryStrategyConfig(String className, Map<String, Comparable> properties) {
@@ -45,7 +45,7 @@ public class DiscoveryStrategyConfig {
 
 
     public DiscoveryStrategyConfig(DiscoveryStrategyFactory discoveryStrategyFactory) {
-        this(discoveryStrategyFactory, Collections.<String, Comparable>emptyMap());
+        this(discoveryStrategyFactory, Collections.emptyMap());
     }
 
     public DiscoveryStrategyConfig(DiscoveryStrategyFactory discoveryStrategyFactory, Map<String, Comparable> properties) {

@@ -31,12 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReferenceArray;
@@ -404,7 +399,7 @@ public class BounceMemberRule implements TestRule {
                 Future future = iterator.next();
                 try {
                     // if the test failed, try to locate immediately the future that is done and will throw an exception
-                    if ((hasTestFailed && future.isDone()) || !hasTestFailed) {
+                    if (!hasTestFailed || future.isDone()) {
                         future.get(1, SECONDS);
                         iterator.remove();
                     }

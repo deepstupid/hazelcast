@@ -46,33 +46,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.GroupPortable;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.BooleanArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.ByteArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.CharArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.DoubleArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.FloatArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.Generic;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.IntArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.LongArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.Portable;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.PortableArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.ShortArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.UTF;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.UTFArray;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.getArrayMethodFor;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.getPrimitiveArrays;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.getPrimitives;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.NestedGroupPortable;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.PrimitivePortable;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.PrimitivePortable.Init.FULL;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.PrimitivePortable.Init.NONE;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.PrimitivePortable.Init.NULL;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.TestPortableFactory;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.group;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.nested;
-import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.prim;
+import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.*;
+import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.Method.*;
+import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderTestStructure.PrimitivePortable.Init.*;
 import static java.util.Arrays.asList;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.isA;
@@ -1314,7 +1290,7 @@ public class DefaultPortableReaderSpecTest extends HazelcastTestSupport {
             // hack to get rid of de-serialization cost (assuming in-memory-format is BINARY, if it is OBJECT you can replace
             // the null check below with entry.getValue() != null), but works only for versions >= 3.6
             if (key.equals(entry.getKey())) {
-                stolenEntryData = (Data) ((LazyMapEntry) entry).getValueData();
+                stolenEntryData = ((LazyMapEntry) entry).getValueData();
             }
             return null;
         }

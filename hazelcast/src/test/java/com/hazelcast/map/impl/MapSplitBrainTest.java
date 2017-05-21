@@ -17,11 +17,7 @@
 package com.hazelcast.map.impl;
 
 import com.hazelcast.config.Config;
-import com.hazelcast.core.EntryView;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
-import com.hazelcast.core.LifecycleEvent;
-import com.hazelcast.core.LifecycleListener;
+import com.hazelcast.core.*;
 import com.hazelcast.map.merge.MapMergePolicy;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;

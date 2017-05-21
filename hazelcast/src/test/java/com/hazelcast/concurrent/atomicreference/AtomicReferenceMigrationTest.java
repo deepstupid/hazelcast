@@ -118,11 +118,7 @@ public class AtomicReferenceMigrationTest extends HazelcastTestSupport {
 
             SimpleObject that = (SimpleObject) o;
 
-            if (field != that.field) {
-                return false;
-            }
-
-            return true;
+            return field == that.field;
         }
 
         @Override

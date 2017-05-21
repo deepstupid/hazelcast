@@ -34,9 +34,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static com.hazelcast.spi.Operation.GENERIC_PARTITION_ID;
-import static com.hazelcast.spi.properties.GroupProperty.PARTITION_OPERATION_THREAD_COUNT;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_LOG_RETENTION_SECONDS;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_THRESHOLD_MILLIS;
+import static com.hazelcast.spi.properties.GroupProperty.*;
 import static java.lang.String.valueOf;
 
 @RunWith(HazelcastParallelClassRunner.class)

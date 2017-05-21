@@ -35,9 +35,7 @@ import javax.cache.spi.CachingProvider;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import static com.hazelcast.cache.HazelcastCachingProvider.propertiesByInstanceItself;
-import static com.hazelcast.cache.HazelcastCachingProvider.propertiesByInstanceName;
-import static com.hazelcast.cache.HazelcastCachingProvider.propertiesByLocation;
+import static com.hazelcast.cache.HazelcastCachingProvider.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastSerialClassRunner.class)

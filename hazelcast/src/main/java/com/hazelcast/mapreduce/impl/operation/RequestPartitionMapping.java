@@ -29,9 +29,7 @@ import java.util.List;
 import static com.hazelcast.mapreduce.JobPartitionState.State.MAPPING;
 import static com.hazelcast.mapreduce.JobPartitionState.State.WAITING;
 import static com.hazelcast.mapreduce.impl.MapReduceUtil.stateChange;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_MORE_PARTITIONS;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_SUPERVISOR;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.SUCCESSFUL;
+import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.*;
 
 /**
  * This operation requests a new partition to process by the requester on the job owning node

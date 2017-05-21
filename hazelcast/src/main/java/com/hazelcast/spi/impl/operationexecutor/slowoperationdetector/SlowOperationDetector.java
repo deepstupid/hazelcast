@@ -30,11 +30,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_ENABLED;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_LOG_PURGE_INTERVAL_SECONDS;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_LOG_RETENTION_SECONDS;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_STACK_TRACE_LOGGING_ENABLED;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_THRESHOLD_MILLIS;
+import static com.hazelcast.spi.properties.GroupProperty.*;
 import static com.hazelcast.util.ThreadUtil.createThreadName;
 import static java.lang.String.format;
 

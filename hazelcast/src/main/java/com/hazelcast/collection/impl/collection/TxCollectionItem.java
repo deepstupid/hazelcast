@@ -94,11 +94,7 @@ public class TxCollectionItem extends CollectionItem {
         if (removeOperation != that.removeOperation) {
             return false;
         }
-        if (!transactionId.equals(that.transactionId)) {
-            return false;
-        }
-
-        return true;
+        return transactionId.equals(that.transactionId);
     }
 
     @Override

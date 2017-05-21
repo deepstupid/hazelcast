@@ -84,7 +84,7 @@ public class MultiMapTransactionLogRecord implements TransactionLogRecord {
         partitionId = in.readInt();
         int size = in.readInt();
         for (int i = 0; i < size; i++) {
-            opList.add((Operation) in.readObject());
+            opList.add(in.readObject());
         }
         key = in.readData();
         ttl = in.readLong();

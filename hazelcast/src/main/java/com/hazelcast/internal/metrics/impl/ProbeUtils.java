@@ -18,11 +18,7 @@ package com.hazelcast.internal.metrics.impl;
 
 import com.hazelcast.internal.util.counters.Counter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;

@@ -24,12 +24,7 @@ import com.hazelcast.config.ListConfig;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.spi.NodeEngine;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
+import java.util.*;
 
 public class ListContainer extends CollectionContainer {
 
@@ -154,7 +149,7 @@ public class ListContainer extends CollectionContainer {
         }
         final ArrayList<Data> sub = new ArrayList<Data>(list.size());
         for (CollectionItem item : list) {
-            sub.add((Data) item.getValue());
+            sub.add(item.getValue());
         }
         return sub;
     }

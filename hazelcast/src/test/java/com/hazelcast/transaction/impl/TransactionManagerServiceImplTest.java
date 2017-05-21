@@ -31,13 +31,8 @@ import org.junit.runner.RunWith;
 import java.util.LinkedList;
 import java.util.List;
 
-import static com.hazelcast.transaction.impl.Transaction.State.ACTIVE;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTING;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLED_BACK;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLING_BACK;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
+import static com.hazelcast.transaction.impl.Transaction.State.*;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category(QuickTest.class)

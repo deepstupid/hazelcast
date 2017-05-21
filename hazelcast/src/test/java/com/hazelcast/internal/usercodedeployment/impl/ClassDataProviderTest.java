@@ -28,9 +28,7 @@ import org.junit.runner.RunWith;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import static com.hazelcast.config.UserCodeDeploymentConfig.ProviderMode.LOCAL_AND_CACHED_CLASSES;
-import static com.hazelcast.config.UserCodeDeploymentConfig.ProviderMode.LOCAL_CLASSES_ONLY;
-import static com.hazelcast.config.UserCodeDeploymentConfig.ProviderMode.OFF;
+import static com.hazelcast.config.UserCodeDeploymentConfig.ProviderMode.*;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;

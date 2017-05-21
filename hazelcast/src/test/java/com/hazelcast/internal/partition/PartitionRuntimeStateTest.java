@@ -84,7 +84,7 @@ public class PartitionRuntimeStateTest extends HazelcastTestSupport {
 
     private PartitionRuntimeState createPartitionState(int partitionId, Address... addresss) throws UnknownHostException {
         DummyInternalPartition partition = new DummyInternalPartition(addresss, partitionId);
-        return new PartitionRuntimeState(new InternalPartition[]{partition}, Collections.<MigrationInfo>emptyList(), partitionId);
+        return new PartitionRuntimeState(new InternalPartition[]{partition}, Collections.emptyList(), partitionId);
     }
 
     private Address address(String host, int port) throws UnknownHostException {

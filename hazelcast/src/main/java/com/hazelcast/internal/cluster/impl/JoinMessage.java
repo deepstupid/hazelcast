@@ -50,7 +50,7 @@ public class JoinMessage implements IdentifiedDataSerializable {
     public JoinMessage(byte packetVersion, int buildNumber, MemberVersion memberVersion, Address address,
                        String uuid, boolean liteMember, ConfigCheck configCheck) {
         this(packetVersion, buildNumber, memberVersion, address, uuid, liteMember, configCheck,
-                Collections.<Address>emptySet(), 0);
+                Collections.emptySet(), 0);
     }
 
     public JoinMessage(byte packetVersion, int buildNumber, MemberVersion memberVersion, Address address, String uuid,
@@ -99,7 +99,7 @@ public class JoinMessage implements IdentifiedDataSerializable {
     }
 
     public Collection<Address> getMemberAddresses() {
-        return memberAddresses != null ? memberAddresses : Collections.<Address>emptySet();
+        return memberAddresses != null ? memberAddresses : Collections.emptySet();
     }
 
     public int getDataMemberCount() {

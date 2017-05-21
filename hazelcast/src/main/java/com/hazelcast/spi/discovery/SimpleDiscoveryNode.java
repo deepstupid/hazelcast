@@ -44,7 +44,7 @@ public final class SimpleDiscoveryNode
      * @param privateAddress the discovered node's private address
      */
     public SimpleDiscoveryNode(Address privateAddress) {
-        this(privateAddress, privateAddress, Collections.<String, Object>emptyMap());
+        this(privateAddress, privateAddress, Collections.emptyMap());
     }
 
     /**
@@ -67,7 +67,7 @@ public final class SimpleDiscoveryNode
      * @param publicAddress  the discovered node's public address
      */
     public SimpleDiscoveryNode(Address privateAddress, Address publicAddress) {
-        this(privateAddress, publicAddress, Collections.<String, Object>emptyMap());
+        this(privateAddress, publicAddress, Collections.emptyMap());
     }
 
     /**

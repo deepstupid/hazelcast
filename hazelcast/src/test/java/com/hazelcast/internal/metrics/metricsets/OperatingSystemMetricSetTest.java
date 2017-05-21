@@ -33,9 +33,7 @@ import java.lang.management.OperatingSystemMXBean;
 
 import static com.hazelcast.internal.metrics.ProbeLevel.INFO;
 import static com.hazelcast.internal.metrics.metricsets.OperatingSystemMetricSet.registerMethod;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.junit.Assume.assumeTrue;
 
 // The operating system sensor pack is very hard to test because you never know the

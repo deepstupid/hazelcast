@@ -30,11 +30,7 @@ import static com.hazelcast.config.MapStoreConfig.DEFAULT_WRITE_BATCH_SIZE;
 import static com.hazelcast.config.MapStoreConfig.DEFAULT_WRITE_DELAY_SECONDS;
 import static com.hazelcast.config.MapStoreConfig.InitialLoadMode.EAGER;
 import static com.hazelcast.config.MapStoreConfig.InitialLoadMode.LAZY;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

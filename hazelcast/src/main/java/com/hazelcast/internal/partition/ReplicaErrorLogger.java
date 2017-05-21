@@ -17,11 +17,7 @@
 package com.hazelcast.internal.partition;
 
 import com.hazelcast.logging.ILogger;
-import com.hazelcast.spi.exception.CallerNotMemberException;
-import com.hazelcast.spi.exception.PartitionMigratingException;
-import com.hazelcast.spi.exception.RetryableException;
-import com.hazelcast.spi.exception.TargetNotMemberException;
-import com.hazelcast.spi.exception.WrongTargetException;
+import com.hazelcast.spi.exception.*;
 
 import java.util.logging.Level;
 

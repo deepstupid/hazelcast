@@ -190,10 +190,7 @@ public final class ClassLocator {
         if (member.localMember()) {
             return true;
         }
-        if (!memberFilter.accept(member)) {
-            return true;
-        }
-        return false;
+        return !memberFilter.accept(member);
     }
 
     public Class<?> findLoadedClass(String name) {

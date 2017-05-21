@@ -16,12 +16,7 @@
 
 package com.hazelcast.mapreduce.aggregation.impl;
 
-import com.hazelcast.mapreduce.Collator;
-import com.hazelcast.mapreduce.Combiner;
-import com.hazelcast.mapreduce.CombinerFactory;
-import com.hazelcast.mapreduce.Mapper;
-import com.hazelcast.mapreduce.Reducer;
-import com.hazelcast.mapreduce.ReducerFactory;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.mapreduce.aggregation.Supplier;
 import com.hazelcast.nio.serialization.BinaryInterface;
 

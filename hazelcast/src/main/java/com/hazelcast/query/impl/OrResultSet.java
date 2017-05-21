@@ -16,12 +16,7 @@
 
 package com.hazelcast.query.impl;
 
-import java.util.AbstractSet;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Or result set for Predicates.

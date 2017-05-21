@@ -16,23 +16,7 @@
 
 package com.hazelcast.aggregation;
 
-import com.hazelcast.aggregation.impl.BigDecimalAverageAggregator;
-import com.hazelcast.aggregation.impl.BigDecimalSumAggregator;
-import com.hazelcast.aggregation.impl.BigIntegerAverageAggregator;
-import com.hazelcast.aggregation.impl.BigIntegerSumAggregator;
-import com.hazelcast.aggregation.impl.CountAggregator;
-import com.hazelcast.aggregation.impl.DistinctValuesAggregator;
-import com.hazelcast.aggregation.impl.DoubleAverageAggregator;
-import com.hazelcast.aggregation.impl.DoubleSumAggregator;
-import com.hazelcast.aggregation.impl.FixedSumAggregator;
-import com.hazelcast.aggregation.impl.FloatingPointSumAggregator;
-import com.hazelcast.aggregation.impl.IntegerAverageAggregator;
-import com.hazelcast.aggregation.impl.IntegerSumAggregator;
-import com.hazelcast.aggregation.impl.LongAverageAggregator;
-import com.hazelcast.aggregation.impl.LongSumAggregator;
-import com.hazelcast.aggregation.impl.MaxAggregator;
-import com.hazelcast.aggregation.impl.MinAggregator;
-import com.hazelcast.aggregation.impl.NumberAverageAggregator;
+import com.hazelcast.aggregation.impl.*;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

@@ -17,11 +17,7 @@
 package com.hazelcast.test.mocknetwork;
 
 import com.hazelcast.cluster.Joiner;
-import com.hazelcast.instance.AddressPicker;
-import com.hazelcast.instance.Node;
-import com.hazelcast.instance.NodeContext;
-import com.hazelcast.instance.NodeExtension;
-import com.hazelcast.instance.NodeExtensionFactory;
+import com.hazelcast.instance.*;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ConnectionManager;
 import com.hazelcast.nio.NodeIOService;
@@ -38,7 +34,7 @@ public class MockNodeContext implements NodeContext {
     private final Set<Address> initiallyBlockedAddresses;
 
     protected MockNodeContext(TestNodeRegistry registry, Address thisAddress) {
-        this(registry, thisAddress, Collections.<Address>emptySet());
+        this(registry, thisAddress, Collections.emptySet());
     }
 
     protected MockNodeContext(TestNodeRegistry registry, Address thisAddress, Set<Address> initiallyBlockedAddresses) {

@@ -22,12 +22,7 @@ import com.hazelcast.instance.HazelcastInstanceProxy;
 import com.hazelcast.internal.serialization.impl.SerializationServiceV1;
 import com.hazelcast.map.AbstractEntryProcessor;
 import com.hazelcast.map.impl.LazyMapEntry;
-import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.nio.serialization.HazelcastSerializationException;
-import com.hazelcast.nio.serialization.Portable;
-import com.hazelcast.nio.serialization.PortableFactory;
-import com.hazelcast.nio.serialization.PortableReader;
-import com.hazelcast.nio.serialization.PortableWriter;
+import com.hazelcast.nio.serialization.*;
 import com.hazelcast.test.HazelcastSerialClassRunner;
 import com.hazelcast.test.HazelcastTestSupport;
 import com.hazelcast.test.annotation.QuickTest;
@@ -39,10 +34,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static com.hazelcast.nio.serialization.impl.DefaultPortableReaderQuickTest.WheelPortable.w;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)
@@ -410,7 +402,7 @@ public class DefaultPortableReaderQuickTest extends HazelcastTestSupport {
             // hack to get rid of de-serialization cost (assuming in-memory-format is BINARY, if it is OBJECT you can replace
             // the null check below with entry.getValue() != null), but works only for versions >= 3.6
             if (key.equals(entry.getKey())) {
-                stolenEntryData = (Data) ((LazyMapEntry) entry).getValueData();
+                stolenEntryData = ((LazyMapEntry) entry).getValueData();
             }
             return null;
         }

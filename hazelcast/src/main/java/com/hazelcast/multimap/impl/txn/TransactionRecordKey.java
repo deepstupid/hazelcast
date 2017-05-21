@@ -43,11 +43,7 @@ class TransactionRecordKey {
         if (!key.equals(that.key)) {
             return false;
         }
-        if (!name.equals(that.name)) {
-            return false;
-        }
-
-        return true;
+        return name.equals(that.name);
     }
 
     @Override

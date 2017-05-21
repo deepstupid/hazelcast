@@ -18,8 +18,8 @@ package com.hazelcast.internal.networking.nio.iobalancer;
 
 import com.hazelcast.internal.metrics.Probe;
 import com.hazelcast.internal.networking.nio.MigratableHandler;
-import com.hazelcast.internal.networking.nio.NioChannelWriter;
 import com.hazelcast.internal.networking.nio.NioChannelReader;
+import com.hazelcast.internal.networking.nio.NioChannelWriter;
 import com.hazelcast.internal.networking.nio.NioThread;
 import com.hazelcast.internal.util.counters.MwCounter;
 import com.hazelcast.internal.util.counters.SwCounter;

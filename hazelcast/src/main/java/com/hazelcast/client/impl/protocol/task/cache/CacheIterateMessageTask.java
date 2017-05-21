@@ -54,7 +54,7 @@ public class CacheIterateMessageTask
     @Override
     protected ClientMessage encodeResponse(Object response) {
         if (response == null) {
-            return CacheIterateCodec.encodeResponse(0, Collections.<Data>emptyList());
+            return CacheIterateCodec.encodeResponse(0, Collections.emptyList());
         }
         CacheKeyIterationResult keyIteratorResult = (CacheKeyIterationResult) response;
         return CacheIterateCodec.encodeResponse(keyIteratorResult.getTableIndex(), keyIteratorResult.getKeys());

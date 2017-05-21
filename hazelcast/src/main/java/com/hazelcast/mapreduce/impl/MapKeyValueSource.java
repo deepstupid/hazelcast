@@ -24,9 +24,9 @@ import com.hazelcast.mapreduce.PartitionIdAware;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.spi.impl.NodeEngineImpl;
 import com.hazelcast.spi.partition.IPartitionService;
@@ -115,9 +115,9 @@ public class MapKeyValueSource<K, V>
             throw new IllegalStateException("no more elements");
         }
         if (!currentRecord.getKey().equals(cachedEntry.getKeyData())) {
-            cachedEntry.setKey((K) ss.toObject(currentRecord.getKey()));
+            cachedEntry.setKey(ss.toObject(currentRecord.getKey()));
         }
-        cachedEntry.setValue((V) ss.toObject(currentRecord.getValue()));
+        cachedEntry.setValue(ss.toObject(currentRecord.getValue()));
         return cachedEntry;
     }
 

@@ -17,13 +17,13 @@
 package com.hazelcast.util.executor;
 
 import com.hazelcast.instance.OutOfMemoryErrorDispatcher;
+import com.hazelcast.internal.util.concurrent.ManyToOneConcurrentArrayQueue;
 import com.hazelcast.internal.util.counters.SwCounter;
 import com.hazelcast.logging.ILogger;
 
 import java.util.Random;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
@@ -37,7 +37,7 @@ import static java.lang.Math.ceil;
  * When a task is 'executed' on the StripedExecutor, the task is checked if it is a StripedRunnable. If it
  * is, the right worker is looked up and the task put in the queue of that worker. If the task is not a
  * StripedRunnable, a random worker is looked up.
- *
+ * <p>
  * If the queue is full and the runnable implements TimeoutRunnable, then a configurable amount of blocking is
  * done on the queue. If the runnable doesn't implement TimeoutRunnable or when the blocking times out,
  * then the task is rejected and a RejectedExecutionException is thrown.
@@ -138,15 +138,9 @@ public final class StripedExecutor implements Executor {
     }
 
     private Worker getWorker(Runnable command) {
-        final int key;
-        if (command instanceof StripedRunnable) {
-            key = ((StripedRunnable) command).getKey();
-        } else {
-            key = rand.nextInt();
-        }
-
-        int index = hashToIndex(key, size);
-        return workers[index];
+        return workers[(command instanceof StripedRunnable) ?
+                hashToIndex(((StripedRunnable) command).getKey(), size) :
+                rand.nextInt(size)];
     }
 
     // used in tests.
@@ -156,13 +150,16 @@ public final class StripedExecutor implements Executor {
 
     final class Worker extends Thread {
 
-        private final BlockingQueue<Runnable> workQueue;
+        private final ManyToOneConcurrentArrayQueue<Runnable> workQueue;
+
         private final SwCounter processed = SwCounter.newSwCounter();
         private final int queueCapacity;
 
         private Worker(String threadNamePrefix, int queueCapacity) {
             super(threadNamePrefix + "-" + THREAD_ID_GENERATOR.incrementAndGet());
-            this.workQueue = new LinkedBlockingQueue<Runnable>(queueCapacity);
+            this.workQueue =
+                    //new LinkedBlockingQueue<Runnable>(queueCapacity);
+                    new ManyToOneConcurrentArrayQueue(queueCapacity);
             this.queueCapacity = queueCapacity;
         }
 
@@ -180,7 +177,7 @@ public final class StripedExecutor implements Executor {
                 if (timeout == 0) {
                     offered = workQueue.offer(command);
                 } else {
-                    offered = workQueue.offer(command, timeout, timeUnit);
+                    offered = offerLast(command, timeout, timeUnit);
                 }
             } catch (InterruptedException e) {
                 throw new RejectedExecutionException("Thread is interrupted while offering work");
@@ -191,18 +188,38 @@ public final class StripedExecutor implements Executor {
             }
         }
 
+        public boolean offerLast(Runnable e, long timeout, TimeUnit unit)
+                throws InterruptedException {
+            if (e == null) throw new NullPointerException();
+
+            long tooLate = System.currentTimeMillis() + unit.toMillis(timeout);
+            while (!workQueue.offer(e)) {
+                if (System.currentTimeMillis() >= tooLate)
+                    return false;
+                Thread.yield();
+//                    if (nanos <= 0L)
+//                        return false;
+                //nanos = notFull.awaitNanos(nanos);
+            }
+            return true;
+        }
+
         @Override
         public void run() {
             for (; ; ) {
                 try {
-                    try {
-                        Runnable task = workQueue.take();
+
+                    Runnable task = workQueue.poll();
+                    if (task != null)
                         process(task);
-                    } catch (InterruptedException e) {
-                        if (!live) {
-                            return;
-                        }
+
+
+                    if (!live) {
+                        return;
                     }
+
+                    Thread.yield(); //HACK busy spin
+
                 } catch (Throwable t) {
                     //This should not happen because the process method is protected against failure.
                     //So if this happens, something very seriously is going wrong.

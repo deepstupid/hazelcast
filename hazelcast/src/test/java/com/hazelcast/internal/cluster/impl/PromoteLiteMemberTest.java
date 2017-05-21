@@ -48,17 +48,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import static com.hazelcast.internal.cluster.impl.AdvancedClusterStateTest.changeClusterStateEventually;
-import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.EXPLICIT_SUSPICION;
-import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.HEARTBEAT;
-import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.MEMBER_INFO_UPDATE;
-import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.PROMOTE_LITE_MEMBER;
+import static com.hazelcast.internal.cluster.impl.ClusterDataSerializerHook.*;
 import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.dropOperationsBetween;
 import static com.hazelcast.internal.cluster.impl.PacketFiltersUtil.dropOperationsFrom;
 import static org.hamcrest.Matchers.greaterThan;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

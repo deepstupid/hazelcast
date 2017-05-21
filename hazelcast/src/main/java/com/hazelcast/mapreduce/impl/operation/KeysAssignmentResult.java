@@ -74,7 +74,7 @@ public class KeysAssignmentResult
             int size = in.readInt();
             assignment = new HashMap<Object, Address>(size);
             for (int i = 0; i < size; i++) {
-                assignment.put(in.readObject(), (Address) in.readObject());
+                assignment.put(in.readObject(), in.readObject());
             }
         }
         resultState = ResultState.byOrdinal(in.readInt());

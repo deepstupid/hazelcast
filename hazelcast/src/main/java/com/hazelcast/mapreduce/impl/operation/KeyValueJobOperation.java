@@ -18,11 +18,7 @@ package com.hazelcast.mapreduce.impl.operation;
 
 import com.hazelcast.core.ManagedContext;
 import com.hazelcast.core.MemberSelector;
-import com.hazelcast.mapreduce.CombinerFactory;
-import com.hazelcast.mapreduce.KeyValueSource;
-import com.hazelcast.mapreduce.Mapper;
-import com.hazelcast.mapreduce.ReducerFactory;
-import com.hazelcast.mapreduce.TopologyChangedStrategy;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.mapreduce.impl.AbstractJobTracker;
 import com.hazelcast.mapreduce.impl.MapReduceDataSerializerHook;
 import com.hazelcast.mapreduce.impl.MapReduceService;
@@ -38,11 +34,7 @@ import com.hazelcast.spi.Operation;
 import java.io.IOException;
 import java.util.concurrent.CancellationException;
 
-import static com.hazelcast.cluster.memberselector.MemberSelectors.DATA_MEMBER_SELECTOR;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.LITE_MEMBER_SELECTOR;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.LOCAL_MEMBER_SELECTOR;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.and;
-import static com.hazelcast.cluster.memberselector.MemberSelectors.or;
+import static com.hazelcast.cluster.memberselector.MemberSelectors.*;
 
 /**
  * This operation is used to prepare a {@link com.hazelcast.mapreduce.KeyValueSource} based

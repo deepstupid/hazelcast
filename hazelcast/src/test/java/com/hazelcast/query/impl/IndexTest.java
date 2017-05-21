@@ -26,12 +26,7 @@ import com.hazelcast.map.impl.record.Record;
 import com.hazelcast.map.impl.record.Records;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.nio.serialization.DataSerializable;
-import com.hazelcast.nio.serialization.Portable;
-import com.hazelcast.nio.serialization.PortableFactory;
-import com.hazelcast.nio.serialization.PortableReader;
-import com.hazelcast.nio.serialization.PortableWriter;
+import com.hazelcast.nio.serialization.*;
 import com.hazelcast.partition.strategy.DefaultPartitioningStrategy;
 import com.hazelcast.query.QueryConstants;
 import com.hazelcast.query.QueryException;
@@ -46,17 +41,11 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.instance.TestUtil.toData;
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)
@@ -336,10 +325,7 @@ public class IndexTest {
             if (s != that.s) {
                 return false;
             }
-            if (str != null ? !str.equals(that.str) : that.str != null) {
-                return false;
-            }
-            return true;
+            return str != null ? str.equals(that.str) : that.str == null;
         }
 
         @Override

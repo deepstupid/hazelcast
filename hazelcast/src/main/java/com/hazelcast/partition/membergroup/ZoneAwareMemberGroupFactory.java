@@ -20,11 +20,7 @@ import com.hazelcast.core.Member;
 import com.hazelcast.spi.discovery.DiscoveryStrategy;
 import com.hazelcast.spi.partitiongroup.PartitionGroupMetaData;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * ZoneAwareMemberGroupFactory is responsible for MemberGroups

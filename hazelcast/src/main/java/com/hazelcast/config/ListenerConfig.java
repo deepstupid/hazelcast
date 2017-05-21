@@ -156,10 +156,7 @@ public class ListenerConfig {
 
         ListenerConfig that = (ListenerConfig) o;
 
-        if (className != null ? !className.equals(that.className) : that.className != null) {
-            return false;
-        }
-        return true;
+        return className != null ? className.equals(that.className) : that.className == null;
     }
 
     @Override

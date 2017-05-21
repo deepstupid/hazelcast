@@ -37,11 +37,7 @@ import com.hazelcast.util.BitSetUtils;
 import com.hazelcast.util.IterationType;
 
 import java.security.Permission;
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 

@@ -16,11 +16,7 @@
 
 package com.hazelcast.concurrent.lock;
 
-import com.hazelcast.concurrent.lock.operations.GetLockCountOperation;
-import com.hazelcast.concurrent.lock.operations.GetRemainingLeaseTimeOperation;
-import com.hazelcast.concurrent.lock.operations.IsLockedOperation;
-import com.hazelcast.concurrent.lock.operations.LockOperation;
-import com.hazelcast.concurrent.lock.operations.UnlockOperation;
+import com.hazelcast.concurrent.lock.operations.*;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.spi.InternalCompletableFuture;
 import com.hazelcast.spi.NodeEngine;

@@ -20,13 +20,7 @@ import com.hazelcast.core.Member;
 import com.hazelcast.instance.MemberImpl;
 import com.hazelcast.nio.Address;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Collections.singletonMap;
 import static java.util.Collections.unmodifiableCollection;
@@ -58,7 +52,7 @@ final class MemberMap {
      * @return empty {@code MemberMap}
      */
     static MemberMap empty() {
-        return new MemberMap(0, Collections.<Address, MemberImpl>emptyMap(), Collections.<String, MemberImpl>emptyMap());
+        return new MemberMap(0, Collections.emptyMap(), Collections.emptyMap());
     }
 
     /**

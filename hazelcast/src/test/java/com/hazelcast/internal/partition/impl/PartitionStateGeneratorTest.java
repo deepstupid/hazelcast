@@ -26,12 +26,7 @@ import com.hazelcast.instance.MemberImpl;
 import com.hazelcast.internal.partition.InternalPartition;
 import com.hazelcast.internal.partition.PartitionStateGenerator;
 import com.hazelcast.nio.Address;
-import com.hazelcast.partition.membergroup.ConfigMemberGroupFactory;
-import com.hazelcast.partition.membergroup.DefaultMemberGroup;
-import com.hazelcast.partition.membergroup.HostAwareMemberGroupFactory;
-import com.hazelcast.partition.membergroup.MemberGroup;
-import com.hazelcast.partition.membergroup.MemberGroupFactory;
-import com.hazelcast.partition.membergroup.SingleMemberGroupFactory;
+import com.hazelcast.partition.membergroup.*;
 import com.hazelcast.test.HazelcastParallelClassRunner;
 import com.hazelcast.test.annotation.ParallelTest;
 import com.hazelcast.test.annotation.QuickTest;
@@ -41,21 +36,9 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

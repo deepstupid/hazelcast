@@ -18,11 +18,7 @@ package com.hazelcast.security.permission;
 
 import java.security.Permission;
 import java.security.PermissionCollection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class ClusterPermissionCollection extends PermissionCollection {
 

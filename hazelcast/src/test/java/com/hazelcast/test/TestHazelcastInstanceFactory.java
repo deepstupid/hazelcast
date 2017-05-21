@@ -27,12 +27,7 @@ import com.hazelcast.spi.properties.GroupProperty;
 import com.hazelcast.test.mocknetwork.TestNodeRegistry;
 
 import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -41,9 +36,7 @@ import static com.hazelcast.instance.TestUtil.getNode;
 import static com.hazelcast.instance.TestUtil.terminateInstance;
 import static com.hazelcast.test.HazelcastTestSupport.getAddress;
 import static com.hazelcast.util.Preconditions.checkNotNull;
-import static java.util.Collections.EMPTY_SET;
-import static java.util.Collections.emptyList;
-import static java.util.Collections.unmodifiableCollection;
+import static java.util.Collections.*;
 
 public class TestHazelcastInstanceFactory {
 

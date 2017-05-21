@@ -48,7 +48,7 @@ public final class NodeExtensionFactory {
                                         + "If so, set the bundle class-loader in the Config using the setClassloader() method");
                     }
                     Constructor<NodeExtension> constructor = clazz
-                            .getDeclaredConstructor(new Class[]{Node.class});
+                            .getDeclaredConstructor(Node.class);
                     return constructor.newInstance(node);
                 }
             }

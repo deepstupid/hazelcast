@@ -20,11 +20,7 @@ import com.hazelcast.core.Member;
 import com.hazelcast.instance.MemberImpl;
 import com.hazelcast.nio.Address;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class HostAwareMemberGroupFactory extends BackupSafeMemberGroupFactory implements MemberGroupFactory {
 
@@ -32,7 +28,7 @@ public class HostAwareMemberGroupFactory extends BackupSafeMemberGroupFactory im
     protected Set<MemberGroup> createInternalMemberGroups(Collection<? extends Member> allMembers) {
         Map<String, MemberGroup> groups = new HashMap<String, MemberGroup>();
         for (Member member : allMembers) {
-            Address address = ((MemberImpl) member).getAddress();
+            Address address = member.getAddress();
             MemberGroup group = groups.get(address.getHost());
             if (group == null) {
                 group = new DefaultMemberGroup();

@@ -110,11 +110,7 @@ public class Registration implements EventRegistration {
         if (filter != null ? !filter.equals(that.filter) : that.filter != null) {
             return false;
         }
-        if (subscriber != null ? !subscriber.equals(that.subscriber) : that.subscriber != null) {
-            return false;
-        }
-
-        return true;
+        return subscriber != null ? subscriber.equals(that.subscriber) : that.subscriber == null;
     }
     //CHECKSTYLE:ON
 

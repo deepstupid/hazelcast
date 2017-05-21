@@ -16,11 +16,7 @@
 
 package com.hazelcast.transaction;
 
-import com.hazelcast.core.TransactionalList;
-import com.hazelcast.core.TransactionalMap;
-import com.hazelcast.core.TransactionalMultiMap;
-import com.hazelcast.core.TransactionalQueue;
-import com.hazelcast.core.TransactionalSet;
+import com.hazelcast.core.*;
 
 /**
  * Provides a context to access transactional data-structures, like the {@link TransactionalMap}.

@@ -127,7 +127,7 @@ public final class Extractors {
     }
 
     public static Extractors empty() {
-        return new Extractors(Collections.<MapAttributeConfig>emptyList(), null);
+        return new Extractors(Collections.emptyList(), null);
     }
 
 }

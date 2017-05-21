@@ -18,36 +18,19 @@ package com.hazelcast.query;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.hazelcast.query.impl.Indexes;
 import com.hazelcast.query.impl.QueryContext;
 import com.hazelcast.query.impl.QueryableEntry;
-import com.hazelcast.query.impl.predicates.AndPredicate;
-import com.hazelcast.query.impl.predicates.CompoundPredicate;
-import com.hazelcast.query.impl.predicates.OrPredicate;
-import com.hazelcast.query.impl.predicates.PredicateDataSerializerHook;
-import com.hazelcast.query.impl.predicates.Visitor;
+import com.hazelcast.query.impl.predicates.*;
 import com.hazelcast.util.collection.ArrayUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.internal.serialization.impl.FactoryIdHelper.PREDICATE_DS_FACTORY_ID;
-import static com.hazelcast.query.Predicates.between;
-import static com.hazelcast.query.Predicates.equal;
-import static com.hazelcast.query.Predicates.greaterEqual;
-import static com.hazelcast.query.Predicates.greaterThan;
-import static com.hazelcast.query.Predicates.ilike;
-import static com.hazelcast.query.Predicates.lessEqual;
-import static com.hazelcast.query.Predicates.lessThan;
-import static com.hazelcast.query.Predicates.like;
-import static com.hazelcast.query.Predicates.notEqual;
-import static com.hazelcast.query.Predicates.regex;
+import static com.hazelcast.query.Predicates.*;
 
 /**
  * This class contains methods related to conversion of sql query to predicate.

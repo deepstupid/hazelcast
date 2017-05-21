@@ -17,12 +17,7 @@
 package com.hazelcast.internal.partition.operation;
 
 import com.hazelcast.internal.cluster.Versions;
-import com.hazelcast.internal.partition.InternalPartition;
-import com.hazelcast.internal.partition.InternalPartitionService;
-import com.hazelcast.internal.partition.MigrationCycleOperation;
-import com.hazelcast.internal.partition.NonFragmentedServiceNamespace;
-import com.hazelcast.internal.partition.PartitionReplicaVersionManager;
-import com.hazelcast.internal.partition.ReplicaErrorLogger;
+import com.hazelcast.internal.partition.*;
 import com.hazelcast.internal.partition.impl.InternalPartitionImpl;
 import com.hazelcast.internal.partition.impl.InternalPartitionServiceImpl;
 import com.hazelcast.internal.partition.impl.PartitionDataSerializerHook;
@@ -32,12 +27,7 @@ import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.impl.Versioned;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.OperationService;
-import com.hazelcast.spi.PartitionAwareOperation;
-import com.hazelcast.spi.PartitionReplicationEvent;
-import com.hazelcast.spi.ServiceNamespace;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.impl.NodeEngineImpl;
 
 import java.io.IOException;

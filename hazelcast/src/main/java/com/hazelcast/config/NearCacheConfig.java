@@ -24,9 +24,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 import static com.hazelcast.config.EvictionConfig.MaxSizePolicy.ENTRY_COUNT;
-import static com.hazelcast.util.Preconditions.checkNotNegative;
-import static com.hazelcast.util.Preconditions.checkNotNull;
-import static com.hazelcast.util.Preconditions.isNotNull;
+import static com.hazelcast.util.Preconditions.*;
 
 /**
  * Contains the configuration for a Near Cache.

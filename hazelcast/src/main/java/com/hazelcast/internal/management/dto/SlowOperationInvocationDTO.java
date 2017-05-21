@@ -19,9 +19,7 @@ package com.hazelcast.internal.management.dto;
 import com.eclipsesource.json.JsonObject;
 import com.hazelcast.internal.management.JsonSerializable;
 
-import static com.hazelcast.util.JsonUtil.getInt;
-import static com.hazelcast.util.JsonUtil.getLong;
-import static com.hazelcast.util.JsonUtil.getString;
+import static com.hazelcast.util.JsonUtil.*;
 
 /**
  * A Serializable DTO for {@link com.hazelcast.spi.impl.operationexecutor.slowoperationdetector.SlowOperationLog.Invocation}.

@@ -29,10 +29,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static java.lang.System.currentTimeMillis;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public abstract class TcpIpConnection_BaseTest extends TcpIpConnection_AbstractTest {
 

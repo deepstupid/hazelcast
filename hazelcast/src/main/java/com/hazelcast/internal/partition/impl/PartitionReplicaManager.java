@@ -26,27 +26,14 @@ import com.hazelcast.internal.partition.operation.ReplicaSyncRequest;
 import com.hazelcast.internal.util.counters.MwCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.Address;
-import com.hazelcast.spi.ExecutionService;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.ServiceNamespaceAware;
-import com.hazelcast.spi.ServiceNamespace;
-import com.hazelcast.spi.TaskScheduler;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.impl.NodeEngineImpl;
 import com.hazelcast.spi.properties.GroupProperty;
 import com.hazelcast.spi.properties.HazelcastProperties;
-import com.hazelcast.util.scheduler.EntryTaskScheduler;
-import com.hazelcast.util.scheduler.EntryTaskSchedulerFactory;
-import com.hazelcast.util.scheduler.ScheduleType;
-import com.hazelcast.util.scheduler.ScheduledEntry;
-import com.hazelcast.util.scheduler.ScheduledEntryProcessor;
+import com.hazelcast.util.scheduler.*;
 import com.hazelcast.version.Version;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -213,9 +200,7 @@ public class PartitionReplicaManager implements PartitionReplicaVersionManager {
         }
 
         // ASSERTION
-        if (nodeEngine.getClusterService().getClusterVersion().isLessThan(Versions.V3_9)) {
-            assert namespaces.size() == 1 : "Only single namespace is allowed before V3.9: " + namespaces;
-        }
+        assert !nodeEngine.getClusterService().getClusterVersion().isLessThan(Versions.V3_9) || namespaces.size() == 1 : "Only single namespace is allowed before V3.9: " + namespaces;
 
         if (logger.isFinestEnabled()) {
             logger.finest("Sending sync replica request for partitionId=" + partitionId + ", replicaIndex=" + replicaIndex

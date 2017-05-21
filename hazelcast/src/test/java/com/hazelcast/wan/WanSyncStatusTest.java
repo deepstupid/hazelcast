@@ -24,9 +24,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.wan.WanSyncStatus.FAILED;
-import static com.hazelcast.wan.WanSyncStatus.IN_PROGRESS;
-import static com.hazelcast.wan.WanSyncStatus.READY;
+import static com.hazelcast.wan.WanSyncStatus.*;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 

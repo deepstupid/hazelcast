@@ -43,26 +43,12 @@ import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 
 import static com.hazelcast.transaction.TransactionOptions.TransactionType;
-import static com.hazelcast.transaction.TransactionOptions.TransactionType.LOCAL;
-import static com.hazelcast.transaction.TransactionOptions.TransactionType.ONE_PHASE;
-import static com.hazelcast.transaction.TransactionOptions.TransactionType.TWO_PHASE;
-import static com.hazelcast.transaction.impl.Transaction.State.ACTIVE;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTED;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTING;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMIT_FAILED;
-import static com.hazelcast.transaction.impl.Transaction.State.NO_TXN;
-import static com.hazelcast.transaction.impl.Transaction.State.PREPARED;
-import static com.hazelcast.transaction.impl.Transaction.State.PREPARING;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLED_BACK;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLING_BACK;
+import static com.hazelcast.transaction.TransactionOptions.TransactionType.*;
+import static com.hazelcast.transaction.impl.Transaction.State.*;
 import static com.hazelcast.transaction.impl.TransactionManagerServiceImpl.SERVICE_NAME;
 import static com.hazelcast.util.Clock.currentTimeMillis;
 import static com.hazelcast.util.ExceptionUtil.rethrow;
-import static com.hazelcast.util.FutureUtil.ExceptionHandler;
-import static com.hazelcast.util.FutureUtil.RETHROW_TRANSACTION_EXCEPTION;
-import static com.hazelcast.util.FutureUtil.logAllExceptions;
-import static com.hazelcast.util.FutureUtil.waitUntilAllRespondedWithDeadline;
-import static com.hazelcast.util.FutureUtil.waitWithDeadline;
+import static com.hazelcast.util.FutureUtil.*;
 import static com.hazelcast.util.UuidUtil.newUnsecureUuidString;
 import static java.lang.Boolean.TRUE;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -259,11 +245,7 @@ public class TransactionImpl implements Transaction {
             return false;
         }
 
-        if (transactionLog.size() <= 1) {
-            return false;
-        }
-
-        return true;
+        return transactionLog.size() > 1;
     }
 
     @Override

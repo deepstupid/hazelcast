@@ -32,13 +32,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import static java.util.Collections.singletonList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * Even though the ReliableMessageListenerAdapter is extremely simple, we do need to get it tested due to the guarantees

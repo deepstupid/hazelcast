@@ -16,8 +16,8 @@
 
 package com.hazelcast.config;
 
-import com.hazelcast.nio.serialization.DataSerializable;
 import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.DataSerializable;
 
 import javax.cache.configuration.CacheEntryListenerConfiguration;
 import javax.cache.configuration.CompleteConfiguration;
@@ -418,10 +418,6 @@ abstract class AbstractCacheConfig<K, V> implements CacheConfiguration<K, V>, Da
         if (!listenerConfigurations.equals(that.listenerConfigurations)) {
             return false;
         }
-        if (!valueType.equals(that.valueType)) {
-            return false;
-        }
-
-        return true;
+        return valueType.equals(that.valueType);
     }
 }

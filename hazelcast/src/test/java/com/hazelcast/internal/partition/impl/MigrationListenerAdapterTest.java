@@ -30,17 +30,11 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.IOException;
 
-import static com.hazelcast.core.MigrationEvent.MigrationStatus.COMPLETED;
-import static com.hazelcast.core.MigrationEvent.MigrationStatus.FAILED;
-import static com.hazelcast.core.MigrationEvent.MigrationStatus.STARTED;
+import static com.hazelcast.core.MigrationEvent.MigrationStatus.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 @Category(QuickTest.class)

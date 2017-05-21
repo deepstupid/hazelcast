@@ -47,11 +47,7 @@ class TransactionLogRecordKey {
         if (!name.equals(that.name)) {
             return false;
         }
-        if (!serviceName.equals(that.serviceName)) {
-            return false;
-        }
-
-        return true;
+        return serviceName.equals(that.serviceName);
     }
 
     @Override

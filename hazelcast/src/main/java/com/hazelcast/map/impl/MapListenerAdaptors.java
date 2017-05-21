@@ -22,15 +22,7 @@ import com.hazelcast.core.IMapEvent;
 import com.hazelcast.core.MapEvent;
 import com.hazelcast.internal.nearcache.impl.invalidation.Invalidation;
 import com.hazelcast.map.impl.nearcache.invalidation.InvalidationListener;
-import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryEvictedListener;
-import com.hazelcast.map.listener.EntryExpiredListener;
-import com.hazelcast.map.listener.EntryMergedListener;
-import com.hazelcast.map.listener.EntryRemovedListener;
-import com.hazelcast.map.listener.EntryUpdatedListener;
-import com.hazelcast.map.listener.MapClearedListener;
-import com.hazelcast.map.listener.MapEvictedListener;
-import com.hazelcast.map.listener.MapListener;
+import com.hazelcast.map.listener.*;
 import com.hazelcast.util.ConstructorFunction;
 
 import java.util.EnumMap;

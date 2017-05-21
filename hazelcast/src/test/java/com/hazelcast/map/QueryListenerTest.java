@@ -17,12 +17,7 @@
 package com.hazelcast.map;
 
 import com.hazelcast.config.Config;
-import com.hazelcast.core.EntryAdapter;
-import com.hazelcast.core.EntryEvent;
-import com.hazelcast.core.EntryListener;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
-import com.hazelcast.core.MapEvent;
+import com.hazelcast.core.*;
 import com.hazelcast.query.Predicate;
 import com.hazelcast.query.SqlPredicate;
 import com.hazelcast.test.HazelcastParallelClassRunner;
@@ -148,10 +143,7 @@ public class QueryListenerTest extends HazelcastTestSupport {
             if (val == null) {
                 return false;
             }
-            if (val.startsWith(pref)) {
-                return true;
-            }
-            return false;
+            return val.startsWith(pref);
         }
     }
 

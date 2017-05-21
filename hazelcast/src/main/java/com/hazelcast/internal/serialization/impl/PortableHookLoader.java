@@ -23,11 +23,7 @@ import com.hazelcast.nio.serialization.PortableFactory;
 import com.hazelcast.util.ExceptionUtil;
 import com.hazelcast.util.ServiceLoader;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 final class PortableHookLoader {
 

@@ -43,7 +43,7 @@ public class CoalescedWriteBehindQueueTest extends HazelcastTestSupport {
 
     @Test
     public void test_addFirst() throws Exception {
-        queue.addFirst(Collections.<DelayedEntry>singletonList(newEntry(1)));
+        queue.addFirst(Collections.singletonList(newEntry(1)));
 
         assertEquals(1, queue.size());
     }

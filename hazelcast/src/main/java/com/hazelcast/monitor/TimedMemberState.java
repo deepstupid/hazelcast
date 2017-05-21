@@ -27,11 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static com.hazelcast.util.JsonUtil.getArray;
-import static com.hazelcast.util.JsonUtil.getBoolean;
-import static com.hazelcast.util.JsonUtil.getLong;
-import static com.hazelcast.util.JsonUtil.getObject;
-import static com.hazelcast.util.JsonUtil.getString;
+import static com.hazelcast.util.JsonUtil.*;
 import static com.hazelcast.util.StringUtil.LINE_SEPARATOR;
 
 public final class TimedMemberState implements Cloneable, JsonSerializable {

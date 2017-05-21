@@ -19,8 +19,8 @@ package com.hazelcast.internal.networking.nio;
 import com.hazelcast.internal.metrics.MetricsRegistry;
 import com.hazelcast.logging.LoggingServiceImpl;
 import com.hazelcast.nio.tcp.EventLoopGroupFactory;
-import com.hazelcast.nio.tcp.MockIOService;
 import com.hazelcast.nio.tcp.MemberChannelInitializer;
+import com.hazelcast.nio.tcp.MockIOService;
 
 public class SelectNow_NioEventLoopGroupFactory implements EventLoopGroupFactory {
 

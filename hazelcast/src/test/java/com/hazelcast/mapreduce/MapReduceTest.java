@@ -53,21 +53,13 @@ import org.junit.runner.RunWith;
 
 import java.io.IOException;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})
@@ -1003,7 +995,7 @@ public class MapReduceTest extends HazelcastTestSupport {
             }
 
             JobTracker tracker = h1.getJobTracker(randomString());
-            Job<Integer, Employee> job = tracker.newJob(KeyValueSource.<Integer, Employee>fromMap(map));
+            Job<Integer, Employee> job = tracker.newJob(KeyValueSource.fromMap(map));
 
             ICompletableFuture<Map<Integer, Set<Employee>>> future = job
                     .mapper(new ModIdMapper(2))
@@ -1020,7 +1012,7 @@ public class MapReduceTest extends HazelcastTestSupport {
     }
 
     static KeyValueSource<Integer, Integer> integerKvSource(IMap<Integer, Integer> m) {
-        return KeyValueSource.<Integer, Integer>fromMap(m);
+        return KeyValueSource.fromMap(m);
     }
 
     public static class ModIdMapper implements Mapper<Integer, Employee, Integer, Employee> {

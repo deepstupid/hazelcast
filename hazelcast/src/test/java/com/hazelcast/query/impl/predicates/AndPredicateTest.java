@@ -26,13 +26,8 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import static com.hazelcast.query.Predicates.and;
-import static com.hazelcast.query.impl.predicates.PredicateTestUtils.createDelegatingVisitor;
-import static com.hazelcast.query.impl.predicates.PredicateTestUtils.createMockNegatablePredicate;
-import static com.hazelcast.query.impl.predicates.PredicateTestUtils.createMockVisitablePredicate;
-import static com.hazelcast.query.impl.predicates.PredicateTestUtils.createPassthroughVisitor;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.sameInstance;
+import static com.hazelcast.query.impl.predicates.PredicateTestUtils.*;
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.Matchers.arrayContainingInAnyOrder;
 import static org.hamcrest.Matchers.arrayWithSize;
 import static org.junit.Assert.assertThat;

@@ -17,12 +17,8 @@
 package com.hazelcast.core;
 
 import com.hazelcast.aggregation.Aggregator;
-import com.hazelcast.map.EntryProcessor;
-import com.hazelcast.map.MapInterceptor;
-import com.hazelcast.map.QueryCache;
-import com.hazelcast.map.QueryResultSizeExceededException;
+import com.hazelcast.map.*;
 import com.hazelcast.map.impl.LegacyAsyncMap;
-import com.hazelcast.map.LockAware;
 import com.hazelcast.map.listener.MapListener;
 import com.hazelcast.map.listener.MapPartitionLostListener;
 import com.hazelcast.mapreduce.JobTracker;

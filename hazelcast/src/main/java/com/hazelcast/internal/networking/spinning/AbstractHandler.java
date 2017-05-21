@@ -17,8 +17,8 @@
 package com.hazelcast.internal.networking.spinning;
 
 import com.hazelcast.internal.networking.Channel;
-import com.hazelcast.internal.networking.IOOutOfMemoryHandler;
 import com.hazelcast.internal.networking.ChannelConnection;
+import com.hazelcast.internal.networking.IOOutOfMemoryHandler;
 import com.hazelcast.logging.ILogger;
 
 import java.io.EOFException;

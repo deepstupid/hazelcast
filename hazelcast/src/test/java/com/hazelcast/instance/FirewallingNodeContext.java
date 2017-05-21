@@ -32,6 +32,6 @@ public class FirewallingNodeContext extends DefaultNodeContext {
     @Override
     public ConnectionManager createConnectionManager(Node node, ServerSocketChannel serverSocketChannel) {
         ConnectionManager connectionManager = super.createConnectionManager(node, serverSocketChannel);
-        return new FirewallingConnectionManager(connectionManager, Collections.<Address>emptySet());
+        return new FirewallingConnectionManager(connectionManager, Collections.emptySet());
     }
 }

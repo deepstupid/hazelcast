@@ -31,11 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -219,7 +215,7 @@ public class MapListenerTest {
         Config config = new Config();
         config.setInstanceName("hz-maplistener");
         config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);
-        config.getNetworkConfig().getInterfaces().setInterfaces(Arrays.asList(new String[]{"127.0.0.1"}));
+        config.getNetworkConfig().getInterfaces().setInterfaces(Arrays.asList("127.0.0.1"));
         HazelcastInstance hz = Hazelcast.newHazelcastInstance(config);
 
         IMap<String, Person> map = hz.getMap("map");

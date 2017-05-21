@@ -21,14 +21,7 @@ import com.hazelcast.util.QuickMath;
 import com.hazelcast.util.function.IntFunction;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import java.util.AbstractCollection;
-import java.util.AbstractSet;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.util.Preconditions.checkNotNull;
 import static com.hazelcast.util.collection.Hashing.intHash;

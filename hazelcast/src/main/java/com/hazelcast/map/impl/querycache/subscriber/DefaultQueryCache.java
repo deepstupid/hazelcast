@@ -22,11 +22,7 @@ import com.hazelcast.core.Member;
 import com.hazelcast.internal.serialization.InternalSerializationService;
 import com.hazelcast.map.impl.EntryEventFilter;
 import com.hazelcast.map.impl.query.QueryEventFilter;
-import com.hazelcast.map.impl.querycache.InvokerWrapper;
-import com.hazelcast.map.impl.querycache.NodeInvokerWrapper;
-import com.hazelcast.map.impl.querycache.QueryCacheConfigurator;
-import com.hazelcast.map.impl.querycache.QueryCacheContext;
-import com.hazelcast.map.impl.querycache.QueryCacheEventService;
+import com.hazelcast.map.impl.querycache.*;
 import com.hazelcast.map.impl.querycache.accumulator.Accumulator;
 import com.hazelcast.map.impl.querycache.accumulator.AccumulatorInfoSupplier;
 import com.hazelcast.map.impl.querycache.subscriber.record.QueryCacheRecord;
@@ -43,13 +39,7 @@ import com.hazelcast.spi.EventFilter;
 import com.hazelcast.util.FutureUtil;
 import com.hazelcast.util.MapUtil;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.Future;
 

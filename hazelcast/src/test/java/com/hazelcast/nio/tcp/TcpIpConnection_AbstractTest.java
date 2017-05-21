@@ -82,7 +82,7 @@ public abstract class TcpIpConnection_AbstractTest extends HazelcastTestSupport 
         connManagerC = newConnectionManager(addressC.getPort(), metricsRegistryC);
         ioServiceC = (MockIOService) connManagerB.getIoService();
 
-        serializationService = (InternalSerializationService) new DefaultSerializationServiceBuilder()
+        serializationService = new DefaultSerializationServiceBuilder()
                 .addDataSerializableFactory(TestDataFactory.FACTORY_ID, new TestDataFactory())
                 .build();
     }

@@ -20,12 +20,7 @@ import com.hazelcast.concurrent.lock.LockService;
 import com.hazelcast.config.NativeMemoryConfig;
 import com.hazelcast.core.EntryView;
 import com.hazelcast.logging.ILogger;
-import com.hazelcast.map.impl.EntryViews;
-import com.hazelcast.map.impl.MapContainer;
-import com.hazelcast.map.impl.MapEntries;
-import com.hazelcast.map.impl.MapKeyLoader;
-import com.hazelcast.map.impl.MapService;
-import com.hazelcast.map.impl.MapServiceContext;
+import com.hazelcast.map.impl.*;
 import com.hazelcast.map.impl.event.EntryEventData;
 import com.hazelcast.map.impl.iterator.MapEntriesWithCursor;
 import com.hazelcast.map.impl.iterator.MapKeysWithCursor;
@@ -50,13 +45,7 @@ import com.hazelcast.util.CollectionUtil;
 import com.hazelcast.util.ExceptionUtil;
 import com.hazelcast.util.FutureUtil;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Future;
 

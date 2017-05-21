@@ -33,17 +33,8 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import static com.hazelcast.transaction.TransactionOptions.TransactionType.TWO_PHASE;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTED;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTING;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMIT_FAILED;
-import static com.hazelcast.transaction.impl.Transaction.State.PREPARED;
-import static com.hazelcast.transaction.impl.Transaction.State.PREPARING;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLED_BACK;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static com.hazelcast.transaction.impl.Transaction.State.*;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category(QuickTest.class)

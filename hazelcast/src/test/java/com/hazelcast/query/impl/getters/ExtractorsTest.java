@@ -31,9 +31,7 @@ import java.util.Collections;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.instanceOf;
-import static org.hamcrest.Matchers.sameInstance;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertNull;
 
 @RunWith(Parameterized.class)
@@ -75,7 +73,7 @@ public class ExtractorsTest {
         Object power = extractors().extract(UNUSED, bond, "car.power");
 
         // THEN
-        assertThat((Integer) power, equalTo(550));
+        assertThat(power, equalTo(550));
     }
 
     @Test
@@ -103,7 +101,7 @@ public class ExtractorsTest {
         Object power = extractors.extract(UNUSED, bond, "gimmePower");
 
         // THEN
-        assertThat((Integer) power, equalTo(550));
+        assertThat(power, equalTo(550));
     }
 
     @Test
@@ -145,7 +143,7 @@ public class ExtractorsTest {
     }
 
     private static Extractors extractors() {
-        return new Extractors(Collections.<MapAttributeConfig>emptyList(), null);
+        return new Extractors(Collections.emptyList(), null);
     }
 
 }

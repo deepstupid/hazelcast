@@ -18,11 +18,7 @@ package com.hazelcast.client.impl.protocol.task.replicatedmap;
 
 import com.hazelcast.client.impl.protocol.ClientMessage;
 import com.hazelcast.client.impl.protocol.task.AbstractCallableMessageTask;
-import com.hazelcast.core.EntryEvent;
-import com.hazelcast.core.EntryListener;
-import com.hazelcast.core.IMapEvent;
-import com.hazelcast.core.MapEvent;
-import com.hazelcast.core.Member;
+import com.hazelcast.core.*;
 import com.hazelcast.instance.Node;
 import com.hazelcast.nio.Connection;
 import com.hazelcast.nio.serialization.Data;
@@ -116,11 +112,7 @@ public abstract class AbstractReplicatedMapAddEntryListenerMessageTask<Parameter
         }
 
         Member originatedMember = event.getMember();
-        if (isLocalOnly() && !nodeEngine.getLocalMember().equals(originatedMember)) {
-            //if listener is registered local only, do not let the events originated from other members pass through
-            return false;
-        }
-        return true;
+        return !isLocalOnly() || nodeEngine.getLocalMember().equals(originatedMember);
     }
 
 

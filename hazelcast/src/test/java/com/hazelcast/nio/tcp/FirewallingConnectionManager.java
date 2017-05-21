@@ -16,11 +16,7 @@
 
 package com.hazelcast.nio.tcp;
 
-import com.hazelcast.nio.Address;
-import com.hazelcast.nio.Connection;
-import com.hazelcast.nio.ConnectionListener;
-import com.hazelcast.nio.ConnectionManager;
-import com.hazelcast.nio.Packet;
+import com.hazelcast.nio.*;
 import com.hazelcast.spi.impl.PacketHandler;
 
 import java.util.Collections;

@@ -19,8 +19,8 @@ package com.hazelcast.cache;
 import com.hazelcast.cache.impl.CacheDataSerializerHook;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 
 import javax.cache.expiry.Duration;
 import javax.cache.expiry.ExpiryPolicy;
@@ -194,10 +194,7 @@ public class HazelcastExpiryPolicy implements ExpiryPolicy, IdentifiedDataSerial
         if (access != null ? !access.equals(that.access) : that.access != null) {
             return false;
         }
-        if (update != null ? !update.equals(that.update) : that.update != null) {
-            return false;
-        }
-        return true;
+        return update != null ? update.equals(that.update) : that.update == null;
 
     }
 

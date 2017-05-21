@@ -44,7 +44,7 @@ public class ListAddAllMessageTask
 
     @Override
     protected Operation prepareOperation() {
-        return new CollectionAddAllOperation(parameters.name, (List<Data>) parameters.valueList);
+        return new CollectionAddAllOperation(parameters.name, parameters.valueList);
     }
 
     @Override

@@ -16,11 +16,7 @@
 
 package com.hazelcast.map.impl.querycache;
 
-import com.hazelcast.core.IFunction;
-import com.hazelcast.core.IMapEvent;
-import com.hazelcast.core.LifecycleEvent;
-import com.hazelcast.core.LifecycleListener;
-import com.hazelcast.core.Member;
+import com.hazelcast.core.*;
 import com.hazelcast.instance.LifecycleServiceImpl;
 import com.hazelcast.instance.MemberImpl;
 import com.hazelcast.instance.Node;
@@ -29,11 +25,7 @@ import com.hazelcast.map.impl.ListenerAdapter;
 import com.hazelcast.map.impl.MapServiceContext;
 import com.hazelcast.map.impl.querycache.publisher.DefaultPublisherContext;
 import com.hazelcast.map.impl.querycache.publisher.PublisherContext;
-import com.hazelcast.map.impl.querycache.subscriber.NodeQueryCacheConfigurator;
-import com.hazelcast.map.impl.querycache.subscriber.NodeQueryCacheEventService;
-import com.hazelcast.map.impl.querycache.subscriber.NodeQueryCacheScheduler;
-import com.hazelcast.map.impl.querycache.subscriber.NodeSubscriberContext;
-import com.hazelcast.map.impl.querycache.subscriber.SubscriberContext;
+import com.hazelcast.map.impl.querycache.subscriber.*;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.SerializableByConvention;
@@ -183,5 +175,5 @@ public class NodeQueryCacheContext implements QueryCacheContext {
         public String apply(String mapName) {
             return registerLocalIMapListener(mapName);
         }
-    };
+    }
 }

@@ -27,11 +27,7 @@ import com.hazelcast.util.EmptyStatement;
 import com.hazelcast.util.concurrent.IdleStrategy;
 
 import java.io.IOException;
-import java.nio.channels.CancelledKeyException;
-import java.nio.channels.ClosedChannelException;
-import java.nio.channels.SelectableChannel;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
+import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.Random;

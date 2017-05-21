@@ -24,13 +24,7 @@ import com.hazelcast.nio.Protocols;
 import com.hazelcast.util.AddressUtil;
 
 import java.io.IOException;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.nio.channels.SocketChannel;
 import java.util.Collection;
 import java.util.LinkedList;

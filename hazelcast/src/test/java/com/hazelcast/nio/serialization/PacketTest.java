@@ -32,15 +32,8 @@ import java.nio.ByteBuffer;
 
 import static com.hazelcast.nio.Packet.FLAG_OP_CONTROL;
 import static com.hazelcast.nio.Packet.FLAG_URGENT;
-import static com.hazelcast.nio.serialization.SerializationConcurrencyTest.Address;
-import static com.hazelcast.nio.serialization.SerializationConcurrencyTest.FACTORY_ID;
-import static com.hazelcast.nio.serialization.SerializationConcurrencyTest.Person;
-import static com.hazelcast.nio.serialization.SerializationConcurrencyTest.PortableAddress;
-import static com.hazelcast.nio.serialization.SerializationConcurrencyTest.PortablePerson;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static com.hazelcast.nio.serialization.SerializationConcurrencyTest.*;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)
@@ -78,7 +71,7 @@ public class PacketTest {
     }
 
     private void testPacketWriteRead(Object originalObject) throws IOException {
-        InternalSerializationService ss = (InternalSerializationService) createSerializationServiceBuilder().build();
+        InternalSerializationService ss = createSerializationServiceBuilder().build();
         byte[] originalPayload = ss.toBytes(originalObject);
 
         ByteBuffer buffer = ByteBuffer.allocate(originalPayload.length * 2);

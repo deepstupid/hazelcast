@@ -309,11 +309,8 @@ public class HealthMonitor {
                 return true;
             }
 
-            if (operationServicePendingInvocationsCount.read() > THRESHOLD_INVOCATIONS) {
-                return true;
-            }
+            return operationServicePendingInvocationsCount.read() > THRESHOLD_INVOCATIONS;
 
-            return false;
         }
 
         public String render() {

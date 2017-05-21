@@ -30,10 +30,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import static java.util.Collections.singleton;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})
@@ -66,7 +63,7 @@ public class BatchEventDataTest extends HazelcastTestSupport {
         batchEventDataOtherSource = new BatchEventData(events, "otherSource", 1);
         batchEventDataOtherPartitionId = new BatchEventData(events, "source", 2);
         batchEventDataOtherEvent = new BatchEventData(singleton(otherEventData), "source", 1);
-        batchEventDataNoEvent = new BatchEventData(Collections.<QueryCacheEventData>emptyList(), "source", 1);
+        batchEventDataNoEvent = new BatchEventData(Collections.emptyList(), "source", 1);
     }
 
     @Test

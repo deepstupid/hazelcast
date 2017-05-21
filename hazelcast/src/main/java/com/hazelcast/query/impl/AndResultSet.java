@@ -18,12 +18,7 @@ package com.hazelcast.query.impl;
 
 import com.hazelcast.query.Predicate;
 
-import java.util.AbstractSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.util.Preconditions.isNotNull;
 

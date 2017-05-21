@@ -42,10 +42,7 @@ import java.util.Collection;
 
 import static com.hazelcast.config.InMemoryFormat.NATIVE;
 import static com.hazelcast.internal.nearcache.impl.invalidation.ToHeapDataConverter.toHeapData;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.calculateMaxIdleMillis;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.calculateTTLMillis;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.pickTTL;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.setExpirationTime;
+import static com.hazelcast.map.impl.ExpirationTimeSetter.*;
 
 
 /**

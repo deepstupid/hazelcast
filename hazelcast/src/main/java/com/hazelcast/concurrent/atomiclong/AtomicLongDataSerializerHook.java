@@ -16,19 +16,7 @@
 
 package com.hazelcast.concurrent.atomiclong;
 
-import com.hazelcast.concurrent.atomiclong.operations.AddAndGetOperation;
-import com.hazelcast.concurrent.atomiclong.operations.AddBackupOperation;
-import com.hazelcast.concurrent.atomiclong.operations.AlterAndGetOperation;
-import com.hazelcast.concurrent.atomiclong.operations.AlterOperation;
-import com.hazelcast.concurrent.atomiclong.operations.ApplyOperation;
-import com.hazelcast.concurrent.atomiclong.operations.AtomicLongReplicationOperation;
-import com.hazelcast.concurrent.atomiclong.operations.CompareAndSetOperation;
-import com.hazelcast.concurrent.atomiclong.operations.GetAndAddOperation;
-import com.hazelcast.concurrent.atomiclong.operations.GetAndAlterOperation;
-import com.hazelcast.concurrent.atomiclong.operations.GetAndSetOperation;
-import com.hazelcast.concurrent.atomiclong.operations.GetOperation;
-import com.hazelcast.concurrent.atomiclong.operations.SetBackupOperation;
-import com.hazelcast.concurrent.atomiclong.operations.SetOperation;
+import com.hazelcast.concurrent.atomiclong.operations.*;
 import com.hazelcast.internal.serialization.DataSerializerHook;
 import com.hazelcast.internal.serialization.impl.FactoryIdHelper;
 import com.hazelcast.nio.serialization.DataSerializableFactory;

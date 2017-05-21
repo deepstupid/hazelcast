@@ -51,11 +51,7 @@ public final class ClientPrincipal {
         if (ownerUuid != null ? !ownerUuid.equals(that.ownerUuid) : that.ownerUuid != null) {
             return false;
         }
-        if (uuid != null ? !uuid.equals(that.uuid) : that.uuid != null) {
-            return false;
-        }
-
-        return true;
+        return uuid != null ? uuid.equals(that.uuid) : that.uuid == null;
     }
 
     @Override

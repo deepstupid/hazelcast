@@ -8,14 +8,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.internal.util.JavaVersion.JAVA_1_6;
-import static com.hazelcast.internal.util.JavaVersion.JAVA_1_7;
-import static com.hazelcast.internal.util.JavaVersion.JAVA_1_8;
-import static com.hazelcast.internal.util.JavaVersion.JAVA_1_9;
-import static com.hazelcast.internal.util.JavaVersion.UNKNOWN;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static com.hazelcast.internal.util.JavaVersion.*;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

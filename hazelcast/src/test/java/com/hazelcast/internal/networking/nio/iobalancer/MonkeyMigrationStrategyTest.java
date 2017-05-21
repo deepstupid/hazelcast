@@ -35,10 +35,7 @@ import java.util.Set;
 
 import static com.hazelcast.test.TestCollectionUtils.setOf;
 import static java.lang.Math.abs;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 @RunWith(HazelcastParallelClassRunner.class)
@@ -52,7 +49,7 @@ public class MonkeyMigrationStrategyTest extends HazelcastTestSupport {
 
     @Test
     public void imbalanceDetected_shouldReturnFalseWhenNoHandlerExist() {
-        selectorToHandlers.put(imbalance.sourceSelector, Collections.<MigratableHandler>emptySet());
+        selectorToHandlers.put(imbalance.sourceSelector, Collections.emptySet());
 
         boolean imbalanceDetected = strategy.imbalanceDetected(imbalance);
         assertFalse(imbalanceDetected);

@@ -48,7 +48,7 @@ public class MemberInfo implements IdentifiedDataSerializable {
         this.address = address;
         this.uuid = uuid;
         this.attributes = attributes == null || attributes.isEmpty()
-                ? Collections.<String, Object>emptyMap() : new HashMap<String, Object>(attributes);
+                ? Collections.emptyMap() : new HashMap<String, Object>(attributes);
         this.liteMember = liteMember;
         this.version = version;
     }

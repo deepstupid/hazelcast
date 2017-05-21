@@ -35,11 +35,7 @@ import java.util.NoSuchElementException;
 
 import static com.hazelcast.core.EntryEventType.EVICTED;
 import static com.hazelcast.core.EntryEventType.EXPIRED;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.calculateExpirationWithDelay;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.calculateMaxIdleMillis;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.getIdlenessStartTime;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.getLifeStartTime;
-import static com.hazelcast.map.impl.ExpirationTimeSetter.setExpirationTime;
+import static com.hazelcast.map.impl.ExpirationTimeSetter.*;
 import static com.hazelcast.map.impl.MapService.SERVICE_NAME;
 import static com.hazelcast.map.impl.eviction.Evictor.NULL_EVICTOR;
 

@@ -30,9 +30,7 @@ import org.junit.runner.RunWith;
 import java.util.Properties;
 
 import static java.util.concurrent.TimeUnit.MICROSECONDS;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category(QuickTest.class)

@@ -39,14 +39,7 @@ import com.hazelcast.util.FutureUtil;
 import com.hazelcast.util.UuidUtil;
 import com.hazelcast.util.function.Supplier;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -251,7 +244,7 @@ public class ScheduledExecutorServiceProxy
                     TaskDefinition.Type.SINGLE_RUN, name, command, delay, unit);
 
             futures.put(member,
-                    (IScheduledFuture<V>) submitOnMemberSync(name,
+                    submitOnMemberSync(name,
                             new ScheduleTaskOperation(getName(), definition), member));
         }
 

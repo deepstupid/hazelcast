@@ -22,12 +22,7 @@ import com.hazelcast.client.UndefinedErrorCodeException;
 import com.hazelcast.client.impl.protocol.exception.MaxMessageSizeExceeded;
 import com.hazelcast.config.ConfigurationException;
 import com.hazelcast.config.InvalidConfigurationException;
-import com.hazelcast.core.DuplicateInstanceNameException;
-import com.hazelcast.core.HazelcastException;
-import com.hazelcast.core.HazelcastInstanceNotActiveException;
-import com.hazelcast.core.HazelcastOverloadException;
-import com.hazelcast.core.MemberLeftException;
-import com.hazelcast.core.OperationTimeoutException;
+import com.hazelcast.core.*;
 import com.hazelcast.durableexecutor.StaleTaskIdException;
 import com.hazelcast.internal.cluster.impl.ConfigMismatchException;
 import com.hazelcast.map.QueryResultSizeExceededException;
@@ -41,15 +36,7 @@ import com.hazelcast.query.QueryException;
 import com.hazelcast.quorum.QuorumException;
 import com.hazelcast.replicatedmap.ReplicatedMapCantBeCreatedOnLiteMemberException;
 import com.hazelcast.ringbuffer.StaleSequenceException;
-import com.hazelcast.spi.exception.CallerNotMemberException;
-import com.hazelcast.spi.exception.DistributedObjectDestroyedException;
-import com.hazelcast.spi.exception.PartitionMigratingException;
-import com.hazelcast.spi.exception.ResponseAlreadySentException;
-import com.hazelcast.spi.exception.RetryableHazelcastException;
-import com.hazelcast.spi.exception.RetryableIOException;
-import com.hazelcast.spi.exception.TargetDisconnectedException;
-import com.hazelcast.spi.exception.TargetNotMemberException;
-import com.hazelcast.spi.exception.WrongTargetException;
+import com.hazelcast.spi.exception.*;
 import com.hazelcast.test.HazelcastParametersRunnerFactory;
 import com.hazelcast.test.HazelcastTestSupport;
 import com.hazelcast.test.annotation.ParallelTest;
@@ -216,7 +203,7 @@ public class ClientExceptionFactoryTest extends HazelcastTestSupport {
                 new Object[]{new QuorumException(randomString())},
                 new Object[]{new ReachedMaxSizeException(randomString())},
                 new Object[]{new RejectedExecutionException(randomString())},
-                new Object[]{new RemoteMapReduceException(randomMapName(), Collections.<Exception>emptyList())},
+                new Object[]{new RemoteMapReduceException(randomMapName(), Collections.emptyList())},
                 new Object[]{new ResponseAlreadySentException(randomString())},
                 new Object[]{new RetryableHazelcastException(randomString())},
                 new Object[]{new RetryableIOException(randomString())},

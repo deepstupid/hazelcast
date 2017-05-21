@@ -17,12 +17,7 @@
 package com.hazelcast.replicatedmap.impl.record;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 class LazySet<K, V, R> implements Set<R> {
 

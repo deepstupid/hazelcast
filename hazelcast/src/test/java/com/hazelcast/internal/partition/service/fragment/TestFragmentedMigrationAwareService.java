@@ -18,20 +18,10 @@ package com.hazelcast.internal.partition.service.fragment;
 
 import com.hazelcast.config.ServiceConfig;
 import com.hazelcast.internal.partition.service.TestAbstractMigrationAwareService;
-import com.hazelcast.spi.FragmentedMigrationAwareService;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.PartitionMigrationEvent;
-import com.hazelcast.spi.PartitionReplicationEvent;
-import com.hazelcast.spi.ServiceNamespace;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.partition.MigrationEndpoint;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 

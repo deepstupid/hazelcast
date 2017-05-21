@@ -24,12 +24,7 @@ import com.hazelcast.util.function.Predicate;
 import com.hazelcast.util.function.Supplier;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.util.collection.Hashing.evenLongHash;
 

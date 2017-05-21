@@ -106,11 +106,7 @@ class InnerPortable implements Portable {
         if (!Arrays.equals(nn, that.nn)) {
             return false;
         }
-        if (!Arrays.equals(ss, that.ss)) {
-            return false;
-        }
-
-        return true;
+        return Arrays.equals(ss, that.ss);
     }
 
     @Override

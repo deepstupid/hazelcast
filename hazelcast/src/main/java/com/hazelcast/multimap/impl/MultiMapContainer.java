@@ -21,13 +21,7 @@ import com.hazelcast.concurrent.lock.LockStore;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.spi.DistributedObjectNamespace;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static com.hazelcast.util.Clock.currentTimeMillis;
 
@@ -166,7 +160,7 @@ public class MultiMapContainer extends MultiMapContainerSupport {
     }
 
     public int clear() {
-        final Collection<Data> locks = lockStore != null ? lockStore.getLockedKeys() : Collections.<Data>emptySet();
+        final Collection<Data> locks = lockStore != null ? lockStore.getLockedKeys() : Collections.emptySet();
         Map<Data, MultiMapValue> lockedKeys = new HashMap<Data, MultiMapValue>(locks.size());
         for (Data key : locks) {
             MultiMapValue multiMapValue = multiMapValues.get(key);

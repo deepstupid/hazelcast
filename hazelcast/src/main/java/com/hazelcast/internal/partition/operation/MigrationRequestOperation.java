@@ -16,12 +16,7 @@
 
 package com.hazelcast.internal.partition.operation;
 
-import com.hazelcast.internal.partition.InternalPartition;
-import com.hazelcast.internal.partition.InternalPartitionService;
-import com.hazelcast.internal.partition.MigrationInfo;
-import com.hazelcast.internal.partition.NonFragmentedServiceNamespace;
-import com.hazelcast.internal.partition.PartitionReplicaVersionManager;
-import com.hazelcast.internal.partition.ReplicaFragmentMigrationState;
+import com.hazelcast.internal.partition.*;
 import com.hazelcast.internal.partition.impl.InternalPartitionServiceImpl;
 import com.hazelcast.internal.partition.impl.MigrationManager;
 import com.hazelcast.internal.partition.impl.PartitionDataSerializerHook;
@@ -29,11 +24,7 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.spi.FragmentedMigrationAwareService;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.PartitionReplicationEvent;
-import com.hazelcast.spi.ServiceNamespace;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.impl.NodeEngineImpl;
 import com.hazelcast.spi.impl.PartitionSpecificRunnable;
 import com.hazelcast.spi.impl.SimpleExecutionCallback;
@@ -41,13 +32,7 @@ import com.hazelcast.spi.impl.operationservice.InternalOperationService;
 import com.hazelcast.spi.impl.servicemanager.ServiceInfo;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Collections.singleton;
 
@@ -127,7 +112,7 @@ public class MigrationRequestOperation extends BaseMigrationSourceOperation {
         ILogger logger = getLogger();
         if (logger.isFinestEnabled()) {
             Set<ServiceNamespace> namespaces = migrationState != null
-                    ? migrationState.getNamespaceVersionMap().keySet() : Collections.<ServiceNamespace>emptySet();
+                    ? migrationState.getNamespaceVersionMap().keySet() : Collections.emptySet();
             logger.finest("Invoking MigrationOperation for namespaces " + namespaces + " and " + migrationInfo
                     + ", lastFragment: " + lastFragment);
         }
@@ -194,7 +179,7 @@ public class MigrationRequestOperation extends BaseMigrationSourceOperation {
         PartitionReplicationEvent event = getPartitionReplicationEvent();
         Collection<Operation> operations = createNonFragmentedReplicationOperations(event);
         Collection<ServiceNamespace> namespaces =
-                Collections.<ServiceNamespace>singleton(NonFragmentedServiceNamespace.INSTANCE);
+                Collections.singleton(NonFragmentedServiceNamespace.INSTANCE);
         return createReplicaFragmentMigrationState(namespaces, operations);
     }
 

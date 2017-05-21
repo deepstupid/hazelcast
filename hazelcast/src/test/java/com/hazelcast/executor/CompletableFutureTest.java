@@ -32,19 +32,11 @@ import org.junit.experimental.categories.Category;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})
@@ -275,7 +267,7 @@ public class CompletableFutureTest extends HazelcastTestSupport {
         }
         for (AtomicReference<?> ref : refs) {
             assertThat("TEST_EXCEPTION expected as cause", ((Throwable) ref.get()).getCause(),
-                    Matchers.<Throwable>sameInstance(THROW_TEST_EXCEPTION));
+                    Matchers.sameInstance(THROW_TEST_EXCEPTION));
         }
     }
 

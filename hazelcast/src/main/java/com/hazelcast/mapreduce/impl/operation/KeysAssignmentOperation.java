@@ -33,9 +33,7 @@ import java.util.Map;
 import java.util.Set;
 
 import static com.hazelcast.mapreduce.TopologyChangedStrategy.CANCEL_RUNNING_OPERATION;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.CHECK_STATE_FAILED;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_SUPERVISOR;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.SUCCESSFUL;
+import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.*;
 
 /**
  * This operation is used to request assignment for keys on the job owners node. The job owner

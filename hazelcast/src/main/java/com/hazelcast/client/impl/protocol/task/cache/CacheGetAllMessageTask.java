@@ -31,11 +31,7 @@ import com.hazelcast.spi.OperationFactory;
 
 import javax.cache.expiry.ExpiryPolicy;
 import java.security.Permission;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * This client request  specifically calls {@link CacheGetAllOperationFactory} on the server side.

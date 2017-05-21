@@ -52,7 +52,7 @@ public class ReplicatedMapValuesMessageTask
     @Override
     protected ClientMessage encodeResponse(Object response) {
         ReplicatedMapValueCollection values = (ReplicatedMapValueCollection) response;
-        return ReplicatedMapValuesCodec.encodeResponse((List<Data>) values.getValues());
+        return ReplicatedMapValuesCodec.encodeResponse(values.getValues());
     }
 
     @Override

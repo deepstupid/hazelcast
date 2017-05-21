@@ -16,20 +16,12 @@
 
 package com.hazelcast.collection.impl.queue.operations;
 
-import com.hazelcast.collection.impl.queue.QueueContainer;
-import com.hazelcast.collection.impl.queue.QueueDataSerializerHook;
-import com.hazelcast.collection.impl.queue.QueueEvent;
-import com.hazelcast.collection.impl.queue.QueueEventFilter;
-import com.hazelcast.collection.impl.queue.QueueService;
+import com.hazelcast.collection.impl.queue.*;
 import com.hazelcast.core.ItemEventType;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.spi.BackupOperation;
-import com.hazelcast.spi.EventRegistration;
-import com.hazelcast.spi.EventService;
-import com.hazelcast.spi.NamedOperation;
-import com.hazelcast.spi.PartitionAwareOperation;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.exception.RetryableHazelcastException;
 import com.hazelcast.spi.impl.AbstractNamedOperation;
 

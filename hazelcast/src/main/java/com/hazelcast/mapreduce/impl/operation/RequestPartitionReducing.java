@@ -28,9 +28,7 @@ import java.io.IOException;
 
 import static com.hazelcast.mapreduce.JobPartitionState.State.MAPPING;
 import static com.hazelcast.mapreduce.impl.MapReduceUtil.stateChange;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.CHECK_STATE_FAILED;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.NO_SUPERVISOR;
-import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.SUCCESSFUL;
+import static com.hazelcast.mapreduce.impl.operation.RequestPartitionResult.ResultState.*;
 
 /**
  * This operation tells the job owner to start reducing phase of the defined partition on the first

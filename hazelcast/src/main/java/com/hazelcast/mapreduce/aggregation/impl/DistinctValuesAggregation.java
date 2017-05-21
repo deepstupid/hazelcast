@@ -16,19 +16,13 @@
 
 package com.hazelcast.mapreduce.aggregation.impl;
 
-import com.hazelcast.mapreduce.Collator;
-import com.hazelcast.mapreduce.Combiner;
-import com.hazelcast.mapreduce.CombinerFactory;
-import com.hazelcast.mapreduce.Context;
-import com.hazelcast.mapreduce.Mapper;
-import com.hazelcast.mapreduce.Reducer;
-import com.hazelcast.mapreduce.ReducerFactory;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.mapreduce.aggregation.Supplier;
 import com.hazelcast.mapreduce.impl.task.DefaultContext;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import java.io.IOException;

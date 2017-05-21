@@ -64,10 +64,7 @@ public final class TestLoggingUtils {
         if (JenkinsDetector.isOnJenkins()) {
             return true;
         }
-        if (System.getProperty(LOGGING_TYPE_PROP_NAME) == null && System.getProperty(LOGGING_CLASS_PROP_NAME) == null) {
-            return true;
-        }
-        return false;
+        return System.getProperty(LOGGING_TYPE_PROP_NAME) == null && System.getProperty(LOGGING_CLASS_PROP_NAME) == null;
     }
 
 

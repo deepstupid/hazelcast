@@ -24,10 +24,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.memory.MemoryStatsSupport.freePhysicalMemory;
-import static com.hazelcast.memory.MemoryStatsSupport.freeSwapSpace;
-import static com.hazelcast.memory.MemoryStatsSupport.totalPhysicalMemory;
-import static com.hazelcast.memory.MemoryStatsSupport.totalSwapSpace;
+import static com.hazelcast.memory.MemoryStatsSupport.*;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(HazelcastParallelClassRunner.class)

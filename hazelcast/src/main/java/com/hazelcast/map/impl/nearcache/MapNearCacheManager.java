@@ -21,13 +21,7 @@ import com.hazelcast.core.IFunction;
 import com.hazelcast.internal.cluster.ClusterService;
 import com.hazelcast.internal.nearcache.NearCache;
 import com.hazelcast.internal.nearcache.impl.DefaultNearCacheManager;
-import com.hazelcast.internal.nearcache.impl.invalidation.BatchInvalidator;
-import com.hazelcast.internal.nearcache.impl.invalidation.Invalidator;
-import com.hazelcast.internal.nearcache.impl.invalidation.MetaDataFetcher;
-import com.hazelcast.internal.nearcache.impl.invalidation.MinimalPartitionService;
-import com.hazelcast.internal.nearcache.impl.invalidation.NonStopInvalidator;
-import com.hazelcast.internal.nearcache.impl.invalidation.RepairingHandler;
-import com.hazelcast.internal.nearcache.impl.invalidation.RepairingTask;
+import com.hazelcast.internal.nearcache.impl.invalidation.*;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.map.impl.EventListenerFilter;
 import com.hazelcast.map.impl.MapContainer;
@@ -36,18 +30,12 @@ import com.hazelcast.map.impl.MapServiceContext;
 import com.hazelcast.map.impl.nearcache.invalidation.MemberMapMetaDataFetcher;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.SerializableByConvention;
-import com.hazelcast.spi.EventFilter;
-import com.hazelcast.spi.EventRegistration;
-import com.hazelcast.spi.ExecutionService;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.properties.HazelcastProperties;
 
 import static com.hazelcast.core.EntryEventType.INVALIDATION;
 import static com.hazelcast.map.impl.MapService.SERVICE_NAME;
-import static com.hazelcast.spi.properties.GroupProperty.MAP_INVALIDATION_MESSAGE_BATCH_ENABLED;
-import static com.hazelcast.spi.properties.GroupProperty.MAP_INVALIDATION_MESSAGE_BATCH_FREQUENCY_SECONDS;
-import static com.hazelcast.spi.properties.GroupProperty.MAP_INVALIDATION_MESSAGE_BATCH_SIZE;
+import static com.hazelcast.spi.properties.GroupProperty.*;
 
 public class MapNearCacheManager extends DefaultNearCacheManager {
 

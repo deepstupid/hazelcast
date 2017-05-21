@@ -23,13 +23,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_COLLECTION;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_COUNTER;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_DOUBLE_NUMBER;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_DOUBLE_PRIMITIVE;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_LONG_NUMBER;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_MAP;
-import static com.hazelcast.internal.metrics.impl.ProbeUtils.TYPE_PRIMITIVE_LONG;
+import static com.hazelcast.internal.metrics.impl.ProbeUtils.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 

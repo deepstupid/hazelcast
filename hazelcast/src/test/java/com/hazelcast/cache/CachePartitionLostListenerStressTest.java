@@ -32,11 +32,7 @@ import org.junit.runners.Parameterized;
 
 import javax.cache.Cache;
 import javax.cache.CacheManager;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.hazelcast.cache.impl.HazelcastServerCachingProvider.createCachingProvider;
 import static org.junit.Assert.assertFalse;

@@ -17,24 +17,14 @@
 package com.hazelcast.internal.nearcache;
 
 import com.hazelcast.config.NearCacheConfig;
-import com.hazelcast.internal.adapter.DataStructureAdapter;
+import com.hazelcast.internal.adapter.*;
 import com.hazelcast.internal.adapter.DataStructureAdapter.DataStructureMethods;
-import com.hazelcast.internal.adapter.DataStructureAdapterMethod;
-import com.hazelcast.internal.adapter.ICacheCompletionListener;
-import com.hazelcast.internal.adapter.ICacheReplaceEntryProcessor;
-import com.hazelcast.internal.adapter.IMapReplaceEntryProcessor;
 import com.hazelcast.test.AssertTask;
 import com.hazelcast.test.HazelcastTestSupport;
 import org.junit.Test;
 
 import javax.cache.processor.EntryProcessorResult;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -42,29 +32,11 @@ import java.util.concurrent.Future;
 import static com.hazelcast.config.EvictionConfig.MaxSizePolicy.ENTRY_COUNT;
 import static com.hazelcast.config.EvictionPolicy.LRU;
 import static com.hazelcast.config.EvictionPolicy.NONE;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheContent;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheEvictionsEventually;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheInvalidations;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheSize;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheSizeEventually;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheStats;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertThatMemoryCostsAreGreaterThanZero;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertThatMemoryCostsAreZero;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assumeThatLocalUpdatePolicyIsCacheOnUpdate;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assumeThatLocalUpdatePolicyIsInvalidate;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.getValueFromNearCache;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.getFuture;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.getNearCacheKey;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.isCacheOnUpdate;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.setEvictionConfig;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.waitUntilLoaded;
+import static com.hazelcast.internal.nearcache.NearCacheTestUtils.*;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.concurrent.Executors.newFixedThreadPool;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Contains the logic code for unified Near Cache tests.
@@ -284,7 +256,7 @@ public abstract class AbstractNearCacheBasicTest<NK, NV> extends HazelcastTestSu
         assertNearCacheStats(context, 0, 0, 0);
 
         // use getAll() with an empty set, which should not populate the Near Cache
-        context.nearCacheAdapter.getAll(Collections.<Integer>emptySet());
+        context.nearCacheAdapter.getAll(Collections.emptySet());
         assertNearCacheSize(context, 0);
         assertNearCacheStats(context, 0, 0, 0);
     }

@@ -18,12 +18,7 @@ package com.hazelcast.multimap.impl;
 
 import com.hazelcast.config.MultiMapConfig;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Multi-map values are backed by collections which are created by static factory methods in this class.

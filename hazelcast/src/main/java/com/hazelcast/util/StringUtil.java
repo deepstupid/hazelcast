@@ -24,9 +24,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static java.lang.Character.isLetter;
-import static java.lang.Character.isLowerCase;
-import static java.lang.Character.toLowerCase;
+import static java.lang.Character.*;
 
 /**
  * Utility class for Strings.

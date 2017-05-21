@@ -115,7 +115,7 @@ public class StartProcessingJobOperation<K>
         int size = in.readInt();
         keys = new ArrayList<K>();
         for (int i = 0; i < size; i++) {
-            keys.add((K) in.readObject());
+            keys.add(in.readObject());
         }
         predicate = in.readObject();
     }

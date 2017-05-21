@@ -16,40 +16,20 @@
 
 package com.hazelcast.collection.impl.collection;
 
-import com.hazelcast.collection.impl.collection.operations.CollectionAddAllOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionAddOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionClearOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionCompareAndRemoveOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionContainsOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionGetAllOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionIsEmptyOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionRemoveOperation;
-import com.hazelcast.collection.impl.collection.operations.CollectionSizeOperation;
+import com.hazelcast.collection.impl.collection.operations.*;
 import com.hazelcast.config.CollectionConfig;
 import com.hazelcast.config.ItemListenerConfig;
 import com.hazelcast.core.HazelcastInstanceAware;
 import com.hazelcast.core.ItemListener;
 import com.hazelcast.nio.ClassLoaderUtil;
 import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.spi.AbstractDistributedObject;
-import com.hazelcast.spi.EventRegistration;
-import com.hazelcast.spi.EventService;
-import com.hazelcast.spi.InitializingObject;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.RemoteService;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.impl.SerializableList;
 import com.hazelcast.spi.impl.UnmodifiableLazyList;
 import com.hazelcast.spi.serialization.SerializationService;
 import com.hazelcast.util.ExceptionUtil;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.Future;
 
 import static com.hazelcast.util.Preconditions.checkNotNull;

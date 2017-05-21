@@ -18,41 +18,19 @@ package com.hazelcast.map.impl.proxy;
 
 import com.hazelcast.aggregation.Aggregator;
 import com.hazelcast.config.MapConfig;
-import com.hazelcast.core.EntryListener;
-import com.hazelcast.core.EntryView;
-import com.hazelcast.core.ExecutionCallback;
-import com.hazelcast.core.HazelcastException;
-import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.ICompletableFuture;
-import com.hazelcast.core.IMap;
+import com.hazelcast.core.*;
 import com.hazelcast.map.EntryProcessor;
 import com.hazelcast.map.MapInterceptor;
 import com.hazelcast.map.QueryCache;
 import com.hazelcast.map.impl.MapService;
 import com.hazelcast.map.impl.SimpleEntryView;
 import com.hazelcast.map.impl.iterator.MapPartitionIterator;
-import com.hazelcast.map.impl.query.AggregationResult;
-import com.hazelcast.map.impl.query.MapQueryEngine;
-import com.hazelcast.map.impl.query.Query;
-import com.hazelcast.map.impl.query.QueryResult;
-import com.hazelcast.map.impl.query.Target;
+import com.hazelcast.map.impl.query.*;
 import com.hazelcast.map.impl.querycache.QueryCacheContext;
-import com.hazelcast.map.impl.querycache.subscriber.InternalQueryCache;
-import com.hazelcast.map.impl.querycache.subscriber.NodeQueryCacheEndToEndConstructor;
-import com.hazelcast.map.impl.querycache.subscriber.QueryCacheEndToEndProvider;
-import com.hazelcast.map.impl.querycache.subscriber.QueryCacheRequest;
-import com.hazelcast.map.impl.querycache.subscriber.SubscriberContext;
+import com.hazelcast.map.impl.querycache.subscriber.*;
 import com.hazelcast.map.listener.MapListener;
 import com.hazelcast.map.listener.MapPartitionLostListener;
-import com.hazelcast.mapreduce.Collator;
-import com.hazelcast.mapreduce.CombinerFactory;
-import com.hazelcast.mapreduce.Job;
-import com.hazelcast.mapreduce.JobTracker;
-import com.hazelcast.mapreduce.KeyValueSource;
-import com.hazelcast.mapreduce.Mapper;
-import com.hazelcast.mapreduce.MappingJob;
-import com.hazelcast.mapreduce.ReducerFactory;
-import com.hazelcast.mapreduce.ReducingSubmittableJob;
+import com.hazelcast.mapreduce.*;
 import com.hazelcast.mapreduce.aggregation.Aggregation;
 import com.hazelcast.mapreduce.aggregation.Supplier;
 import com.hazelcast.nio.serialization.Data;
@@ -70,13 +48,7 @@ import com.hazelcast.util.IterationType;
 import com.hazelcast.util.UuidUtil;
 import com.hazelcast.util.executor.DelegatingFuture;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -85,11 +57,7 @@ import static com.hazelcast.map.impl.MapService.SERVICE_NAME;
 import static com.hazelcast.map.impl.query.QueryResultUtils.transformToSet;
 import static com.hazelcast.map.impl.querycache.subscriber.QueryCacheRequests.newQueryCacheRequest;
 import static com.hazelcast.util.MapUtil.createHashMap;
-import static com.hazelcast.util.Preconditions.checkNotInstanceOf;
-import static com.hazelcast.util.Preconditions.checkNotNull;
-import static com.hazelcast.util.Preconditions.checkPositive;
-import static com.hazelcast.util.Preconditions.checkTrue;
-import static com.hazelcast.util.Preconditions.isNotNull;
+import static com.hazelcast.util.Preconditions.*;
 import static java.util.Collections.emptyMap;
 
 /**
@@ -557,7 +525,7 @@ public class MapProxyImpl<K, V> extends MapProxySupport<K, V> {
         }
         Data value = (Data) entryViewInternal.getValue();
         entryViewInternal.setKey(key);
-        entryViewInternal.setValue((V) toObject(value));
+        entryViewInternal.setValue(toObject(value));
         return entryViewInternal;
     }
 
@@ -750,7 +718,7 @@ public class MapProxyImpl<K, V> extends MapProxySupport<K, V> {
             Data key = result.get(i++);
             Data value = result.get(i++);
 
-            resultingMap.put((K) toObject(key), toObject(value));
+            resultingMap.put(toObject(key), toObject(value));
 
         }
         return resultingMap;

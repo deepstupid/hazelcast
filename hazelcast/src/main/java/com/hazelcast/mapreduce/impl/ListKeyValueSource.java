@@ -23,9 +23,9 @@ import com.hazelcast.mapreduce.KeyValueSource;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
+import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.nio.serialization.BinaryInterface;
 import com.hazelcast.partition.strategy.StringAndPartitionAwarePartitioningStrategy;
 import com.hazelcast.spi.NodeEngine;
 import com.hazelcast.spi.impl.NodeEngineImpl;
@@ -94,7 +94,7 @@ public class ListKeyValueSource<V>
 
     @Override
     public boolean hasNext() {
-        boolean hasNext = iterator == null ? false : iterator.hasNext();
+        boolean hasNext = iterator != null && iterator.hasNext();
         nextElement = hasNext ? iterator.next() : null;
         return hasNext;
     }

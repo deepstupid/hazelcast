@@ -37,15 +37,8 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Iterator;
 
-import static com.hazelcast.nio.Bits.INT_SIZE_IN_BYTES;
-import static com.hazelcast.nio.Bits.readIntB;
-import static com.hazelcast.nio.Bits.writeIntB;
-import static com.hazelcast.nio.IOUtil.closeResource;
-import static com.hazelcast.nio.IOUtil.deleteQuietly;
-import static com.hazelcast.nio.IOUtil.getPath;
-import static com.hazelcast.nio.IOUtil.readFullyOrNothing;
-import static com.hazelcast.nio.IOUtil.rename;
-import static com.hazelcast.nio.IOUtil.toFileName;
+import static com.hazelcast.nio.Bits.*;
+import static com.hazelcast.nio.IOUtil.*;
 import static com.hazelcast.util.StringUtil.isNullOrEmpty;
 import static java.lang.String.format;
 import static java.nio.ByteBuffer.allocate;

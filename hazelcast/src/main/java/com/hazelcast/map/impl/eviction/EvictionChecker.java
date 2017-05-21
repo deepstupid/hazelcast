@@ -269,7 +269,7 @@ public class EvictionChecker {
                 partitionIds.add(partitionId);
             }
         }
-        return partitionIds == null ? Collections.<Integer>emptyList() : partitionIds;
+        return partitionIds == null ? Collections.emptyList() : partitionIds;
     }
 
     protected boolean isOwnerOrBackup(int partitionId) {

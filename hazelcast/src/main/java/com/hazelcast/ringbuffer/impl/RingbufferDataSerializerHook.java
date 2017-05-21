@@ -20,14 +20,7 @@ import com.hazelcast.internal.serialization.DataSerializerHook;
 import com.hazelcast.internal.serialization.impl.FactoryIdHelper;
 import com.hazelcast.nio.serialization.DataSerializableFactory;
 import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.ringbuffer.impl.operations.AddAllBackupOperation;
-import com.hazelcast.ringbuffer.impl.operations.AddAllOperation;
-import com.hazelcast.ringbuffer.impl.operations.AddBackupOperation;
-import com.hazelcast.ringbuffer.impl.operations.AddOperation;
-import com.hazelcast.ringbuffer.impl.operations.GenericOperation;
-import com.hazelcast.ringbuffer.impl.operations.ReadManyOperation;
-import com.hazelcast.ringbuffer.impl.operations.ReadOneOperation;
-import com.hazelcast.ringbuffer.impl.operations.ReplicationOperation;
+import com.hazelcast.ringbuffer.impl.operations.*;
 
 import static com.hazelcast.internal.serialization.impl.FactoryIdHelper.RINGBUFFER_DS_FACTORY;
 import static com.hazelcast.internal.serialization.impl.FactoryIdHelper.RINGBUFFER_DS_FACTORY_ID;

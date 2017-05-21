@@ -20,11 +20,7 @@ import com.hazelcast.cache.CachePartitionLostListenerTest.EventCollectingCachePa
 import com.hazelcast.cache.impl.CacheService;
 import com.hazelcast.cache.impl.HazelcastServerCachingProvider;
 import com.hazelcast.cache.impl.event.CachePartitionLostListener;
-import com.hazelcast.config.CachePartitionLostListenerConfig;
-import com.hazelcast.config.CachePartitionLostListenerConfigReadOnly;
-import com.hazelcast.config.CacheSimpleConfig;
-import com.hazelcast.config.Config;
-import com.hazelcast.config.XmlConfigBuilder;
+import com.hazelcast.config.*;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.spi.EventRegistration;
 import com.hazelcast.spi.EventService;
@@ -46,9 +42,7 @@ import java.util.EventListener;
 import java.util.List;
 
 import static com.hazelcast.cache.impl.HazelcastServerCachingProvider.createCachingProvider;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 @RunWith(HazelcastParallelClassRunner.class)

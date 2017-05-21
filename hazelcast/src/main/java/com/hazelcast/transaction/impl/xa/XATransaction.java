@@ -41,22 +41,10 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
 
-import static com.hazelcast.transaction.impl.Transaction.State.ACTIVE;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTED;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMITTING;
-import static com.hazelcast.transaction.impl.Transaction.State.COMMIT_FAILED;
-import static com.hazelcast.transaction.impl.Transaction.State.NO_TXN;
-import static com.hazelcast.transaction.impl.Transaction.State.PREPARED;
-import static com.hazelcast.transaction.impl.Transaction.State.PREPARING;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLED_BACK;
-import static com.hazelcast.transaction.impl.Transaction.State.ROLLING_BACK;
+import static com.hazelcast.transaction.impl.Transaction.State.*;
 import static com.hazelcast.transaction.impl.xa.XAService.SERVICE_NAME;
-import static com.hazelcast.util.FutureUtil.RETHROW_TRANSACTION_EXCEPTION;
-import static com.hazelcast.util.FutureUtil.logAllExceptions;
-import static com.hazelcast.util.FutureUtil.waitWithDeadline;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.MINUTES;
-import static java.util.concurrent.TimeUnit.SECONDS;
+import static com.hazelcast.util.FutureUtil.*;
+import static java.util.concurrent.TimeUnit.*;
 
 /**
  * XA {@link Transaction} implementation.

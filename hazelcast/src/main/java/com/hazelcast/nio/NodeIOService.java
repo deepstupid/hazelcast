@@ -391,7 +391,7 @@ public class NodeIOService implements IOService {
 
     private Collection<String> getPortDefinitions(NetworkConfig networkConfig) {
         return networkConfig.getOutboundPortDefinitions() == null
-                ? Collections.<String>emptySet() : networkConfig.getOutboundPortDefinitions();
+                ? Collections.emptySet() : networkConfig.getOutboundPortDefinitions();
     }
 
     private class ReconnectionTask implements Runnable {

@@ -36,10 +36,7 @@ public class ComplexValue implements Serializable {
             return false;
         }
         ComplexValue value = (ComplexValue) o;
-        if (name != null ? !name.equals(value.name) : value.name != null) {
-            return false;
-        }
-        return true;
+        return name != null ? name.equals(value.name) : value.name == null;
     }
 
     @Override

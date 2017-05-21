@@ -19,14 +19,7 @@ package com.hazelcast.internal.serialization.impl;
 import com.hazelcast.core.PartitioningStrategy;
 import com.hazelcast.instance.OutOfMemoryErrorDispatcher;
 import com.hazelcast.internal.serialization.InternalSerializationService;
-import com.hazelcast.nio.serialization.ByteArraySerializer;
-import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.nio.serialization.HazelcastSerializationException;
-import com.hazelcast.nio.serialization.Portable;
-import com.hazelcast.nio.serialization.SerializableByConvention;
-import com.hazelcast.nio.serialization.Serializer;
-import com.hazelcast.nio.serialization.StreamSerializer;
-import com.hazelcast.nio.serialization.VersionedPortable;
+import com.hazelcast.nio.serialization.*;
 
 import java.io.InputStream;
 import java.io.OutputStream;

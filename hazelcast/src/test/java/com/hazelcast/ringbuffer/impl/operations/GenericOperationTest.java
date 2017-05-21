@@ -34,11 +34,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_CAPACITY;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_HEAD;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_REMAINING_CAPACITY;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_SIZE;
-import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.OPERATION_TAIL;
+import static com.hazelcast.ringbuffer.impl.operations.GenericOperation.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastParallelClassRunner.class)

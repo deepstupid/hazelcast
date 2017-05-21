@@ -21,7 +21,6 @@ import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.query.Predicate;
 import com.hazelcast.query.QueryException;
 import com.hazelcast.query.TruePredicate;
-import com.hazelcast.query.impl.predicates.AndPredicate;
 import com.hazelcast.test.HazelcastParallelClassRunner;
 import com.hazelcast.test.HazelcastTestSupport;
 import com.hazelcast.test.annotation.ParallelTest;
@@ -31,13 +30,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
@@ -82,7 +75,7 @@ public class AndResultSetTest extends HazelcastTestSupport {
     public void size_matchingPredicate_notInResult() {
         Set<QueryableEntry> entries = generateEntries(100000);
         List<Set<QueryableEntry>> otherIndexedResults = new ArrayList<Set<QueryableEntry>>();
-        otherIndexedResults.add(Collections.<QueryableEntry>emptySet());
+        otherIndexedResults.add(Collections.emptySet());
         AndResultSet resultSet = new AndResultSet(entries, otherIndexedResults, asList(new TruePredicate()));
 
         int size = resultSet.size();
@@ -144,7 +137,7 @@ public class AndResultSetTest extends HazelcastTestSupport {
     public void contains_matchingPredicate_notInResult() {
         Set<QueryableEntry> entries = generateEntries(100000);
         List<Set<QueryableEntry>> otherIndexedResults = new ArrayList<Set<QueryableEntry>>();
-        otherIndexedResults.add(Collections.<QueryableEntry>emptySet());
+        otherIndexedResults.add(Collections.emptySet());
         AndResultSet resultSet = new AndResultSet(entries, otherIndexedResults, asList(new TruePredicate()));
 
         assertNotContains(resultSet, entries.iterator().next());

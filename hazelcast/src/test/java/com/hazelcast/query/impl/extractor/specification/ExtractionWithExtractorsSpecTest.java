@@ -41,11 +41,7 @@ import static com.hazelcast.config.InMemoryFormat.OBJECT;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Index.NO_INDEX;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Multivalue.LIST;
 import static com.hazelcast.query.impl.extractor.AbstractExtractionSpecification.Multivalue.PORTABLE;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.Person;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.finger;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.limb;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.person;
-import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.tattoos;
+import static com.hazelcast.query.impl.extractor.specification.ComplexDataStructure.*;
 import static java.util.Arrays.asList;
 
 /**

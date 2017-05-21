@@ -20,13 +20,7 @@ import com.hazelcast.internal.eviction.Expirable;
 import com.hazelcast.internal.util.ThreadLocalRandomProvider;
 import com.hazelcast.nio.serialization.SerializableByConvention;
 
-import java.util.AbstractMap;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * ConcurrentHashMap to extend iterator capability.

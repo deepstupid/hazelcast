@@ -31,9 +31,7 @@ import org.junit.runner.RunWith;
 
 import java.util.Map;
 
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_INVOCATION_DETECTOR_THRESHOLD_MILLIS;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_ENABLED;
-import static com.hazelcast.spi.properties.GroupProperty.SLOW_OPERATION_DETECTOR_THRESHOLD_MILLIS;
+import static com.hazelcast.spi.properties.GroupProperty.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastParallelClassRunner.class)

@@ -40,11 +40,7 @@ class TransactionLogRecordKey {
         if (itemId != that.itemId) {
             return false;
         }
-        if (!name.equals(that.name)) {
-            return false;
-        }
-
-        return true;
+        return name.equals(that.name);
     }
 
     public int hashCode() {

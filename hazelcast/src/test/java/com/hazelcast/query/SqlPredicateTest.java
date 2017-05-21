@@ -20,20 +20,7 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.internal.serialization.InternalSerializationService;
 import com.hazelcast.internal.serialization.impl.DefaultSerializationServiceBuilder;
-import com.hazelcast.query.SampleObjects.Employee;
-import com.hazelcast.query.SampleObjects.ObjectWithBigDecimal;
-import com.hazelcast.query.SampleObjects.ObjectWithBoolean;
-import com.hazelcast.query.SampleObjects.ObjectWithByte;
-import com.hazelcast.query.SampleObjects.ObjectWithChar;
-import com.hazelcast.query.SampleObjects.ObjectWithDate;
-import com.hazelcast.query.SampleObjects.ObjectWithDouble;
-import com.hazelcast.query.SampleObjects.ObjectWithFloat;
-import com.hazelcast.query.SampleObjects.ObjectWithInteger;
-import com.hazelcast.query.SampleObjects.ObjectWithLong;
-import com.hazelcast.query.SampleObjects.ObjectWithShort;
-import com.hazelcast.query.SampleObjects.ObjectWithSqlDate;
-import com.hazelcast.query.SampleObjects.ObjectWithSqlTimestamp;
-import com.hazelcast.query.SampleObjects.ObjectWithUUID;
+import com.hazelcast.query.SampleObjects.*;
 import com.hazelcast.query.impl.DateHelperTest;
 import com.hazelcast.query.impl.QueryEntry;
 import com.hazelcast.query.impl.getters.Extractors;
@@ -52,21 +39,13 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.hazelcast.instance.TestUtil.toData;
 import static com.hazelcast.test.HazelcastTestSupport.assertInstanceOf;
 import static com.hazelcast.test.HazelcastTestSupport.randomString;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)

@@ -44,9 +44,7 @@ import java.util.List;
 
 import static com.hazelcast.nio.IOUtil.deleteQuietly;
 import static com.hazelcast.util.StringUtil.LINE_SEPARATOR;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastSerialClassRunner.class)
 @Category(QuickTest.class)

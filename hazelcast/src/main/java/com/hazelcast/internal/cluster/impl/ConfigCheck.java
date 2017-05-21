@@ -107,10 +107,7 @@ public final class ConfigCheck implements IdentifiedDataSerializable {
     }
 
     public boolean isSameGroup(ConfigCheck found) {
-        if (!equals(groupName, found.groupName)) {
-            return false;
-        }
-        return true;
+        return equals(groupName, found.groupName);
     }
 
     private void verifyGroupPassword(ConfigCheck found) {

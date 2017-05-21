@@ -16,12 +16,7 @@
 
 package com.hazelcast.util;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.Collections.sort;
 
@@ -158,11 +153,7 @@ public final class ItemCounter<T> {
 
         ItemCounter that = (ItemCounter) o;
 
-        if (!map.equals(that.map)) {
-            return false;
-        }
-
-        return true;
+        return map.equals(that.map);
     }
 
     @Override

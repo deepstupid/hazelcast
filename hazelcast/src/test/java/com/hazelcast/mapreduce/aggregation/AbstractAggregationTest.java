@@ -56,7 +56,7 @@ public class AbstractAggregationTest
     public void cleanup() {
         for (DistributedObject object : HAZELCAST_INSTANCE.getDistributedObjects()) {
             if (object instanceof IMap) {
-                ((IMap) object).destroy();
+                object.destroy();
             }
         }
     }
@@ -87,7 +87,7 @@ public class AbstractAggregationTest
         return new Value<T>(value);
     }
 
-    protected static interface ValueProvider<T> {
+    protected interface ValueProvider<T> {
         T provideRandom(Random random);
     }
 

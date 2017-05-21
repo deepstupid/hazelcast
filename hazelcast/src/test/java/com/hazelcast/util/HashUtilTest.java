@@ -28,9 +28,7 @@ import org.junit.runner.RunWith;
 import java.nio.ByteBuffer;
 import java.util.Random;
 
-import static com.hazelcast.util.HashUtil.MurmurHash3_x64_64;
-import static com.hazelcast.util.HashUtil.MurmurHash3_x86_32;
-import static com.hazelcast.util.HashUtil.hashToIndex;
+import static com.hazelcast.util.HashUtil.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastSerialClassRunner.class)

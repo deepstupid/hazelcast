@@ -16,12 +16,7 @@
 
 package com.hazelcast.core;
 
-import com.hazelcast.map.listener.EntryAddedListener;
-import com.hazelcast.map.listener.EntryEvictedListener;
-import com.hazelcast.map.listener.EntryRemovedListener;
-import com.hazelcast.map.listener.EntryUpdatedListener;
-import com.hazelcast.map.listener.MapClearedListener;
-import com.hazelcast.map.listener.MapEvictedListener;
+import com.hazelcast.map.listener.*;
 
 /**
  * Map Entry listener to get notified when a map entry

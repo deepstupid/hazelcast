@@ -43,11 +43,7 @@ public class SemaphoreWaitNotifyKey extends AbstractWaitNotifyKey {
 
         SemaphoreWaitNotifyKey that = (SemaphoreWaitNotifyKey) o;
 
-        if (!type.equals(that.type)) {
-            return false;
-        }
-
-        return true;
+        return type.equals(that.type);
     }
 
     @Override

@@ -18,11 +18,7 @@ package com.hazelcast.scheduledexecutor.impl.operations;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.scheduledexecutor.impl.DistributedScheduledExecutorService;
-import com.hazelcast.scheduledexecutor.impl.ScheduledExecutorContainer;
-import com.hazelcast.scheduledexecutor.impl.ScheduledExecutorDataSerializerHook;
-import com.hazelcast.scheduledexecutor.impl.ScheduledExecutorPartition;
-import com.hazelcast.scheduledexecutor.impl.ScheduledTaskDescriptor;
+import com.hazelcast.scheduledexecutor.impl.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -81,7 +77,7 @@ public class ReplicationOperation
                     new HashMap<String, ScheduledTaskDescriptor>(subSize);
             map.put(key, subMap);
             for (int k = 0; k < subSize; k++) {
-                subMap.put(in.readUTF(), (ScheduledTaskDescriptor) in.readObject());
+                subMap.put(in.readUTF(), in.readObject());
             }
         }
     }

@@ -26,9 +26,7 @@ import org.junit.runner.RunWith;
 import javax.script.Bindings;
 import javax.script.ScriptEngineManager;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 @RunWith(HazelcastSerialClassRunner.class)

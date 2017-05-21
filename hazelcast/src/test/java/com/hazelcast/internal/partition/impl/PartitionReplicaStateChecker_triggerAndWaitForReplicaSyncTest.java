@@ -37,15 +37,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.MIGRATION_LOCAL;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.MIGRATION_ON_MASTER;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.REPLICA_NOT_OWNED;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.REPLICA_NOT_SYNC;
-import static com.hazelcast.internal.partition.impl.PartitionServiceState.SAFE;
+import static com.hazelcast.internal.partition.impl.PartitionServiceState.*;
 import static com.hazelcast.logging.Logger.getLogger;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

@@ -39,9 +39,7 @@ import static com.hazelcast.internal.nearcache.NearCacheTestUtils.createNearCach
 import static com.hazelcast.nio.IOUtil.deleteQuietly;
 import static com.hazelcast.nio.IOUtil.getFileFromResources;
 import static java.lang.String.format;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Contains the logic code for unified Near Cache preloader tests.

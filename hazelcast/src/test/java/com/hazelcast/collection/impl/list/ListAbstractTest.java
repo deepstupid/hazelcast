@@ -31,11 +31,7 @@ import java.util.ListIterator;
 
 import static com.hazelcast.test.AbstractHazelcastClassRunner.getTestMethodName;
 import static java.util.Collections.emptyList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 public abstract class ListAbstractTest extends HazelcastTestSupport {
 

@@ -29,9 +29,7 @@ import org.junit.runner.RunWith;
 
 import java.util.List;
 
-import static com.hazelcast.client.impl.protocol.util.ClientMessageSplitter.getNumberOfSubFrames;
-import static com.hazelcast.client.impl.protocol.util.ClientMessageSplitter.getSubFrame;
-import static com.hazelcast.client.impl.protocol.util.ClientMessageSplitter.getSubFrames;
+import static com.hazelcast.client.impl.protocol.util.ClientMessageSplitter.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastParallelClassRunner.class)

@@ -38,7 +38,7 @@ public class DefaultArgumentParserTest {
         Object arguments = parser.parse("123");
 
         // THEN
-        assertThat((String) arguments, equalTo("123"));
+        assertThat(arguments, equalTo("123"));
     }
 
     @Test

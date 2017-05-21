@@ -23,9 +23,7 @@ import com.hazelcast.internal.memory.impl.StandardMemoryAccessor;
 import java.util.EnumMap;
 import java.util.Map;
 
-import static com.hazelcast.internal.memory.GlobalMemoryAccessorType.ALIGNMENT_AWARE;
-import static com.hazelcast.internal.memory.GlobalMemoryAccessorType.PLATFORM_AWARE;
-import static com.hazelcast.internal.memory.GlobalMemoryAccessorType.STANDARD;
+import static com.hazelcast.internal.memory.GlobalMemoryAccessorType.*;
 
 /**
  * Provides {@link GlobalMemoryAccessor} implementations by their {@link GlobalMemoryAccessorType}.

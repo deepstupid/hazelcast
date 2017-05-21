@@ -28,9 +28,7 @@ import org.junit.runner.RunWith;
 
 import static com.hazelcast.mapreduce.JobPartitionState.State.CANCELLED;
 import static com.hazelcast.mapreduce.JobPartitionState.State.WAITING;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @RunWith(HazelcastParallelClassRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

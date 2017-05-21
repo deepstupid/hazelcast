@@ -33,9 +33,7 @@ import org.junit.runner.RunWith;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-import static com.hazelcast.util.IterationType.ENTRY;
-import static com.hazelcast.util.IterationType.KEY;
-import static com.hazelcast.util.IterationType.VALUE;
+import static com.hazelcast.util.IterationType.*;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(HazelcastSerialClassRunner.class)

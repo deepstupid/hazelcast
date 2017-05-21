@@ -24,29 +24,16 @@ import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.BinaryInterface;
 
-import javax.cache.configuration.CacheEntryListenerConfiguration;
-import javax.cache.configuration.CompleteConfiguration;
-import javax.cache.configuration.Factory;
-import javax.cache.configuration.FactoryBuilder;
-import javax.cache.configuration.MutableCacheEntryListenerConfiguration;
+import javax.cache.configuration.*;
 import javax.cache.event.CacheEntryEventFilter;
 import javax.cache.event.CacheEntryListener;
-import javax.cache.expiry.AccessedExpiryPolicy;
-import javax.cache.expiry.CreatedExpiryPolicy;
-import javax.cache.expiry.Duration;
-import javax.cache.expiry.EternalExpiryPolicy;
-import javax.cache.expiry.ModifiedExpiryPolicy;
-import javax.cache.expiry.TouchedExpiryPolicy;
+import javax.cache.expiry.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.hazelcast.config.CacheSimpleConfig.DEFAULT_BACKUP_COUNT;
-import static com.hazelcast.config.CacheSimpleConfig.DEFAULT_IN_MEMORY_FORMAT;
-import static com.hazelcast.config.CacheSimpleConfig.MIN_BACKUP_COUNT;
-import static com.hazelcast.util.Preconditions.checkAsyncBackupCount;
-import static com.hazelcast.util.Preconditions.checkBackupCount;
-import static com.hazelcast.util.Preconditions.isNotNull;
+import static com.hazelcast.config.CacheSimpleConfig.*;
+import static com.hazelcast.util.Preconditions.*;
 
 /**
  * Contains all the configuration for the {@link com.hazelcast.cache.ICache}.
@@ -595,7 +582,7 @@ public class CacheConfig<K, V> extends AbstractCacheConfig<K, V> {
             final int size = in.readInt();
             listenerConfigurations = createConcurrentSet();
             for (int i = 0; i < size; i++) {
-                listenerConfigurations.add((CacheEntryListenerConfiguration<K, V>) in.readObject());
+                listenerConfigurations.add(in.readObject());
             }
         }
 

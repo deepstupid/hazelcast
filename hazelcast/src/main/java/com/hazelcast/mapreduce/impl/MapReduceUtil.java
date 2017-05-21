@@ -23,18 +23,9 @@ import com.hazelcast.mapreduce.JobPartitionState;
 import com.hazelcast.mapreduce.PartitionIdAware;
 import com.hazelcast.mapreduce.RemoteMapReduceException;
 import com.hazelcast.mapreduce.impl.operation.NotifyRemoteExceptionOperation;
-import com.hazelcast.mapreduce.impl.task.JobPartitionStateImpl;
-import com.hazelcast.mapreduce.impl.task.JobProcessInformationImpl;
-import com.hazelcast.mapreduce.impl.task.JobSupervisor;
-import com.hazelcast.mapreduce.impl.task.JobTaskConfiguration;
-import com.hazelcast.mapreduce.impl.task.MemberAssigningJobProcessInformationImpl;
+import com.hazelcast.mapreduce.impl.task.*;
 import com.hazelcast.nio.Address;
-import com.hazelcast.spi.InternalCompletableFuture;
-import com.hazelcast.spi.InvocationBuilder;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.OperationFactory;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.spi.*;
 import com.hazelcast.spi.partition.IPartitionService;
 import com.hazelcast.util.Clock;
 import com.hazelcast.util.EmptyStatement;
@@ -45,10 +36,7 @@ import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import static com.hazelcast.cluster.memberselector.MemberSelectors.DATA_MEMBER_SELECTOR;
-import static com.hazelcast.mapreduce.JobPartitionState.State.MAPPING;
-import static com.hazelcast.mapreduce.JobPartitionState.State.PROCESSED;
-import static com.hazelcast.mapreduce.JobPartitionState.State.REDUCING;
-import static com.hazelcast.mapreduce.JobPartitionState.State.WAITING;
+import static com.hazelcast.mapreduce.JobPartitionState.State.*;
 
 /**
  * This utility class contains a few basic operations that are needed in multiple places

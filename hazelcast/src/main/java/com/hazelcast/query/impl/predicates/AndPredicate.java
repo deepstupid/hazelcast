@@ -18,16 +18,12 @@ package com.hazelcast.query.impl.predicates;
 
 import com.hazelcast.nio.ObjectDataInput;
 import com.hazelcast.nio.ObjectDataOutput;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
 import com.hazelcast.query.IndexAwarePredicate;
 import com.hazelcast.query.Predicate;
 import com.hazelcast.query.VisitablePredicate;
-import com.hazelcast.query.impl.AndResultSet;
-import com.hazelcast.query.impl.Indexes;
-import com.hazelcast.query.impl.OrResultSet;
-import com.hazelcast.query.impl.QueryContext;
-import com.hazelcast.query.impl.QueryableEntry;
+import com.hazelcast.query.impl.*;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import java.io.IOException;

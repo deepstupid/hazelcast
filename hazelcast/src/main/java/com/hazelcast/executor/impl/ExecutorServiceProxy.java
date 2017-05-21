@@ -16,13 +16,7 @@
 
 package com.hazelcast.executor.impl;
 
-import com.hazelcast.core.ExecutionCallback;
-import com.hazelcast.core.HazelcastInstanceNotActiveException;
-import com.hazelcast.core.IExecutorService;
-import com.hazelcast.core.Member;
-import com.hazelcast.core.MemberSelector;
-import com.hazelcast.core.MultiExecutionCallback;
-import com.hazelcast.core.PartitionAware;
+import com.hazelcast.core.*;
 import com.hazelcast.executor.impl.operations.CallableTaskOperation;
 import com.hazelcast.executor.impl.operations.MemberCallableTaskOperation;
 import com.hazelcast.executor.impl.operations.ShutdownOperation;
@@ -31,36 +25,16 @@ import com.hazelcast.logging.ILogger;
 import com.hazelcast.monitor.LocalExecutorStats;
 import com.hazelcast.nio.Address;
 import com.hazelcast.nio.serialization.Data;
-import com.hazelcast.spi.AbstractDistributedObject;
-import com.hazelcast.spi.ExecutionService;
-import com.hazelcast.spi.InternalCompletableFuture;
-import com.hazelcast.spi.NodeEngine;
-import com.hazelcast.spi.Operation;
-import com.hazelcast.spi.OperationService;
+import com.hazelcast.spi.*;
 import com.hazelcast.util.Clock;
 import com.hazelcast.util.executor.CompletedFuture;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import java.util.*;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 import java.util.logging.Level;
 
-import static com.hazelcast.util.FutureUtil.ExceptionHandler;
-import static com.hazelcast.util.FutureUtil.logAllExceptions;
-import static com.hazelcast.util.FutureUtil.waitWithDeadline;
+import static com.hazelcast.util.FutureUtil.*;
 import static com.hazelcast.util.Preconditions.checkNotNull;
 import static com.hazelcast.util.UuidUtil.newUnsecureUuidString;
 
@@ -292,7 +266,7 @@ public class ExecutorServiceProxy
         NodeEngine nodeEngine = getNodeEngine();
         Data taskData = nodeEngine.toData(task);
         String uuid = newUnsecureUuidString();
-        Address target = ((MemberImpl) member).getAddress();
+        Address target = member.getAddress();
 
         boolean sync = checkSync();
         MemberCallableTaskOperation op = new MemberCallableTaskOperation(name, uuid, taskData);
@@ -387,7 +361,7 @@ public class ExecutorServiceProxy
         String uuid = newUnsecureUuidString();
         MemberCallableTaskOperation op = new MemberCallableTaskOperation(name, uuid, taskData);
         OperationService operationService = nodeEngine.getOperationService();
-        Address address = ((MemberImpl) member).getAddress();
+        Address address = member.getAddress();
         operationService
                 .createInvocationBuilder(DistributedExecutorService.SERVICE_NAME, op, address)
                 .setExecutionCallback((ExecutionCallback) callback).invoke();
@@ -405,7 +379,7 @@ public class ExecutorServiceProxy
                 nodeEngine.getLogger(ExecutionCallbackAdapterFactory.class), members, callback);
 
         for (Member member : members) {
-            submitToMember(task, member, executionCallbackFactory.<T>callbackFor(member));
+            submitToMember(task, member, executionCallbackFactory.callbackFor(member));
         }
     }
 

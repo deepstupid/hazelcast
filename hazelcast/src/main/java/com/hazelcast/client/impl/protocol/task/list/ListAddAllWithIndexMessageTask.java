@@ -44,7 +44,7 @@ public class ListAddAllWithIndexMessageTask
 
     @Override
     protected Operation prepareOperation() {
-        return new ListAddAllOperation(parameters.name, parameters.index, (List<Data>) parameters.valueList);
+        return new ListAddAllOperation(parameters.name, parameters.index, parameters.valueList);
     }
 
     @Override

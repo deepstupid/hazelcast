@@ -32,13 +32,7 @@ import com.hazelcast.spi.OperationFactory;
 import com.hazelcast.spi.partition.IPartitionService;
 
 import java.security.Permission;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class MapExecuteOnKeysMessageTask
         extends AbstractMultiPartitionMessageTask<MapExecuteOnKeysCodec.RequestParameters> {

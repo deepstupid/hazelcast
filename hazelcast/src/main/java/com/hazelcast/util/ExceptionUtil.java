@@ -140,7 +140,7 @@ public final class ExceptionUtil {
 
     @SuppressWarnings("unchecked")
     public static <T> T sneakyThrow(Throwable t) {
-        ExceptionUtil.<RuntimeException>sneakyThrowInternal(t);
+        ExceptionUtil.sneakyThrowInternal(t);
         return (T) t;
     }
 

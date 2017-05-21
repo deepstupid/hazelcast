@@ -23,12 +23,7 @@ import com.hazelcast.core.IMap;
 import com.hazelcast.internal.adapter.DataStructureAdapter.DataStructureMethods;
 import com.hazelcast.internal.adapter.DataStructureAdapterMethod;
 import com.hazelcast.internal.adapter.TransactionalMapDataStructureAdapter;
-import com.hazelcast.internal.nearcache.AbstractNearCacheBasicTest;
-import com.hazelcast.internal.nearcache.NearCache;
-import com.hazelcast.internal.nearcache.NearCacheManager;
-import com.hazelcast.internal.nearcache.NearCacheTestContext;
-import com.hazelcast.internal.nearcache.NearCacheTestContextBuilder;
-import com.hazelcast.internal.nearcache.NearCacheTestUtils;
+import com.hazelcast.internal.nearcache.*;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.spi.properties.GroupProperty;
 import com.hazelcast.test.HazelcastParametersRunnerFactory;
@@ -48,11 +43,7 @@ import org.junit.runners.Parameterized.UseParametersRunnerFactory;
 
 import java.util.Collection;
 
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheSize;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheSizeEventually;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.assertNearCacheStats;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.createNearCacheConfig;
-import static com.hazelcast.internal.nearcache.NearCacheTestUtils.getMapNearCacheManager;
+import static com.hazelcast.internal.nearcache.NearCacheTestUtils.*;
 import static com.hazelcast.map.impl.nearcache.MapInvalidationListener.createInvalidationEventHandler;
 import static java.util.Arrays.asList;
 

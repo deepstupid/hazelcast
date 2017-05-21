@@ -17,19 +17,8 @@
 package com.hazelcast.util;
 
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Deque;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.net.*;
+import java.util.*;
 
 /**
  * AddressUtil contains Address helper methods.
@@ -195,11 +184,7 @@ public final class AddressUtil {
         if (!(address instanceof Inet6Address)) {
             return false;
         }
-        if (!Arrays.equals(address.getAddress(), inet6Address.getAddress())) {
-            return false;
-        }
-
-        return true;
+        return Arrays.equals(address.getAddress(), inet6Address.getAddress());
     }
 
     public static Inet6Address getInetAddressFor(final Inet6Address inetAddress, String scope)

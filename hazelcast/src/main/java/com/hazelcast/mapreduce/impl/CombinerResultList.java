@@ -68,7 +68,7 @@ public class CombinerResultList<E> extends ArrayList<E>
 
         int size = in.readInt();
         for (int i = 0; i < size; i++) {
-            add(i, (E) in.readObject());
+            add(i, in.readObject());
         }
     }
 }

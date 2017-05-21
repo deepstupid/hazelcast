@@ -22,9 +22,7 @@ import com.hazelcast.monitor.LocalWanPublisherStats;
 
 import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 
-import static com.hazelcast.util.JsonUtil.getBoolean;
-import static com.hazelcast.util.JsonUtil.getInt;
-import static com.hazelcast.util.JsonUtil.getLong;
+import static com.hazelcast.util.JsonUtil.*;
 import static java.util.concurrent.atomic.AtomicLongFieldUpdater.newUpdater;
 
 public class LocalWanPublisherStatsImpl implements LocalWanPublisherStats {

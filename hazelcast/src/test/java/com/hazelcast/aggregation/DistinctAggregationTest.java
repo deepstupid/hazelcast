@@ -23,16 +23,9 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import static com.hazelcast.aggregation.TestSamples.createEntryWithValue;
-import static com.hazelcast.aggregation.TestSamples.createExtractableEntryWithValue;
-import static com.hazelcast.aggregation.TestSamples.sampleStrings;
+import static com.hazelcast.aggregation.TestSamples.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

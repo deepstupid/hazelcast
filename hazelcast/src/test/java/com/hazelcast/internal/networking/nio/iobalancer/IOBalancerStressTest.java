@@ -21,11 +21,7 @@ import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.hazelcast.instance.HazelcastInstanceFactory;
-import com.hazelcast.internal.networking.nio.MigratableHandler;
-import com.hazelcast.internal.networking.nio.NioChannelReader;
-import com.hazelcast.internal.networking.nio.NioEventLoopGroup;
-import com.hazelcast.internal.networking.nio.NioThread;
-import com.hazelcast.internal.networking.nio.NioChannelWriter;
+import com.hazelcast.internal.networking.nio.*;
 import com.hazelcast.nio.tcp.TcpIpConnection;
 import com.hazelcast.nio.tcp.TcpIpConnectionManager;
 import com.hazelcast.spi.properties.GroupProperty;
@@ -39,11 +35,7 @@ import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.assertTrue;
 

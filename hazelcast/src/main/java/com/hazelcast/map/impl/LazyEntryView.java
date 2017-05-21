@@ -17,11 +17,7 @@
 package com.hazelcast.map.impl;
 
 import com.hazelcast.core.EntryView;
-import com.hazelcast.map.merge.HigherHitsMapMergePolicy;
-import com.hazelcast.map.merge.LatestUpdateMapMergePolicy;
-import com.hazelcast.map.merge.MapMergePolicy;
-import com.hazelcast.map.merge.PassThroughMergePolicy;
-import com.hazelcast.map.merge.PutIfAbsentMapMergePolicy;
+import com.hazelcast.map.merge.*;
 import com.hazelcast.spi.serialization.SerializationService;
 
 /**

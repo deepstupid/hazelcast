@@ -154,11 +154,7 @@ public class SerializationConcurrencyTest {
             if (no != address.no) {
                 return false;
             }
-            if (street != null ? !street.equals(address.street) : address.street != null) {
-                return false;
-            }
-
-            return true;
+            return street != null ? street.equals(address.street) : address.street == null;
         }
 
         @Override
@@ -233,11 +229,7 @@ public class SerializationConcurrencyTest {
             if (address != null ? !address.equals(person.address) : person.address != null) {
                 return false;
             }
-            if (name != null ? !name.equals(person.name) : person.name != null) {
-                return false;
-            }
-
-            return true;
+            return name != null ? name.equals(person.name) : person.name == null;
         }
 
         @Override
@@ -298,10 +290,7 @@ public class SerializationConcurrencyTest {
             if (no != that.no) {
                 return false;
             }
-            if (street != null ? !street.equals(that.street) : that.street != null) {
-                return false;
-            }
-            return true;
+            return street != null ? street.equals(that.street) : that.street == null;
         }
 
         @Override
@@ -378,11 +367,7 @@ public class SerializationConcurrencyTest {
             if (address != null ? !address.equals(that.address) : that.address != null) {
                 return false;
             }
-            if (name != null ? !name.equals(that.name) : that.name != null) {
-                return false;
-            }
-
-            return true;
+            return name != null ? name.equals(that.name) : that.name == null;
         }
 
         @Override

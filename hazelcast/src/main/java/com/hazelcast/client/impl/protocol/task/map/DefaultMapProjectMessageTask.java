@@ -28,11 +28,7 @@ import com.hazelcast.query.TruePredicate;
 import com.hazelcast.spi.serialization.SerializationService;
 import com.hazelcast.util.IterationType;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public abstract class DefaultMapProjectMessageTask<P>
         extends AbstractMapQueryMessageTask<P,

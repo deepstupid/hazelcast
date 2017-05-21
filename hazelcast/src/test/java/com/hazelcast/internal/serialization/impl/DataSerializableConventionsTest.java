@@ -19,16 +19,11 @@ package com.hazelcast.internal.serialization.impl;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.hazelcast.internal.serialization.DataSerializerHook;
-import com.hazelcast.nio.serialization.DataSerializable;
-import com.hazelcast.nio.serialization.DataSerializableFactory;
-import com.hazelcast.nio.serialization.IdentifiedDataSerializable;
-import com.hazelcast.nio.serialization.SerializableByConvention;
-import com.hazelcast.nio.serialization.BinaryInterface;
+import com.hazelcast.nio.serialization.*;
 import com.hazelcast.spi.AbstractLocalOperation;
 import com.hazelcast.spi.annotation.PrivateApi;
 import com.hazelcast.test.HazelcastParallelClassRunner;
 import com.hazelcast.test.annotation.QuickTest;
-import com.hazelcast.util.ConcurrentReferenceHashMap;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -38,20 +33,10 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import java.security.Permission;
 import java.security.PermissionCollection;
-import java.util.Collections;
-import java.util.EventObject;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 
 import static com.hazelcast.test.ReflectionsHelper.REFLECTIONS;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 /**
  * Tests to verify serializable classes conventions are observed. Each conventions test scans the classpath (excluding

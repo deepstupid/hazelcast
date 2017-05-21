@@ -24,22 +24,11 @@ import com.hazelcast.instance.MemberImpl;
 import com.hazelcast.instance.Node;
 import com.hazelcast.internal.cluster.Versions;
 import com.hazelcast.internal.metrics.Probe;
-import com.hazelcast.internal.partition.InternalPartition;
-import com.hazelcast.internal.partition.InternalPartitionService;
-import com.hazelcast.internal.partition.MigrationInfo;
+import com.hazelcast.internal.partition.*;
 import com.hazelcast.internal.partition.MigrationInfo.MigrationStatus;
-import com.hazelcast.internal.partition.PartitionRuntimeState;
-import com.hazelcast.internal.partition.PartitionStateVersionMismatchException;
 import com.hazelcast.internal.partition.impl.InternalMigrationListener.MigrationParticipant;
 import com.hazelcast.internal.partition.impl.MigrationPlanner.MigrationDecisionCallback;
-import com.hazelcast.internal.partition.operation.FinalizeMigrationOperation;
-import com.hazelcast.internal.partition.operation.LegacyMigrationRequestOperation;
-import com.hazelcast.internal.partition.operation.MigrationCommitOperation;
-import com.hazelcast.internal.partition.operation.MigrationRequestOperation;
-import com.hazelcast.internal.partition.operation.PartitionStateOperation;
-import com.hazelcast.internal.partition.operation.PromotionCommitOperation;
-import com.hazelcast.internal.partition.operation.ReplicaSyncRequest;
-import com.hazelcast.internal.partition.operation.ShutdownResponseOperation;
+import com.hazelcast.internal.partition.operation.*;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.Address;
 import com.hazelcast.spi.ExecutionService;
@@ -56,18 +45,7 @@ import com.hazelcast.util.Preconditions;
 import com.hazelcast.util.scheduler.CoalescingDelayedTrigger;
 import com.hazelcast.version.Version;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -866,20 +844,16 @@ public class MigrationManager {
                     for (int index = 0; index < InternalPartition.MAX_REPLICA_COUNT; index++) {
                         final Address address = partition.getReplicaAddress(index);
                         if (index <= maxBackupCount) {
-                            if (shutdownRequestedAddresses.isEmpty()) {
-                                assert address != null : "Repartitioning problem, missing replica! "
-                                        + "Current replica: " + index + ", Max backups: " + maxBackupCount
-                                        + " -> " + partition;
-                            }
+                            assert !shutdownRequestedAddresses.isEmpty() || address != null : "Repartitioning problem, missing replica! "
+                                    + "Current replica: " + index + ", Max backups: " + maxBackupCount
+                                    + " -> " + partition;
                         } else {
                             assert address == null : "Repartitioning problem, leaking replica! "
                                     + "Current replica: " + index + ", Max backups: " + maxBackupCount
                                     + " -> " + partition;
                         }
 
-                        if (address != null) {
-                            assert replicas.add(address) : "Duplicate address in " + partition;
-                        }
+                        assert address == null || replicas.add(address) : "Duplicate address in " + partition;
                     }
                 }
             } finally {

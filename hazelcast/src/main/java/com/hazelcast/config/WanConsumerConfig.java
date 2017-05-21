@@ -129,7 +129,7 @@ public class WanConsumerConfig implements IdentifiedDataSerializable {
     public void readData(ObjectDataInput in) throws IOException {
         int size = in.readInt();
         for (int i = 0; i < size; i++) {
-            properties.put(in.readUTF(), (Comparable) in.readObject());
+            properties.put(in.readUTF(), in.readObject());
         }
         className = in.readUTF();
         implementation = in.readObject();

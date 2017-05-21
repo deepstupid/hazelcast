@@ -31,9 +31,7 @@ import com.hazelcast.spi.serialization.SerializationService;
 import java.util.Collection;
 import java.util.Collections;
 
-import static com.hazelcast.core.EntryEventType.EVICTED;
-import static com.hazelcast.core.EntryEventType.EXPIRED;
-import static com.hazelcast.core.EntryEventType.REMOVED;
+import static com.hazelcast.core.EntryEventType.*;
 
 /**
  * This entry event filtering strategy models the default backwards compatible Hazelcast behaviour.

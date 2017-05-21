@@ -50,11 +50,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.Future;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.logging.Level;
 
 import static com.hazelcast.internal.metrics.ProbeLevel.MANDATORY;
@@ -385,9 +381,9 @@ public class EventServiceImpl implements InternalEventService, MetricsProvider {
         if (segment != null) {
             final Collection<Registration> registrations = segment.getRegistrations(topic, false);
             if (registrations == null || registrations.isEmpty()) {
-                return Collections.<EventRegistration>emptySet();
+                return Collections.emptySet();
             } else {
-                return Collections.<EventRegistration>unmodifiableCollection(registrations);
+                return Collections.unmodifiableCollection(registrations);
             }
         }
         return Collections.emptySet();

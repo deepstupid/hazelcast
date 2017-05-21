@@ -26,9 +26,7 @@ import com.hazelcast.internal.management.operation.UpdateMapConfigOperation;
 
 import java.util.Set;
 
-import static com.hazelcast.util.JsonUtil.getBoolean;
-import static com.hazelcast.util.JsonUtil.getObject;
-import static com.hazelcast.util.JsonUtil.getString;
+import static com.hazelcast.util.JsonUtil.*;
 
 /**
  * Request for updating map configuration from Management Center.
