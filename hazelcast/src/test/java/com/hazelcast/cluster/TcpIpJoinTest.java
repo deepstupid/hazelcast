@@ -105,7 +105,6 @@ public class TcpIpJoinTest extends AbstractJoinTest {
                 .getInterfaces().addInterface("127.0.0.1").setEnabled(true);
         final JoinConfig joinConfig = networkConfig.getJoin();
         joinConfig.getMulticastConfig().setEnabled(false);
-        joinConfig.getAwsConfig().setEnabled(false);
         joinConfig.getTcpIpConfig().addMember("localhost:5701").addMember("localhost:5702").setEnabled(true);
 
         testJoin(config);

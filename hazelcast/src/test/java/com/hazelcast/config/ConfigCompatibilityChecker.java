@@ -681,7 +681,6 @@ class ConfigCompatibilityChecker {
             return c1 == c2 || !(c1 == null || c2 == null)
                     && isCompatible(c1.getMulticastConfig(), c2.getMulticastConfig())
                     && isCompatible(c1.getTcpIpConfig(), c2.getTcpIpConfig())
-                    && new AwsConfigChecker().check(c1.getAwsConfig(), c2.getAwsConfig())
                     && new DiscoveryConfigChecker().check(c1.getDiscoveryConfig(), c2.getDiscoveryConfig());
         }
 
@@ -763,24 +762,6 @@ class ConfigCompatibilityChecker {
         }
     }
 
-    private static class AwsConfigChecker extends ConfigChecker<AwsConfig> {
-        @Override
-        boolean check(AwsConfig c1, AwsConfig c2) {
-            final boolean c1Disabled = c1 == null || !c1.isEnabled();
-            final boolean c2Disabled = c2 == null || !c2.isEnabled();
-            return c1 == c2 || (c1Disabled && c2Disabled) ||
-                    (c1 != null && c2 != null
-                            && nullSafeEqual(c1.getAccessKey(), c2.getAccessKey())
-                            && nullSafeEqual(c1.getSecretKey(), c2.getSecretKey())
-                            && nullSafeEqual(c1.getRegion(), c2.getRegion())
-                            && nullSafeEqual(c1.getSecurityGroupName(), c2.getSecurityGroupName())
-                            && nullSafeEqual(c1.getTagKey(), c2.getTagKey())
-                            && nullSafeEqual(c1.getTagValue(), c2.getTagValue())
-                            && nullSafeEqual(c1.getHostHeader(), c2.getHostHeader())
-                            && nullSafeEqual(c1.getIamRole(), c2.getIamRole())
-                            && nullSafeEqual(c1.getConnectionTimeoutSeconds(), c2.getConnectionTimeoutSeconds()));
-        }
-    }
 
     private static class WanReplicationConfigChecker extends ConfigChecker<WanReplicationConfig> {
         @Override
@@ -806,7 +787,6 @@ class ConfigCompatibilityChecker {
                     && nullSafeEqual(c1.getGroupName(), c2.getGroupName())
                     && nullSafeEqual(c1.getQueueCapacity(), c2.getQueueCapacity())
                     && nullSafeEqual(c1.getQueueFullBehavior(), c2.getQueueFullBehavior())
-                    && new AwsConfigChecker().check(c1.getAwsConfig(), c2.getAwsConfig())
                     && new DiscoveryConfigChecker().check(c1.getDiscoveryConfig(), c2.getDiscoveryConfig())
                     && nullSafeEqual(c1.getClassName(), c2.getClassName())
                     && nullSafeEqual(c1.getImplementation(), c2.getImplementation())

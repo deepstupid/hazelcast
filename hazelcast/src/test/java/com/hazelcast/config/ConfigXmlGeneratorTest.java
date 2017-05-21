@@ -200,7 +200,6 @@ public class ConfigXmlGeneratorTest {
         final WanPublisherConfig publisherConfig = new WanPublisherConfig()
                 .setGroupName("dummyGroup")
                 .setClassName("dummyClass")
-                .setAwsConfig(getDummyAwsConfig())
                 .setDiscoveryConfig(getDummyDiscoveryConfig());
         wanConfig.setWanPublisherConfigs(Collections.singletonList(publisherConfig));
 
@@ -219,19 +218,6 @@ public class ConfigXmlGeneratorTest {
         c.addDiscoveryStrategyConfig(strategyConfig);
         c.addDiscoveryStrategyConfig(new DiscoveryStrategyConfig("dummyClass2"));
         return c;
-    }
-
-    private AwsConfig getDummyAwsConfig() {
-        return new AwsConfig().setHostHeader("dummyHost")
-                              .setRegion("dummyRegion")
-                              .setEnabled(false)
-                              .setConnectionTimeoutSeconds(1)
-                              .setAccessKey("dummyKey")
-                              .setIamRole("dummyIam")
-                              .setSecretKey("dummySecretKey")
-                              .setSecurityGroupName("dummyGroupName")
-                              .setTagKey("dummyTagKey")
-                              .setTagValue("dummyTagValue");
     }
 
     private static Config getNewConfigViaXMLGenerator(Config config) {

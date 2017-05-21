@@ -454,7 +454,6 @@ public class ConfigXmlGenerator {
                    .node("queue-full-behavior", p.getQueueFullBehavior())
                    .node("queue-capacity", p.getQueueCapacity())
                    .appendProperties(p.getProperties());
-                awsConfigXmlGenerator(gen, p.getAwsConfig());
                 discoveryStrategyConfigXmlGenerator(gen, p.getDiscoveryConfig());
                 gen.close();
             }
@@ -493,7 +492,6 @@ public class ConfigXmlGenerator {
         gen.open("join");
         multicastConfigXmlGenerator(gen, join);
         tcpConfigXmlGenerator(gen, join);
-        awsConfigXmlGenerator(gen, join.getAwsConfig());
         discoveryStrategyConfigXmlGenerator(gen, join.getDiscoveryConfig());
         gen.close();
 
@@ -801,21 +799,6 @@ public class ConfigXmlGenerator {
                 .close();
     }
 
-    private static void awsConfigXmlGenerator(XmlGenerator gen, AwsConfig c) {
-        if (c == null) {
-            return;
-        }
-        gen.open("aws", "enabled", c.isEnabled())
-                .node("access-key", c.getAccessKey())
-                .node("secret-key", c.getSecretKey())
-                .node("iam-role", c.getIamRole())
-                .node("region", c.getRegion())
-                .node("host-header", c.getHostHeader())
-                .node("security-group-name", c.getSecurityGroupName())
-                .node("tag-key", c.getTagKey())
-                .node("tag-value", c.getTagValue())
-                .close();
-    }
 
     private static void discoveryStrategyConfigXmlGenerator(XmlGenerator gen, DiscoveryConfig c) {
         if (c == null) {

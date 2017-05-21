@@ -708,16 +708,6 @@ public class Node {
             } else if (join.getTcpIpConfig().isEnabled()) {
                 logger.info("Creating TcpIpJoiner");
                 return new TcpIpJoiner(this);
-            } else if (join.getAwsConfig().isEnabled()) {
-                Class clazz;
-                try {
-                    logger.info("Creating AWSJoiner");
-                    clazz = Class.forName("com.hazelcast.cluster.impl.TcpIpJoinerOverAWS");
-                    Constructor constructor = clazz.getConstructor(Node.class);
-                    return (Joiner) constructor.newInstance(this);
-                } catch (Exception e) {
-                    throw ExceptionUtil.rethrow(e);
-                }
             }
         }
         return null;

@@ -26,12 +26,9 @@ public class SocketOptions {
      */
     public static final int KILO_BYTE = 1024;
 
-    /**
-     * default buffer size of Bytes
-     */
-    public static final int DEFAULT_BUFFER_SIZE_BYTE = 128 * KILO_BYTE;
 
-    static final int DEFAULT_BUFFER_SIZE = 128;
+
+
 
     // socket options
 
@@ -43,6 +40,7 @@ public class SocketOptions {
 
     private int lingerSeconds = 3;
 
+    static final int DEFAULT_BUFFER_SIZE = 128 * 1024;
     private int bufferSize = DEFAULT_BUFFER_SIZE;
 
     /**

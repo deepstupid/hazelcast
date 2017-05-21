@@ -60,9 +60,9 @@ public class TopicStressTest extends HazelcastTestSupport {
     public static final int PUBLISH_THREAD_COUNT = 10;
     public static final int NODE_COUNT = 10;
     public static final int TOPIC_COUNT = 10;
-    public static final int RUNNING_TIME_SECONDS = 600;
+    public static final int RUNNING_TIME_SECONDS = 60;
     // if we set this value very low, it could be that events are dropped due to overload of the event queue
-    public static final int MAX_PUBLISH_DELAY_MILLIS = 25;
+    public static final int MAX_PUBLISH_DELAY_MILLIS = 5;
 
     private HazelcastInstance[] instances;
     private CountDownLatch startLatch;

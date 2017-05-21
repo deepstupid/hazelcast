@@ -31,7 +31,6 @@ import static com.hazelcast.util.Preconditions.isNotNull;
  * The endpoint can be a different cluster defined by static IP's or discovered using a cloud discovery mechanism.
  *
  * @see DiscoveryConfig
- * @see AwsConfig
  */
 public class WanPublisherConfig implements IdentifiedDataSerializable {
 
@@ -44,7 +43,7 @@ public class WanPublisherConfig implements IdentifiedDataSerializable {
     private Map<String, Comparable> properties = new HashMap<String, Comparable>();
     private String className;
     private Object implementation;
-    private AwsConfig awsConfig = new AwsConfig();
+
     private DiscoveryConfig discoveryConfig = new DiscoveryConfig();
 
     /**
@@ -147,21 +146,6 @@ public class WanPublisherConfig implements IdentifiedDataSerializable {
         return this;
     }
 
-    /**
-     * @return the awsConfig join configuration
-     */
-    public AwsConfig getAwsConfig() {
-        return awsConfig;
-    }
-
-    /**
-     * @param awsConfig the AwsConfig join configuration to set
-     * @throws IllegalArgumentException if awsConfig is null
-     */
-    public WanPublisherConfig setAwsConfig(final AwsConfig awsConfig) {
-        this.awsConfig = isNotNull(awsConfig, "awsConfig");
-        return this;
-    }
 
     /**
      * Returns the currently defined {@link DiscoveryConfig}
@@ -192,7 +176,6 @@ public class WanPublisherConfig implements IdentifiedDataSerializable {
                 + ", properties=" + properties
                 + ", className='" + className + '\''
                 + ", implementation=" + implementation
-                + ", awsConfig=" + awsConfig
                 + ", discoveryConfig=" + discoveryConfig
                 + '}';
     }

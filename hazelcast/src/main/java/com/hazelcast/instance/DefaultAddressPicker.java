@@ -17,9 +17,7 @@
 package com.hazelcast.instance;
 
 import com.hazelcast.cluster.impl.TcpIpJoiner;
-import com.hazelcast.config.AwsConfig;
 import com.hazelcast.config.Config;
-import com.hazelcast.config.JoinConfig;
 import com.hazelcast.config.NetworkConfig;
 import com.hazelcast.config.TcpIpConfig;
 import com.hazelcast.core.HazelcastException;
@@ -368,10 +366,7 @@ class DefaultAddressPicker implements AddressPicker {
         boolean preferIPv4Stack = Boolean.getBoolean("java.net.preferIPv4Stack")
                 || hazelcastProperties.getBoolean(GroupProperty.PREFER_IPv4_STACK);
         // AWS does not support IPv6
-        JoinConfig join = config.getNetworkConfig().getJoin();
-        AwsConfig awsConfig = join.getAwsConfig();
-        boolean awsEnabled = awsConfig != null && awsConfig.isEnabled();
-        return preferIPv4Stack || awsEnabled;
+        return preferIPv4Stack;
     }
 
     @Override

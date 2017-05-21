@@ -46,7 +46,6 @@ public class JoinConfigTest {
         JoinConfig config = new JoinConfig();
         config.getMulticastConfig().setEnabled(multicast);
         config.getTcpIpConfig().setEnabled(tcp);
-        config.getAwsConfig().setEnabled(aws);
 
         config.verify();
     }
@@ -55,7 +54,6 @@ public class JoinConfigTest {
         JoinConfig config = new JoinConfig();
         config.getMulticastConfig().setEnabled(multicast);
         config.getTcpIpConfig().setEnabled(tcp);
-        config.getAwsConfig().setEnabled(aws);
 
         try {
             config.verify();

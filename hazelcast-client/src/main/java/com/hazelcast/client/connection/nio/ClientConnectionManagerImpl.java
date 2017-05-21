@@ -78,7 +78,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-import static com.hazelcast.client.config.SocketOptions.DEFAULT_BUFFER_SIZE_BYTE;
+
 import static com.hazelcast.client.config.SocketOptions.KILO_BYTE;
 import static com.hazelcast.client.spi.properties.ClientProperty.HEARTBEAT_INTERVAL;
 import static com.hazelcast.client.spi.properties.ClientProperty.HEARTBEAT_TIMEOUT;
@@ -380,6 +380,7 @@ public class ClientConnectionManagerImpl implements ClientConnectionManager {
         try {
             socketChannel = SocketChannel.open();
             Socket socket = socketChannel.socket();
+
             socket.setKeepAlive(socketOptions.isKeepAlive());
             socket.setTcpNoDelay(socketOptions.isTcpNoDelay());
             socket.setReuseAddress(socketOptions.isReuseAddress());

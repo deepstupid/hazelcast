@@ -58,13 +58,13 @@ public final class NioChannelWriter
     @SuppressWarnings("checkstyle:visibilitymodifier")
     @Probe(name = "writeQueueSize")
     public final Queue<OutboundFrame> writeQueue =
-            new ManyToOneConcurrentArrayQueue<>(1024);
+            new ManyToOneConcurrentArrayQueue<>(16 * 1024);
             //new ConcurrentLinkedQueue<OutboundFrame>();
 
     @SuppressWarnings("checkstyle:visibilitymodifier")
     @Probe(name = "priorityWriteQueueSize")
     public final Queue<OutboundFrame> urgentWriteQueue =
-            new ManyToOneConcurrentArrayQueue<>(1024);
+            new ManyToOneConcurrentArrayQueue<>(16 * 1024);
             //new ConcurrentLinkedQueue<OutboundFrame>();
 
     private final ChannelInitializer initializer;

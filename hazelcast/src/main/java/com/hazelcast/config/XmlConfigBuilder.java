@@ -569,8 +569,6 @@ public class XmlConfigBuilder extends AbstractConfigBuilder implements ConfigBui
             publisherConfig.setQueueCapacity(queueCapacity);
         } else if ("properties".equals(targetChildName)) {
             fillProperties(targetChild, publisherConfig.getProperties());
-        } else if ("aws".equals(targetChildName)) {
-            handleAWS(publisherConfig.getAwsConfig(), targetChild);
         } else if ("discovery-strategies".equals(targetChildName)) {
             handleDiscoveryStrategies(publisherConfig.getDiscoveryConfig(), targetChild);
         }
@@ -758,8 +756,6 @@ public class XmlConfigBuilder extends AbstractConfigBuilder implements ConfigBui
                 handleMulticast(child);
             } else if ("tcp-ip".equals(name)) {
                 handleTcpIp(child);
-            } else if ("aws".equals(name)) {
-                handleAWS(config.getNetworkConfig().getJoin().getAwsConfig(), child);
             } else if ("discovery-strategies".equals(name)) {
                 handleDiscoveryStrategies(config.getNetworkConfig().getJoin().getDiscoveryConfig(), child);
             }
@@ -820,38 +816,6 @@ public class XmlConfigBuilder extends AbstractConfigBuilder implements ConfigBui
         discoveryConfig.addDiscoveryStrategyConfig(new DiscoveryStrategyConfig(clazz, properties));
     }
 
-    private void handleAWS(AwsConfig awsConfig, Node node) {
-        NamedNodeMap atts = node.getAttributes();
-        for (int a = 0; a < atts.getLength(); a++) {
-            Node att = atts.item(a);
-            String value = getTextContent(att).trim();
-            if ("enabled".equals(lowerCaseInternal(att.getNodeName()))) {
-                awsConfig.setEnabled(getBooleanValue(value));
-            } else if (att.getNodeName().equals("connection-timeout-seconds")) {
-                awsConfig.setConnectionTimeoutSeconds(getIntegerValue("connection-timeout-seconds", value));
-            }
-        }
-        for (Node n : childElements(node)) {
-            String value = getTextContent(n).trim();
-            if ("secret-key".equals(cleanNodeName(n))) {
-                awsConfig.setSecretKey(value);
-            } else if ("access-key".equals(cleanNodeName(n))) {
-                awsConfig.setAccessKey(value);
-            } else if ("region".equals(cleanNodeName(n))) {
-                awsConfig.setRegion(value);
-            } else if ("host-header".equals(cleanNodeName(n))) {
-                awsConfig.setHostHeader(value);
-            } else if ("security-group-name".equals(cleanNodeName(n))) {
-                awsConfig.setSecurityGroupName(value);
-            } else if ("tag-key".equals(cleanNodeName(n))) {
-                awsConfig.setTagKey(value);
-            } else if ("tag-value".equals(cleanNodeName(n))) {
-                awsConfig.setTagValue(value);
-            } else if ("iam-role".equals(cleanNodeName(n))) {
-                awsConfig.setIamRole(value);
-            }
-        }
-    }
 
     private void handleMulticast(Node node) {
         JoinConfig join = config.getNetworkConfig().getJoin();

@@ -16,7 +16,6 @@
 
 package com.hazelcast.spi.discovery;
 
-import com.hazelcast.config.AwsConfig;
 import com.hazelcast.config.Config;
 import com.hazelcast.config.DiscoveryConfig;
 import com.hazelcast.config.DiscoveryStrategyConfig;
@@ -144,9 +143,6 @@ public class DiscoverySpiTest extends HazelcastTestSupport {
         Config config = new XmlConfigBuilder(xmlResource).build();
 
         JoinConfig joinConfig = config.getNetworkConfig().getJoin();
-
-        AwsConfig awsConfig = joinConfig.getAwsConfig();
-        assertFalse(awsConfig.isEnabled());
 
         TcpIpConfig tcpIpConfig = joinConfig.getTcpIpConfig();
         assertFalse(tcpIpConfig.isEnabled());

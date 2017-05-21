@@ -29,8 +29,6 @@ public class JoinConfig {
 
     private TcpIpConfig tcpIpConfig = new TcpIpConfig();
 
-    private AwsConfig awsConfig = new AwsConfig();
-
     private DiscoveryConfig discoveryConfig = new DiscoveryConfig();
 
     /**
@@ -65,21 +63,7 @@ public class JoinConfig {
         return this;
     }
 
-    /**
-     * @return the awsConfig join configuration
-     */
-    public AwsConfig getAwsConfig() {
-        return awsConfig;
-    }
 
-    /**
-     * @param awsConfig the AwsConfig join configuration to set
-     * @throws IllegalArgumentException if awsConfig is null
-     */
-    public JoinConfig setAwsConfig(final AwsConfig awsConfig) {
-        this.awsConfig = isNotNull(awsConfig, "awsConfig");
-        return this;
-    }
 
     /**
      * Returns the currently defined {@link DiscoveryConfig}
@@ -111,13 +95,6 @@ public class JoinConfig {
             throw new InvalidConfigurationException("TCP/IP and Multicast join can't be enabled at the same time");
         }
 
-        if (getTcpIpConfig().isEnabled() && getAwsConfig().isEnabled()) {
-            throw new InvalidConfigurationException("TCP/IP and AWS join can't be enabled at the same time");
-        }
-
-        if (getMulticastConfig().isEnabled() && getAwsConfig().isEnabled()) {
-            throw new InvalidConfigurationException("Multicast and AWS join can't be enabled at the same time");
-        }
         verifyDiscoveryProviderConfig();
     }
 
@@ -135,10 +112,6 @@ public class JoinConfig {
                         "Multicast and DiscoveryProviders join can't be enabled at the same time");
             }
 
-            if (getAwsConfig().isEnabled()) {
-                throw new InvalidConfigurationException(
-                        "AWS and DiscoveryProviders join can't be enabled at the same time");
-            }
         }
     }
 
@@ -147,7 +120,6 @@ public class JoinConfig {
         return "JoinConfig{"
                 + "multicastConfig=" + multicastConfig
                 + ", tcpIpConfig=" + tcpIpConfig
-                + ", awsConfig=" + awsConfig
                 + ", discoveryProvidersConfig=" + discoveryConfig
                 + '}';
     }

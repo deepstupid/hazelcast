@@ -151,46 +151,6 @@ public class XMLConfigBuilderTest extends HazelcastTestSupport {
     }
 
     @Test
-    public void readAwsConfig() {
-        String xml = HAZELCAST_START_TAG
-                + "   <group>\n" +
-                "        <name>dev</name>\n" +
-                "        <password>dev-pass</password>\n" +
-                "    </group>\n" +
-                "    <network>\n" +
-                "        <port auto-increment=\"true\">5701</port>\n" +
-                "        <join>\n" +
-                "            <multicast enabled=\"false\">\n" +
-                "                <multicast-group>224.2.2.3</multicast-group>\n" +
-                "                <multicast-port>54327</multicast-port>\n" +
-                "            </multicast>\n" +
-                "            <tcp-ip enabled=\"false\">\n" +
-                "                <interface>127.0.0.1</interface>\n" +
-                "            </tcp-ip>\n" +
-                "            <aws enabled=\"true\" connection-timeout-seconds=\"10\" >\n" +
-                "                <access-key>sample-access-key</access-key>\n" +
-                "                <secret-key>sample-secret-key</secret-key>\n" +
-                "                <iam-role>sample-role</iam-role>\n" +
-                "                <region>sample-region</region>\n" +
-                "                <host-header>sample-header</host-header>\n" +
-                "                <security-group-name>sample-group</security-group-name>\n" +
-                "                <tag-key>sample-tag-key</tag-key>\n" +
-                "                <tag-value>sample-tag-value</tag-value>\n" +
-                "            </aws>\n" +
-                "        </join>\n" +
-                "        <interfaces enabled=\"false\">\n" +
-                "            <interface>10.10.1.*</interface>\n" +
-                "        </interfaces>\n" +
-                "    </network>"
-                + HAZELCAST_END_TAG;
-
-        Config config = buildConfig(xml);
-        final AwsConfig aws = config.getNetworkConfig().getJoin().getAwsConfig();
-        assertTrue(aws.isEnabled());
-        assertAwsConfig(aws);
-    }
-
-    @Test
     public void readDiscoveryConfig() {
         String xml = HAZELCAST_START_TAG
                 + "   <group>\n" +
@@ -1111,8 +1071,7 @@ public class XMLConfigBuilderTest extends HazelcastTestSupport {
         assertEquals("prop.publisher", pubProperties.get("custom.prop.publisher"));
         assertEquals("5", pubProperties.get("discovery.period"));
         assertEquals("2", pubProperties.get("maxEndpoints"));
-        assertFalse(publisherConfig1.getAwsConfig().isEnabled());
-        assertAwsConfig(publisherConfig1.getAwsConfig());
+
         assertDiscoveryConfig(publisherConfig1.getDiscoveryConfig());
 
         WanPublisherConfig publisherConfig2 = publisherConfigs.get(1);
@@ -1136,17 +1095,6 @@ public class XMLConfigBuilderTest extends HazelcastTestSupport {
         assertEquals("true", props.get("key-boolean"));
     }
 
-    private void assertAwsConfig(AwsConfig aws) {
-        assertEquals(10, aws.getConnectionTimeoutSeconds());
-        assertEquals("sample-access-key", aws.getAccessKey());
-        assertEquals("sample-secret-key", aws.getSecretKey());
-        assertEquals("sample-region", aws.getRegion());
-        assertEquals("sample-header", aws.getHostHeader());
-        assertEquals("sample-group", aws.getSecurityGroupName());
-        assertEquals("sample-tag-key", aws.getTagKey());
-        assertEquals("sample-tag-value", aws.getTagValue());
-        assertEquals("sample-role", aws.getIamRole());
-    }
 
     @Test
     public void testQuorumConfig() {
