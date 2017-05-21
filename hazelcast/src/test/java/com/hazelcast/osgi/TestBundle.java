@@ -23,6 +23,7 @@ import org.osgi.framework.BundleException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.Version;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -86,6 +87,7 @@ public class TestBundle implements Bundle {
     public Class loadClass(String name) throws ClassNotFoundException {
         return Class.forName(name);
     }
+
 
     @Override
     public String getSymbolicName() {
@@ -200,6 +202,21 @@ public class TestBundle implements Bundle {
     @Override
     public Version getVersion() {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public <A> A adapt(Class<A> aClass) {
+        return null;
+    }
+
+    @Override
+    public File getDataFile(String s) {
+        return null;
+    }
+
+    @Override
+    public int compareTo(Bundle bundle) {
+        return 0;
     }
 
     interface RegisterDeregisterListener {

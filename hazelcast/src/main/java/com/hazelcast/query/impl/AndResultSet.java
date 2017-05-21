@@ -36,11 +36,11 @@ public class AndResultSet extends AbstractSet<QueryableEntry> {
 
     private final Set<QueryableEntry> setSmallest;
     private final List<Set<QueryableEntry>> otherIndexedResults;
-    private final List<Predicate> lsNoIndexPredicates;
+    private final List<? extends Predicate> lsNoIndexPredicates;
     private int cachedSize;
 
     public AndResultSet(Set<QueryableEntry> setSmallest, List<Set<QueryableEntry>> otherIndexedResults,
-                        List<Predicate> lsNoIndexPredicates) {
+                        List<? extends Predicate> lsNoIndexPredicates) {
         this.setSmallest = isNotNull(setSmallest, "setSmallest");
         this.otherIndexedResults = otherIndexedResults;
         this.lsNoIndexPredicates = lsNoIndexPredicates;

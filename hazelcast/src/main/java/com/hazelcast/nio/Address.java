@@ -40,12 +40,12 @@ public final class Address implements IdentifiedDataSerializable {
     private static final byte IPV4 = 4;
     private static final byte IPV6 = 6;
 
-    private int port = -1;
+    private int port = -1;  //<- use short
     private String host;
     private byte type;
 
     private String scopeId;
-    private boolean hostSet;
+    private boolean hostSet; //<- combine with type byte
 
     public Address() {
     }

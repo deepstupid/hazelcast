@@ -16,24 +16,11 @@
 
 package com.hazelcast.osgi;
 
-import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
-import org.osgi.framework.BundleListener;
-import org.osgi.framework.Filter;
-import org.osgi.framework.FrameworkListener;
-import org.osgi.framework.InvalidSyntaxException;
-import org.osgi.framework.ServiceListener;
-import org.osgi.framework.ServiceReference;
-import org.osgi.framework.ServiceRegistration;
+import org.osgi.framework.*;
 
 import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class TestBundleContext implements BundleContext {
@@ -68,6 +55,9 @@ class TestBundleContext implements BundleContext {
         }
         return null;
     }
+
+
+
 
     @Override
     public Bundle[] getBundles() {
@@ -166,6 +156,21 @@ class TestBundleContext implements BundleContext {
     }
 
     @Override
+    public <S> ServiceReference<S> getServiceReference(Class<S> aClass) {
+        return null;
+    }
+
+    @Override
+    public <S> Collection<ServiceReference<S>> getServiceReferences(Class<S> aClass, String s) throws InvalidSyntaxException {
+        return null;
+    }
+
+    @Override
+    public <S> ServiceObjects<S> getServiceObjects(ServiceReference<S> serviceReference) {
+        return null;
+    }
+
+    @Override
     public Object getService(ServiceReference reference) {
         if (reference instanceof TestServiceReference) {
             return ((TestServiceReference) reference).getService();
@@ -246,6 +251,16 @@ class TestBundleContext implements BundleContext {
     }
 
     @Override
+    public <S> ServiceRegistration<S> registerService(Class<S> aClass, S s, Dictionary<String, ?> dictionary) {
+        return null;
+    }
+
+    @Override
+    public <S> ServiceRegistration<S> registerService(Class<S> aClass, ServiceFactory<S> serviceFactory, Dictionary<String, ?> dictionary) {
+        return null;
+    }
+
+    @Override
     public File getDataFile(String filename) {
         throw new UnsupportedOperationException();
     }
@@ -253,5 +268,10 @@ class TestBundleContext implements BundleContext {
     @Override
     public Filter createFilter(String filter) throws InvalidSyntaxException {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Bundle getBundle(String s) {
+        return null;
     }
 }

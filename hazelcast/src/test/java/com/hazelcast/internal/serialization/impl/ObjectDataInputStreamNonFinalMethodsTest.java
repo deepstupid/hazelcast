@@ -32,10 +32,8 @@ import java.nio.ByteOrder;
 import java.util.Random;
 
 import static java.nio.ByteOrder.BIG_ENDIAN;
-import static org.mockito.Mockito.verify;
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.spy;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.mockito.Mockito.*;
+
 
 @RunWith(PowerMockRunner.class)
 @Category({QuickTest.class, ParallelTest.class})

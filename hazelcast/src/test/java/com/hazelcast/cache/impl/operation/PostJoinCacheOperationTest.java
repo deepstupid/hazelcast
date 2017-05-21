@@ -31,7 +31,6 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -60,7 +59,7 @@ public class PostJoinCacheOperationTest {
 
     @Before
     public void setUp() {
-        PowerMockito.mockStatic(JCacheDetector.class);
+        mock(JCacheDetector.class);
         when(nodeEngine.getConfigClassLoader()).thenReturn(classLoader);
         when(nodeEngine.getLogger(any(Class.class))).thenReturn(logger);
     }

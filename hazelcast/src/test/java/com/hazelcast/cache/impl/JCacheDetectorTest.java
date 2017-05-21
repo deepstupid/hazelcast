@@ -26,7 +26,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
-import org.powermock.api.mockito.PowerMockito;
+
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
@@ -48,7 +48,7 @@ public class JCacheDetectorTest extends HazelcastTestSupport {
 
     @Before
     public void setUp() {
-        PowerMockito.mockStatic(ClassLoaderUtil.class);
+        mock(ClassLoaderUtil.class);
     }
 
     @Test

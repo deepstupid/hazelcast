@@ -24,6 +24,7 @@ import com.hazelcast.internal.networking.ChannelWriter;
 import com.hazelcast.internal.networking.IOOutOfMemoryHandler;
 import com.hazelcast.internal.networking.InitResult;
 import com.hazelcast.internal.networking.OutboundFrame;
+import com.hazelcast.internal.util.concurrent.ManyToOneConcurrentArrayQueue;
 import com.hazelcast.internal.util.counters.SwCounter;
 import com.hazelcast.logging.ILogger;
 import com.hazelcast.nio.Packet;
@@ -46,11 +47,15 @@ public class SpinningChannelWriter extends AbstractHandler implements ChannelWri
 
     @SuppressWarnings("checkstyle:visibilitymodifier")
     @Probe(name = "writeQueueSize")
-    public final Queue<OutboundFrame> writeQueue = new ConcurrentLinkedQueue<OutboundFrame>();
+    public final Queue<OutboundFrame> writeQueue =
+            new ManyToOneConcurrentArrayQueue<>(1024);
+            //new ConcurrentLinkedQueue<OutboundFrame>();
 
     @SuppressWarnings("checkstyle:visibilitymodifier")
     @Probe(name = "priorityWriteQueueSize")
-    public final Queue<OutboundFrame> urgentWriteQueue = new ConcurrentLinkedQueue<OutboundFrame>();
+    public final Queue<OutboundFrame> urgentWriteQueue =
+            new ManyToOneConcurrentArrayQueue<>(1024);
+            //new ConcurrentLinkedQueue<OutboundFrame>();
 
     private final ChannelInitializer initializer;
     private ByteBuffer outputBuffer;

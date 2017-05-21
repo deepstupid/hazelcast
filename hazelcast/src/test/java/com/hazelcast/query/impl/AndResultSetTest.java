@@ -16,10 +16,12 @@
 
 package com.hazelcast.query.impl;
 
+import com.google.common.collect.Lists;
 import com.hazelcast.nio.serialization.Data;
 import com.hazelcast.query.Predicate;
 import com.hazelcast.query.QueryException;
 import com.hazelcast.query.TruePredicate;
+import com.hazelcast.query.impl.predicates.AndPredicate;
 import com.hazelcast.test.HazelcastParallelClassRunner;
 import com.hazelcast.test.HazelcastTestSupport;
 import com.hazelcast.test.annotation.ParallelTest;
@@ -37,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static org.codehaus.groovy.runtime.InvokerHelper.asList;
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -50,7 +52,8 @@ public class AndResultSetTest extends HazelcastTestSupport {
     // https://github.com/hazelcast/hazelcast/issues/1501
     public void iteratingOver_noException() {
         Set<QueryableEntry> entries = generateEntries(100000);
-        AndResultSet resultSet = new AndResultSet(entries, null, asList(new FalsePredicate()));
+        List<FalsePredicate> f = Lists.newArrayList(new FalsePredicate());
+        AndResultSet resultSet = new AndResultSet(entries, null, f);
         Iterator it = resultSet.iterator();
 
         boolean result = it.hasNext();

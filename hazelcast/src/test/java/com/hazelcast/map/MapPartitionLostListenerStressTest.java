@@ -79,7 +79,7 @@ public class MapPartitionLostListenerStressTest extends AbstractPartitionLostLis
 
     @Override
     protected int getMapEntryCount() {
-        return 5000;
+        return 1024;
     }
 
     @Test
